@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
         nodejs \
         postgresql \
         yarn
+RUN apt-get update && apt-get install -y imagemagick
 WORKDIR /CanFoo
 COPY Gemfile Gemfile.lock /CanFoo/
 RUN bundle install
