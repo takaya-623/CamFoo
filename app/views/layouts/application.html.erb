@@ -10,6 +10,58 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+    <header class="bg-dark"></header>
+    <div class="main-view">
+      <input id="menu" type="checkbox" >
+      <label for="menu" class="open"> 🍔 </label>
+      <label for="menu" class="back"></label>
+      <aside>
+        <label for="menu" class="close">×</label>
+        <nav>
+          <ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+            <li>list4</li>
+            <li>list5</li>
+            <li>list6</li>
+          </ul>
+        </nav>
+        <div class="side-footer">
+          sidefooter
+        </div>
+      </aside>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
+    <% else %>
+    <header></header>
+    <div class="main-view">
+      <input id="menu" type="checkbox" >
+      <label for="menu" class="open"> 🍔 </label>
+      <label for="menu" class="back"></label>
+      <aside>
+        <label for="menu" class="close">×</label>
+        <nav>
+          <ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+            <li>list4</li>
+            <li>list5</li>
+            <li>list6</li>
+          </ul>
+        </nav>
+        <div class="side-footer">
+          sidefooter
+        </div>
+      </aside>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
+    <% end %>
   </body>
 </html>
