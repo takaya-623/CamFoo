@@ -1,0 +1,14 @@
+<%= form_with model: cook, url: cooks_path  do |f| %>
+  <label for="inputImage">料理名</label><br>
+  <%= f.text_field :name %><br>
+  <label for="inputImage">調理時間</label><br>
+  <%= f.text_field :cooking_time %><br>
+  <label for="inputImage">ジャンル</label><br>
+  <%= f.select :cook_genre, Cook.cook_genres_i18n.keys.map {|k| [I18n.t("enums.cook.cook_genre.#{k}"), k]} %><br>
+  <label for="inputImage">使用調理器具</label><br>
+  <%= f.select :cook_item, Cook.cook_items_i18n.keys.map {|k| [I18n.t("enums.cook.cook_item.#{k}"), k]} %><br>
+  <label for="inputImage">調理方法</label><br>
+  <%= f.text_area :cooking_method %><br>
+  <%= f.attachment_field :cook_images_images, multiple: true %><br>
+  <%= f.submit "投稿する" %>
+<% end %>

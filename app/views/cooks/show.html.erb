@@ -1,0 +1,10 @@
+<h2><%= @cook.name %></h2>
+<span>料理名</span><br>
+<% if @cook.cook_images.present? %>
+<% @cook.cook_images.each do |image| %>
+    <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+  <% end %>
+<% end %>
+<span>調理時間</span><br>
+<%= link_to "編集する", edit_cook_path(@cook) %>
+<%= link_to "削除する", cook_path(@cook), method: :delete %>
