@@ -13,11 +13,9 @@
     <% if user_signed_in? %>
       <input id="menu" type="checkbox" >
       <label for="menu" class="back"></label>
-      <label for="menu" class="open">◎</label>
+      <label for="menu" class="open navbar-toggler"><span class="navbar-toggler-icon"></span></label>
       <aside>
         <label for="menu" class="close">×</label>
-        <div class="nav-header">
-        </div>
         <nav>
           <ul>
             <li>
@@ -42,7 +40,7 @@
             </li>
             <li>
               <%= link_to new_cook_path do %>
-                <i class="fas fa-utensils text-dark""> &emsp;新規投稿</i>
+                <i class="fas fa-utensils text-dark"> &emsp;新規投稿</i>
               <% end %>
             </li>
             <li>
@@ -71,9 +69,7 @@
         <nav>
           <ul>
             <li>
-              <%= link_to root_path do %>
-                <i class="fas fa-home text-dark"> &emsp;ホーム</i>
-              <% end %>
+              <i class="fas fa-home text-dark"> &emsp;ホーム</i>
             </li>
             <li>list2</li>
             <li>list3</li>

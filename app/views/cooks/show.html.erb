@@ -1,24 +1,40 @@
-<h2><%= @cook.name %></h2>
-<%= attachment_image_tag @cook, :image, :fill, 200, 200 %><br>
-<span>調理時間: <%= @cook.cooking_time %>分</span><br>
-<span>ジャンル: <%= @cook.cook_genre_i18n %></span><br>
-<span>調理道具: <%= @cook.cook_item_i18n %></span><br>
-<span>材料</span><br>
-<table class="table">
-  <thead>
-    <tr>
-      <th>食材・調味料</th>
-      <th>分量(g)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @materials.each do |material| %>
-    <tr>
-      <td><%= material.material %></td>
-      <td><%= material.qty %></td>
-    </tr>
-    <% end %><br>
-  </tbody>
-</table>
-<%= link_to "編集する", edit_cook_path(@cook) %>
-<%= link_to "削除する", cook_path(@cook), method: :delete %>
+<div class="container">
+  <div class="row">
+    <div class="col-3 offset-1">
+      <h2><%= @cook.name %></h2>
+      <%= attachment_image_tag @cook, :image, :fill, 200, 200 %><br>
+    </div>
+    <div class="col-7 m-auto">
+      <span>調理時間: <%= @cook.cooking_time %>分</span><br>
+      <span>ジャンル: <%= @cook.cook_genre_i18n %></span><br>
+      <span>調理道具: <%= @cook.cook_item_i18n %></span><br>
+      <span>材料</span><br>
+      <table class="table w-50">
+        <thead>
+          <tr>
+            <th>食材・調味料</th>
+            <th>分量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @materials.each do |material| %>
+          <tr>
+            <td><%= material.material %></td>
+            <td><%= material.qty %></td>
+          </tr>
+          <% end %><br>
+        </tbody>
+      </table>
+      <%= link_to "編集する", edit_cook_path(@cook) %>
+      <%= link_to "削除する", cook_path(@cook), method: :delete, data:{ confirm: '本当に削除して良いですか?',cancel: 'やめる',commit: '削除する'}, title: '削除確認' %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h4>作り方</h4>
+      <%= @cook.cooking_method %>
+    </div>
+  </div>
+</div>

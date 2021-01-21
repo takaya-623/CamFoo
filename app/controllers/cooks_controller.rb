@@ -70,7 +70,7 @@ class CooksController < ApplicationController
       :cook_item,
       :cooking_method,
       :image,
-      materials_attributes: [:material, :qty]
+      materials_attributes: [:material, :qty, :id]
     )
   end
 end
