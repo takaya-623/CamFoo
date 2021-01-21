@@ -20,14 +20,6 @@
 body {
   margin: 0;
   box-sizing: border-box;
-}
-
-header {
-  height: 80px;
-  background-color: rgba(79, 133, 79, 0.788);
-}
-
-.main-view {
   display: flex;
   min-height: 100vh;
 }
@@ -39,13 +31,25 @@ aside {
   flex-direction: column;
 }
 
-.icon {
-  font-size: 1.2rem;
-  margin-left: 20px;
+.fas {
+  font-size: 16px;
+  padding-left: 70px;
 }
 
 nav {
   // background-color: ;
+  padding-top: 70px;
+}
+
+.nav-header {
+  height: 80px;
+  background-color: rgb(169, 199, 165);
+}
+
+.header {
+  height: 80px;
+  background-color: rgb(169, 199, 165);
+  position: sticky;
 }
 
 main {
@@ -97,7 +101,7 @@ input[type="checkbox"] {
     left: -250px;
     height: 100%;
     transition: all 0.2s;
-    background: #ffffff;
+    background: #ffffff;;
   }
   input[type="checkbox"]:checked ~ aside {
     left: 0;
@@ -106,6 +110,6 @@ input[type="checkbox"] {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(221, 221, 221, 0.8) !important;
+    background: rgba(0, 0, 0, 0.8);
   }
 }

@@ -11,38 +11,38 @@
 
   <body>
     <% if user_signed_in? %>
-    <header></header>
-    <div class="main-view">
       <input id="menu" type="checkbox" >
       <label for="menu" class="back"></label>
       <label for="menu" class="open">◎</label>
       <aside>
         <label for="menu" class="close">×</label>
+        <div class="nav-header">
+        </div>
         <nav>
           <ul>
             <li>
               <%= link_to root_path do %>
-                <i class="fas fa-home text-dark icon"> ホーム</i>
+                <i class="fas fa-home text-dark"> &emsp;ホーム</i>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt text-dark icon"> ログアウト</i>
+                <i class="fas fa-sign-out-alt text-dark"> &emsp;ログアウト</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                <i class="fas fa-user text-dark""> &emsp;マイページ</i>
               <% end %>
             </li>
             <li>
               <%= link_to do %>
-                <i class="fas fa-user text-dark icon""> マイページ</i>
+                <i class="fas fa-bookmark text-dark""> &emsp;お気に入り</i>
               <% end %>
             </li>
             <li>
               <%= link_to do %>
-                <i class="fas fa-bookmark text-dark icon""> お気に入り</i>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to do %>
-                <i class="fas fa-bell text-dark icon""> 通知</i>
+                <i class="fas fa-bell text-dark""> &emsp;通知</i>
               <% end %>
             </li>
             <li>list6</li>
@@ -53,12 +53,12 @@
         </div>
       </aside>
       <main>
+        <div class="header">
+
+        </div>
         <%= yield %>
       </main>
-    </div>
     <% else %>
-    <header></header>
-    <div class="main-view">
       <input id="menu" type="checkbox" >
       <label for="menu" class="open"> o</label>
       <label for="menu" class="back"></label>
@@ -66,7 +66,9 @@
         <label for="menu" class="close">×</label>
         <nav>
           <ul>
-            <li>list1</li>
+            <li>
+              <i class="fas fa-home text-dark"> &emsp;ホーム</i>
+            </li>
             <li>list2</li>
             <li>list3</li>
             <li>list4</li>
@@ -79,9 +81,11 @@
         </div>
       </aside>
       <main>
+        <div class="header">
+
+        </div>
         <%= yield %>
       </main>
-    </div>
     <% end %>
   </body>
 </html>

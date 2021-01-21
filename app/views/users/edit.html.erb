@@ -1,0 +1,15 @@
+<div class="container ">
+  <div class="row">
+    <div class="col-10 offset-1">
+          <%= form_with model:@user, local:true do |f| %>
+            <label for="inputImage">現在のアカウント名</label><br>
+            <%= f.text_field :acount, autofocus: true, placeholder:"アカウント名" %><br>
+            <label for="inputImage">現在のアカウント画像</label><br>
+            <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
+            <%= f.attachment_field :account_image, placeholder: "アカウント画像" %><br>
+            <%= f.submit "変更する" %>
+          <% end %>
+    </div>
+  </div>
+</div>
+
