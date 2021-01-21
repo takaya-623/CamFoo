@@ -25,3 +25,8 @@
     </div>
   </div>
 </div>
+<% @cooks.each do |cook| %>
+  <%= cook.name %><br>
+  <span>調理時間: <%= cook.cooking_time %>分</span><br>
+  <%= attachment_image_tag cook, :image, :fill, 150, 150 %>
+<% end %>
