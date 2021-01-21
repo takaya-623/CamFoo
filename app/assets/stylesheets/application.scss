@@ -20,14 +20,6 @@
 body {
   margin: 0;
   box-sizing: border-box;
-}
-
-header {
-  height: 80px;
-  background-color: rgba(79, 133, 79, 0.788);
-}
-
-.main-view {
   display: flex;
   min-height: 100vh;
 }
@@ -39,8 +31,25 @@ aside {
   flex-direction: column;
 }
 
+.fas {
+  font-size: 16px;
+  padding-left: 70px;
+}
+
 nav {
   // background-color: ;
+  padding-top: 70px;
+}
+
+.nav-header {
+  height: 80px;
+  background-color: rgb(169, 199, 165);
+}
+
+.header {
+  height: 80px;
+  background-color: rgb(169, 199, 165);
+  position: sticky;
 }
 
 main {
@@ -59,8 +68,11 @@ ul {
   margin-top: auto;
   height: 100px;
 }
-#ハンバーガーメニュー※openが消えないので後で修正
-.open,
+
+// ハンバーガーメニュー
+.open {
+  display: none;
+}
 .close {
   display: none;
 }
@@ -70,34 +82,34 @@ input[type="checkbox"] {
   left: -50vw;
 }
 
+
 @media (max-width: 1000px) {
   main {
-      width: 100%;
-      padding-top: 50px;
+    width: 100%;
+    padding-top: 50px;
   }
 
   .open,
   .close {
-      display: block;
+    display: block;
   }
   .open {
-      position: absolute;
+    position: absolute;
   }
   aside {
-      position: absolute;
-      left: -250px;
-      height: 100%;
-      transition: all 0.2s;
-      background: #ffffff;
+    position: absolute;
+    left: -250px;
+    height: 100%;
+    transition: all 0.2s;
+    background: #ffffff;;
   }
   input[type="checkbox"]:checked ~ aside {
-      left: 0;
+    left: 0;
   }
   input[type="checkbox"]:checked ~ .back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(221, 221, 221, 0.8) !important;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
   }
-
 }
