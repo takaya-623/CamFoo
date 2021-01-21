@@ -1,0 +1,2 @@
+class CookImage < ApplicationRecord
+end

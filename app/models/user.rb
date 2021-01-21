@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   attachment :account_image
+
+  has_many :cooks
+  
   def fullname
     [last_name, first_name].join
   end
