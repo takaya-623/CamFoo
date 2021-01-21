@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CookImageTest < ActiveSupport::TestCase
+class MaterialTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

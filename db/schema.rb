@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_060957) do
+ActiveRecord::Schema.define(version: 2021_01_21_125203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cook_images", force: :cascade do |t|
-    t.integer "cook_id", null: false
-    t.string "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "cooks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -29,6 +22,15 @@ ActiveRecord::Schema.define(version: 2021_01_21_060957) do
     t.integer "cook_genre", null: false
     t.integer "cook_item", null: false
     t.text "cooking_method", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_id"
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string "material"
+    t.string "qty"
+    t.integer "cook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

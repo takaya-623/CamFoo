@@ -10,7 +10,7 @@ class CooksController < ApplicationController
 
   def new
     @cook = Cook.new
-    @cook.cook_images.build
+    5.times { @cook.materials.build }
   end
 
   def create
@@ -40,24 +40,21 @@ class CooksController < ApplicationController
 
   def show
     @cook = Cook.find(params[:id])
-    @cook.user_id = current_user.id
+    @materials = @cook.materials.where.not(material: "")
   end
 
   def edit
     @cook = Cook.find(params[:id])
-    @cook.user_id = current_user.id
   end
 
   def update
     @cook = Cook.find(params[:id])
-    @cook.user_id = current_user.id
     @cook.update(cook_params)
-    redirect_to user_path(current_user)
+    redirect_to cook_path(@cook)
   end
 
   def destroy
     @cook = Cook.find(params[:id])
-    @cook.user_id = current_user.id
     @cook.destroy
     redirect_to user_path(current_user)
   end
@@ -72,7 +69,8 @@ class CooksController < ApplicationController
       :cook_genre,
       :cook_item,
       :cooking_method,
-      cook_images_images: []
+      :image,
+      materials_attributes: [:material, :qty]
     )
   end
 end
