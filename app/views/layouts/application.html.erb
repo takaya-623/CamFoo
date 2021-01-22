@@ -44,9 +44,30 @@
               <% end %>
             </li>
             <li>
+              <%= link_to cooks_path do %>
+                <i class="fas fa-list text-dark"> &emsp;料理一覧</i>
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fas fa-sign-out-alt text-dark"> &emsp;ログアウト</i>
               <% end %>
+            </li>
+            <h5 class="pl-3 pt-3 cook-item">調理道具別</h5>
+            <li>
+              <%= link_to "網で作る", cooks_net_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "鉄板で作る", cooks_plate_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "フライパンで作る", cooks_pan_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "ダッチオーブンで作る", cooks_dutch_oven_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "その他", cooks_other_path, class: "text-dark" %>
             </li>
           </ul>
         </nav>
@@ -76,6 +97,27 @@
             <li>list4</li>
             <li>list5</li>
             <li>list6</li>
+            <li>
+              <%= link_to cooks_path do %>
+                <i class="fas fa-list text-dark"> &emsp;料理一覧</i>
+              <% end %>
+            </li>
+            <h5 class="pl-3 pt-3 cook-item">調理道具別</h5>
+            <li>
+              <%= link_to "網で作る", cooks_net_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "鉄板で作る", cooks_plate_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "フライパンで作る", cooks_pan_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "ダッチオーブンで作る", cooks_dutch_oven_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "その他", cooks_other_path, class: "text-dark" %>
+            </li>
           </ul>
         </nav>
         <div class="side-footer">

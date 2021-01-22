@@ -1,41 +1,50 @@
 class CooksController < ApplicationController
-  # before_action :confirm_user, only: [:edit, :update, :destroy]
+  before_action :confirm_user, only: [:edit, :update, :destroy]
 
-  # def confirm_user
-  #   user = User.find(params[:id])
-  #   unless user == current_user
-  #     redirect_to user_path(current_user)
-  #   end
-  # end
+  def confirm_user
+    cook = Cook.find(params[:id])
+    unless cook.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
 
   def new
     @cook = Cook.new
-    5.times { @cook.materials.build }
+    8.times { @cook.materials.build }
   end
 
   def create
     @cook = Cook.new(cook_params)
     @cook.user_id = current_user.id
-    @cook.save
-    redirect_to user_path(current_user)
+    if @cook.save
+      redirect_to user_path(current_user)
+    else
+      render 'new'
+    end
   end
 
   def index
+    @cooks = Cook.page(params[:page]).per(9).order(updated_at: :desc)
   end
 
   def net
+    @cooks_net = Cook.page(params[:page]).where(cook_item: 0).per(9).order(updated_at: :desc)
   end
 
   def plate
+    @cooks_plate = Cook.page(params[:page]).where(cook_item: 1).per(9).order(updated_at: :desc)
   end
 
   def pan
+    @cooks_pan = Cook.page(params[:page]).where(cook_item: 2).per(9).order(updated_at: :desc)
   end
 
   def dutch_oven
+    @cooks_dutch_oven = Cook.page(params[:page]).where(cook_item: 3).per(9).order(updated_at: :desc)
   end
 
   def other
+    @cooks_other = Cook.page(params[:page]).where(cook_item: 4).per(9).order(updated_at: :desc)
   end
 
   def show
@@ -50,8 +59,11 @@ class CooksController < ApplicationController
 
   def update
     @cook = Cook.find(params[:id])
-    @cook.update(cook_params)
-    redirect_to cook_path(@cook)
+    if @cook.update(cook_params)
+      redirect_to cook_path(@cook)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -71,6 +83,7 @@ class CooksController < ApplicationController
       :cook_item,
       :cooking_method,
       :image,
+      :comment,
       materials_attributes: [:material, :qty, :id]
     )
   end
