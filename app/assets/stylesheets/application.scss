@@ -42,7 +42,6 @@ nav {
   padding-top: 70px;
 }
 
-
 .header {
   height: 80px;
   background-color: rgb(182, 72, 21);
@@ -66,6 +65,15 @@ ul {
   height: 100px;
 }
 
+.cook-item ~ li {
+  font-weight: 700;
+  padding-left: 70px;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
 // ハンバーガーメニュー
 .open {
   display: none;
@@ -78,7 +86,6 @@ input[type="checkbox"] {
   position: absolute;
   left: -50vw;
 }
-
 
 @media (max-width: 1000px) {
   main {
@@ -100,9 +107,7 @@ input[type="checkbox"] {
   .open {
     position: absolute;
   }
-  .navbar-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  }
+
 
   aside {
     position: absolute;

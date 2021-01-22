@@ -1,2 +1,9 @@
-<h1>Cooks#index</h1>
-<p>Find me in app/views/cooks/index.html.erb</p>
+<% content_for(:title, 'キャンプご飯一覧 | CanFoo') %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h2>キャンプご飯一覧</h2>
+    </div>
+  </div>
+</div>
+<%= render 'index_form', cooks: @cooks %>
