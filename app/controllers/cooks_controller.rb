@@ -40,6 +40,7 @@ class CooksController < ApplicationController
 
   def show
     @cook = Cook.find(params[:id])
+    # 値が入っているものだけを取り出している
     @materials = @cook.materials.where.not(material: "")
   end
 

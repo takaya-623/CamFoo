@@ -1,21 +1,29 @@
-<%= form_with model: cook do |f| %>
-  <label for="inputImage">料理名</label><br>
-  <%= f.text_field :name %><br>
-  <label for="inputImage">調理時間</label><br>
-  <%= f.text_field :cooking_time, size: 3 %><span>分</span><br>
-  <label for="inputImage">ジャンル</label><br>
-  <%= f.select :cook_genre, Cook.cook_genres_i18n.keys.map {|k| [I18n.t("enums.cook.cook_genre.#{k}"), k]} %><br>
-  <label for="inputImage">調理道具</label><br>
-  <%= f.select :cook_item, Cook.cook_items_i18n.keys.map {|k| [I18n.t("enums.cook.cook_item.#{k}"), k]} %><br>
-  <label for="inputImage">材料</label><br>
-    <%= f.fields_for :materials do |material_fields| %>
-    <div>
-      <%= material_fields.text_field :material, placeholder: "食材、調味料等" %>
-      <%= material_fields.text_field :qty, placeholder: "分量" %>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <div class="w-75 m-auto">
+      <%= form_with model: cook do |f| %>
+        <label for="inputImage">◆料理名</label><br>
+        <%= f.text_field :name %><br>
+        <label for="inputImage">◆調理時間</label><br>
+        <%= f.text_field :cooking_time, size: 3 %><span>分</span><br>
+        <label for="inputImage">◆ジャンル</label><br>
+        <%= f.select :cook_genre, Cook.cook_genres_i18n.keys.map {|k| [I18n.t("enums.cook.cook_genre.#{k}"), k]} %><br>
+        <label for="inputImage">◆調理道具</label><br>
+        <%= f.select :cook_item, Cook.cook_items_i18n.keys.map {|k| [I18n.t("enums.cook.cook_item.#{k}"), k]} %><br>
+        <label for="inputImage">◆材料 ※5種類上の場合は調理方法欄に記載</label><br>
+          <%= f.fields_for :materials do |material_fields| %>
+          <div>
+            <%= material_fields.text_field :material, placeholder: "食材、調味料等", class: "mr-5 mb-3" %>
+            <%= material_fields.text_field :qty, placeholder: "分量", class:"mb-3" %>
+          </div>
+          <% end %><br>
+        <label for="inputImage">◆調理方法</label><br>
+        <%= f.text_area :cooking_method, size: "60x5" %><br>
+        <%= f.attachment_field :image %><br>
+        <%= f.submit "投稿する" %>
+      <% end %>
+      </div>
     </div>
-    <% end %><br>
-  <label for="inputImage">調理方法</label><br>
-  <%= f.text_area :cooking_method, size: "40x5" %><br>
-  <%= f.attachment_field :image %><br>
-  <%= f.submit "投稿する" %>
-<% end %>
+  </div>
+</div>
