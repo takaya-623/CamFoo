@@ -47,6 +47,10 @@ class CooksController < ApplicationController
     @cooks_other = Cook.page(params[:page]).where(cook_item: 4).per(9).order(updated_at: :desc)
   end
 
+  def rank
+    @ranks = Cook.ranks #モデルに定義記載
+  end
+
   def show
     @cook = Cook.find(params[:id])
     # 値が入っているものだけを取り出している

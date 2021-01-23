@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   has_many :cooks, dependent: :destroy
   attachment :image
+  has_many :likes, dependent: :destroy
+
+  validates :account, uniqueness: true
 
   def fullname
     [last_name, first_name].join
