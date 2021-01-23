@@ -1,3 +1,9 @@
 <% content_for(:title, '新規投稿 | CanFoo') %>
-<h2>料理投稿</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h2>料理投稿</h2>
+    </div>
+  </div>
+</div>
 <%= render "cook_form", cook: @cook %>

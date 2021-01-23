@@ -1,0 +1,30 @@
+ja:
+  enums:
+    cook:
+      cook_genre:
+        meet: "肉"
+        fish: "魚"
+        vegetables: "野菜"
+        noodle: "麺"
+        rice: "米"
+        soup: "スープ"
+        other: "その他"
+
+      cook_item:
+        net: "網"
+        plate: "鉄板"
+        pan: "フライパン"
+        dutch_oven: "ダッチオーブン"
+        other: "その他"
+
+  activerecord:
+    models:
+      cook: 料理
+    attributes:
+      cook:
+        name: ・料理名
+        comment: ・特徴
+        cooking_time: ・調理時間
+        cook_genre: ・ジャンル
+        cook_item: ・調理時間
+        image: ・料理画像

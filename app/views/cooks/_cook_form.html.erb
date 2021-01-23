@@ -1,18 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <div class="w-75 m-auto">
-      <%= form_with model: cook do |f| %>
+      <%= render "cooks/shared/error" %>
+      <div class="m-auto">
+      <%= form_with model: cook, local: true do |f| %>
         <label for="inputImage">◆料理名</label><br>
         <%= f.text_field :name %><br>
         <label for="inputImage">◆特徴</label><br>
-        <%= f.text_field :comment, class: "w-100"  %><br>
+        <%= f.text_field :comment, class: "w-75"  %><br>
         <label for="inputImage">◆調理時間</label><br>
         <%= f.text_field :cooking_time, size: 3 %><span>分</span><br>
         <label for="inputImage">◆ジャンル</label><br>
-        <%= f.select :cook_genre, Cook.cook_genres_i18n.keys.map {|k| [I18n.t("enums.cook.cook_genre.#{k}"), k]} %><br>
+        <%= f.select :cook_genre, Cook.cook_genres_i18n.keys.map {|k| [I18n.t("enums.cook.cook_genre.#{k}"), k]}, { include_blank: '選択してください'} %><br>
         <label for="inputImage">◆調理道具</label><br>
-        <%= f.select :cook_item, Cook.cook_items_i18n.keys.map {|k| [I18n.t("enums.cook.cook_item.#{k}"), k]} %><br>
+        <%= f.select :cook_item, Cook.cook_items_i18n.keys.map {|k| [I18n.t("enums.cook.cook_item.#{k}"), k]}, { include_blank: '選択してください'} %><br>
         <label for="inputImage">◆材料 ※8種類上の場合は調理方法欄に記載</label><br>
           <%= f.fields_for :materials do |material_fields| %>
           <div>
