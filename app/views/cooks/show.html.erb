@@ -27,7 +27,8 @@
         </tbody>
       </table>
 
-      <div class="like-btn"><%= render "likes/like", obj: @cook %></div>
+      <span class="like-btn"><%= render "likes/like", obj: @cook %></span>
+      <span class="bookmark-btn"><%= render "bookmarks/bookmark", obj: @cook %></span>
 
       <% if @cook.user == current_user %>
         <%= link_to "編集する", edit_cook_path(@cook) %>
