@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-10 offset-1">
     <h2>マイリスト</h2>
-    <table>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th></th>
@@ -16,7 +16,7 @@
         <% @bookmarks.each do |cook| %>
         <tr>
           <td>
-            <%= attachment_image_tag cook.user, :account_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+            <%= attachment_image_tag cook.user, :account_image, :fill, 60, 60, fallback: "no_image.jpg", class: "no-image"; %>
           </td>
           <td>
             <%= cook.user.account %>
@@ -25,7 +25,7 @@
             <%= cook.name %>
           </td>
           <td>
-            <%= link_to "詳細", cook_path(cook.user.id) %>
+            <%= link_to "詳細", cook_path(cook) %>
           </td>
         </tr>
         <% end %>

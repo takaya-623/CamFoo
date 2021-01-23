@@ -9,6 +9,7 @@ class User < ApplicationRecord
   attachment :image
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_cooks, through: :bookmarks, source: :cook
 
   validates :account, uniqueness: true
 

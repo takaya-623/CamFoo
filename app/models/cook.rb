@@ -6,6 +6,7 @@ class Cook < ApplicationRecord
   accepts_nested_attributes_for :materials
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_cooks, through: :bookmarks, source: :cook
 
   validates :name, presence: true
   validates :comment, presence: true, length: { in: 13..25 }

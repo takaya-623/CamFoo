@@ -52,7 +52,7 @@ class CooksController < ApplicationController
   end
 
   def bookmark
-    bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = current_user.bookmark_cooks.order(created_at: :desc)
   end
 
   def show
