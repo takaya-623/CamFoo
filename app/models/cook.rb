@@ -5,6 +5,8 @@ class Cook < ApplicationRecord
   has_many :materials
   accepts_nested_attributes_for :materials
   has_many :likes, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_cooks, through: :bookmarks, source: :cook
 
   validates :name, presence: true
   validates :comment, presence: true, length: { in: 13..25 }
@@ -21,6 +23,11 @@ class Cook < ApplicationRecord
   end
 
   def self.ranks
-    Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(3).pluck(:cook_id))
+    Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(10).pluck(:cook_id))
   end
+
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user.id).exists?
+  end
+
 end
