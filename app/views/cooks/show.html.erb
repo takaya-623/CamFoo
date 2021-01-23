@@ -8,7 +8,7 @@
       <span>ジャンル: <%= @cook.cook_genre_i18n %></span><br>
       <span>調理道具: <%= @cook.cook_item_i18n %></span><br>
     </div>
-    <div class="col-7 m-auto">
+    <div class="col-7 m-auto <%= @cook.id %>">
       <span>材料</span><br>
       <table class="table table-sm w-50">
         <thead>
@@ -26,8 +26,13 @@
           <% end %><br>
         </tbody>
       </table>
-      <%= link_to "編集する", edit_cook_path(@cook) %>
-      <%= link_to "削除する", cook_path(@cook), method: :delete, data:{ confirm: '本当に削除して良いですか?',cancel: 'やめる',commit: '削除する'}, title: '削除確認' %>
+
+      <div class="like-btn"><%= render "likes/like", obj: @cook %></div>
+
+      <% if @cook.user == current_user %>
+        <%= link_to "編集する", edit_cook_path(@cook) %>
+        <%= link_to "削除する", cook_path(@cook), method: :delete, data:{ confirm: '本当に削除して良いですか?',cancel: 'やめる',commit: '削除する'}, title: '削除確認' %>
+      <% end %>
     </div>
   </div>
 </div>

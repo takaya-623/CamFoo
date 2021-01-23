@@ -27,37 +27,42 @@
           <ul>
             <li>
               <%= link_to root_path do %>
-                <i class="fas fa-home text-dark"> &emsp;ホーム</i>
+                <i class="fas fa-home text-dark side-fas"> &emsp;ホーム</i>
               <% end %>
             </li>
             <li>
               <%= link_to user_path(current_user) do %>
-                <i class="fas fa-user text-dark""> &emsp;マイページ</i>
+                <i class="fas fa-user text-dark side-fas"> &emsp;マイページ</i>
               <% end %>
             </li>
             <li>
               <%= link_to do %>
-                <i class="fas fa-bookmark text-dark""> &emsp;お気に入り</i>
+                <i class="fas fa-bookmark text-dark side-fas"> &emsp;お気に入り</i>
               <% end %>
             </li>
             <li>
               <%= link_to do %>
-                <i class="fas fa-bell text-dark""> &emsp;通知</i>
+                <i class="fas fa-bell text-dark side-fas"> &emsp;通知</i>
               <% end %>
             </li>
             <li>
               <%= link_to new_cook_path do %>
-                <i class="fas fa-utensils text-dark"> &emsp;新規投稿</i>
+                <i class="fas fa-utensils text-dark side-fas"> &emsp;新規投稿</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to cooks_rank_path do %>
+                <i class="fas fa-medal text-dark side-fas"> &emsp;ランキング</i>
               <% end %>
             </li>
             <li>
               <%= link_to cooks_path do %>
-                <i class="fas fa-list text-dark"> &emsp;料理一覧</i>
+                <i class="fas fa-list text-dark side-fas"> &emsp;料理一覧</i>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt text-dark"> &emsp;ログアウト</i>
+                <i class="fas fa-sign-out-alt text-dark side-fas"> &emsp;ログアウト</i>
               <% end %>
             </li>
             <h5 class="pl-3 pt-3 cook-item">調理道具別</h5>
@@ -103,7 +108,7 @@
           <ul>
             <li>
               <%= link_to root_path do %>
-                <i class="fas fa-home text-dark"> &emsp;ホーム</i>
+                <i class="fas fa-home text-dark side-fas"> &emsp;ホーム</i>
               <% end %>
             </li>
             <li>list2</li>
