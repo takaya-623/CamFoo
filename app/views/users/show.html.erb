@@ -25,9 +25,9 @@
   <div class="row">
     <div class="col-10 offset-1">
       <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
-      <%= current_user.account%><br>
+      <%= @user.account%><br>
       <span>氏名: </span>
-      <%= current_user.fullname%><br>
+      <%= @user.fullname%><br>
       <%= link_to do %>
       <i class="far fa-thumbs-up"></i>
       <span>いいね数</span>
@@ -50,7 +50,7 @@
           <%= attachment_image_tag cook, :image, class:"card-img-top"; %>
         <% end %>
         <div class="card-body">
-          <h5 class="card-title"><%= cook.name %></h5>
+          <h5 class="card-title">◆<%= cook.name %></h5>
           <%= link_to "詳細を見る", cook_path(cook), class: "btn btn-dark" %>
         </div>
       </div>
