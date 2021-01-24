@@ -1,0 +1,19 @@
+<div class="col-10 offset-1">
+  <h2>通知</h2>
+  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+  <% if notifications.exists? %>
+    <% notifications.each do |notification| %>
+    <%= notification.visitor.account %>
+    <span>さんが</span>
+    <% case notification.action %>
+      <% when 'like' then %>
+        <%= link_to "あなたの投稿に", cook_path(notification.cook) %>
+        <span>いいねしました</span>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>通知はありません</p>
+  <% end %>
+</div>
+
+

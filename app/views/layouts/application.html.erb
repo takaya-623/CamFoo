@@ -41,9 +41,16 @@
               <% end %>
             </li>
             <li>
-              <%= link_to do %>
+            <% if unchecked_notifications.any? %>
+              <%= link_to notifications_path do %>
+                <i class="fas fa-bell text-dark side-fas">
+                <i class="fas fa-circle"></i> &emsp;通知</i>
+              <% end %>
+            <% else %>
+              <%= link_to notifications_path do %>
                 <i class="fas fa-bell text-dark side-fas"> &emsp;通知</i>
               <% end %>
+            <% end %>
             </li>
             <li>
               <%= link_to new_cook_path do %>

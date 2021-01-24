@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
   end
+  resources :notifications, only: :index
   root 'homes#top'
 end
