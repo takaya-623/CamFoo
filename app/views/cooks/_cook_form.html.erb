@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <%= render "cooks/shared/error" %>
+      <div class="m-auto">
+      <%= form_with model: cook, local: true do |f| %>
+        <label for="inputName">◆料理名</label><br>
+        <%= f.text_field :name %><br>
+        <label for="inputComment">◆特徴 ※13文字以上25文字以内</label><br>
+        <%= f.text_field :comment, class: "w-75"  %><br>
+        <label for="inputTime">◆調理時間</label><br>
+        <%= f.text_field :cooking_time, size: 3 %><span>分</span><br>
+        <label for="inputGenre">◆ジャンル</label><br>
+        <%= f.select :cook_genre, Cook.cook_genres_i18n.keys.map {|k| [I18n.t("enums.cook.cook_genre.#{k}"), k]}, { include_blank: '選択してください'} %><br>
+        <label for="inputItem">◆調理道具</label><br>
+        <%= f.select :cook_item, Cook.cook_items_i18n.keys.map {|k| [I18n.t("enums.cook.cook_item.#{k}"), k]}, { include_blank: '選択してください'} %><br>
+        <label for="inputMaterial">◆材料 ※8種類上の場合は調理方法欄に記載</label><br>
+          <%= f.fields_for :materials do |material_fields| %>
+          <div>
+            <%= material_fields.text_field :material, placeholder: "食材、調味料等", class: "mr-5 mb-3" %>
+            <%= material_fields.text_field :qty, placeholder: "分量", class:"mb-3" %>
+          </div>
+          <% end %><br>
+        <label for="inputMethod">◆調理方法</label><br>
+        <%= f.text_area :cooking_method, size: "60x5", class: "w-100"  %><br>
+        <label for="inputImage">◆料理画像</label><br>
+        <%= f.attachment_field :image %><br>
+        <%= f.submit "投稿する" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

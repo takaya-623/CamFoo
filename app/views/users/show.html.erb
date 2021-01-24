@@ -1,14 +1,15 @@
+<% if @user == current_user %>
+<% content_for(:title, 'マイページ | CanFoo') %>
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
-      <%= current_user.acount%><br>
+      <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg" %><br>
+      <%= current_user.account%><br>
       <span>氏名: </span>
       <%= current_user.fullname%><br>
       <span>メールアドレス: </span>
       <%= current_user.email%><br>
-      <i class="far fa-thumbs-up"></i>
-      <span>いいね数</span>&emsp;
+      <i class="far fa-thumbs-up"></i> <%= @user.likes.count %>いいね
       <i class="fas fa-bookmark"></i>
       <span>お気に入り</span>
       <%= link_to edit_user_path(current_user) do %>
@@ -18,10 +19,42 @@
     </div>
   </div>
 </div>
+<% else %>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
+      <%= @user.account%><br>
+      <span>氏名: </span>
+      <%= @user.fullname%><br>
+      <%= link_to do %>
+      <i class="far fa-thumbs-up"></i>
+      <span>いいね数</span>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
 <div class="container mt-5">
   <div class="row">
     <div class="col-10 offset-1">
       <h2>投稿履歴</h2>
     </div>
+  </div>
+  <div class="row">
+  <% @cooks.each do |cook| %>
+    <div class="col-3 offset-1">
+      <div class="card shadow-lg">
+        <%= link_to cook_path(cook) do %>
+          <%= attachment_image_tag cook, :image, :fill, 200, 150, class:"card-img-top"; %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title">◆<%= cook.name %></h5>
+          <%= link_to "詳細を見る", cook_path(cook), class: "btn btn-dark" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   </div>
 </div>

@@ -1,0 +1,36 @@
+<% content_for(:title, 'お気に入り | CanFoo') %>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+    <h2>マイリスト</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>投稿者</th>
+          <th>料理名</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bookmarks.each do |cook| %>
+        <tr>
+          <td>
+            <%= attachment_image_tag cook.user, :account_image, :fill, 60, 60, fallback: "no_image.jpg", class: "no-image"; %>
+          </td>
+          <td>
+            <%= cook.user.account %>
+          </td>
+          <td>
+            <%= cook.name %>
+          </td>
+          <td>
+            <%= link_to "詳細", cook_path(cook) %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

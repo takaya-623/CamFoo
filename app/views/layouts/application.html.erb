@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CanFoo</title>
+    <title><%= content_for?(:title) ? yield(:title) : "CanFoo" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,41 +11,83 @@
 
   <body>
     <% if user_signed_in? %>
-      <input id="menu" type="checkbox" >
+      <header>
+      </header>
+      <div class="main-view">
+      <input id="menu" type="checkbox">
+      <label for="menu" class="open">
+      <div class="hamburger">
+        <span></span>
+      </div>
+      </label>
       <label for="menu" class="back"></label>
-      <label for="menu" class="open">◎</label>
       <aside>
         <label for="menu" class="close">×</label>
-        <div class="nav-header">
-        </div>
         <nav>
           <ul>
             <li>
               <%= link_to root_path do %>
-                <i class="fas fa-home text-dark"> &emsp;ホーム</i>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt text-dark"> &emsp;ログアウト</i>
+                <i class="fas fa-home text-dark side-fas"> &emsp;ホーム</i>
               <% end %>
             </li>
             <li>
               <%= link_to user_path(current_user) do %>
-                <i class="fas fa-user text-dark""> &emsp;マイページ</i>
+                <i class="fas fa-user text-dark side-fas"> &emsp;マイページ</i>
               <% end %>
             </li>
             <li>
-              <%= link_to do %>
-                <i class="fas fa-bookmark text-dark""> &emsp;お気に入り</i>
+              <%= link_to cooks_bookmark_path do %>
+                <i class="fas fa-bookmark text-dark side-fas"> &emsp;お気に入り</i>
               <% end %>
             </li>
             <li>
-              <%= link_to do %>
-                <i class="fas fa-bell text-dark""> &emsp;通知</i>
+            <% if unchecked_notifications.any? %>
+              <%= link_to notifications_path do %>
+                <i class="fas fa-bell text-dark side-fas">
+                <i class="fas fa-circle"></i> &emsp;通知</i>
+              <% end %>
+            <% else %>
+              <%= link_to notifications_path do %>
+                <i class="fas fa-bell text-dark side-fas"> &emsp;通知</i>
+              <% end %>
+            <% end %>
+            </li>
+            <li>
+              <%= link_to new_cook_path do %>
+                <i class="fas fa-utensils text-dark side-fas"> &emsp;新規投稿</i>
               <% end %>
             </li>
-            <li>list6</li>
+            <li>
+              <%= link_to cooks_rank_path do %>
+                <i class="fas fa-medal text-dark side-fas"> &emsp;ランキング</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to cooks_path do %>
+                <i class="fas fa-list text-dark side-fas"> &emsp;料理一覧</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt text-dark side-fas"> &emsp;ログアウト</i>
+              <% end %>
+            </li>
+            <h5 class="pl-3 pt-3 cook-item">調理道具別</h5>
+            <li>
+              <%= link_to "網で作る", cooks_net_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "鉄板で作る", cooks_plate_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "フライパンで作る", cooks_pan_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "ダッチオーブンで作る", cooks_dutch_oven_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "その他", cooks_other_path, class: "text-dark" %>
+            </li>
           </ul>
         </nav>
         <div class="side-footer">
@@ -53,27 +95,55 @@
         </div>
       </aside>
       <main>
-        <div class="header">
-
-        </div>
         <%= yield %>
       </main>
+      </div>
     <% else %>
+      <header>
+      </header>
+      <div class="main-view">
       <input id="menu" type="checkbox" >
-      <label for="menu" class="open"> o</label>
+      <label for="menu" class="open">
+        <div class="hamburger">
+          <span></span>
+        </div>
+      </label>
       <label for="menu" class="back"></label>
       <aside>
         <label for="menu" class="close">×</label>
         <nav>
           <ul>
             <li>
-              <i class="fas fa-home text-dark"> &emsp;ホーム</i>
+              <%= link_to root_path do %>
+                <i class="fas fa-home text-dark side-fas"> &emsp;ホーム</i>
+              <% end %>
             </li>
             <li>list2</li>
             <li>list3</li>
             <li>list4</li>
             <li>list5</li>
             <li>list6</li>
+            <li>
+              <%= link_to cooks_path do %>
+                <i class="fas fa-list text-dark"> &emsp;料理一覧</i>
+              <% end %>
+            </li>
+            <h5 class="pl-3 pt-3 cook-item">調理道具別</h5>
+            <li>
+              <%= link_to "網で作る", cooks_net_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "鉄板で作る", cooks_plate_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "フライパンで作る", cooks_pan_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "ダッチオーブンで作る", cooks_dutch_oven_path, class: "text-dark" %>
+            </li>
+            <li>
+              <%= link_to "その他", cooks_other_path, class: "text-dark" %>
+            </li>
           </ul>
         </nav>
         <div class="side-footer">
@@ -81,11 +151,9 @@
         </div>
       </aside>
       <main>
-        <div class="header">
-
-        </div>
         <%= yield %>
       </main>
+      </div>
     <% end %>
   </body>
 </html>
