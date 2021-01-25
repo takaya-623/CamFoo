@@ -7,7 +7,7 @@ class Cook < ApplicationRecord
   scope :sorted, -> { order(updated_at: :desc) }
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :bookmark_cooks, through: :bookmarks, source: :cook
+  has_many :bookmark_cooks, through: :bookmarks, source: :user
   has_many :notifications, dependent: :destroy
 
   validates :name, presence: true

@@ -1,24 +1,21 @@
 <% if @user == current_user %>
-<% content_for(:title, 'マイページ | CanFoo') %>
-<div class="container">
-  <div class="row">
-    <div class="col-10 offset-1">
-      <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg" %><br>
-      <%= current_user.account%><br>
-      <span>氏名: </span>
-      <%= current_user.fullname%><br>
-      <span>メールアドレス: </span>
-      <%= current_user.email%><br>
-      <i class="far fa-thumbs-up"></i> <%= @user.likes.count %>いいね
-      <i class="fas fa-bookmark"></i>
-      <span>お気に入り</span>
-      <%= link_to edit_user_path(current_user) do %>
-        <i class="fas fa-user-cog text-dark"></i>
-        <span>編集</span>
-      <% end %>
-    </div>
-  </div>
+<% content_for(:title, 'マイページ | CamFoo') %>
+<div class="mypage-image pl-5">
+  <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg" %><br>
+  <%= current_user.account%><br>
+  <span>氏名: </span>
+  <%= current_user.fullname%><br>
+  <span>メールアドレス: </span>
+  <%= current_user.email%><br>
+  <i class="far fa-thumbs-up"></i> <%= @user.likes.count %>いいね
+  <i class="fas fa-bookmark"></i>
+  <span>お気に入り</span>
+  <%= link_to edit_user_path(current_user), class: "text-white" do %>
+    <i class="fas fa-user-cog"></i>
+    <span>編集</span>
+  <% end %>
 </div>
+
 <% else %>
 <div class="container">
   <div class="row">
@@ -39,7 +36,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-10 offset-1">
-      <h2>投稿履歴</h2>
+      <h4>投稿履歴</h4>
     </div>
   </div>
   <div class="row">
