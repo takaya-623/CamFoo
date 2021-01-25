@@ -13,5 +13,15 @@ User.create!(
   first_name_kana: "タロウ",
   email: "yamada@yamada.com",
   password: "123456",
-  acount: "@やまだくん"
+  account: "@やまだくん"
   )
+
+  User.create!(
+    last_name: "佐藤",
+    first_name: "次郎",
+    last_name_kana: "サトウ",
+    first_name_kana: "ジロウ",
+    email: "sato@sato.com",
+    password: "123456",
+    account: "@さとうくん"
+    )

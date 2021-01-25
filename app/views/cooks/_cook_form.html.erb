@@ -15,7 +15,7 @@
         <label for="inputItem">◆調理道具</label><br>
         <%= f.select :cook_item, Cook.cook_items_i18n.keys.map {|k| [I18n.t("enums.cook.cook_item.#{k}"), k]}, { include_blank: '選択してください'} %><br>
         <label for="inputMaterial">◆材料 ※8種類上の場合は調理方法欄に記載</label><br>
-          <%= f.fields_for :materials, @cook.materials.order(:id) do |material_fields| %>
+          <%= f.fields_for :materials do |material_fields| %>
           <div>
             <%= material_fields.text_field :material, placeholder: "食材、調味料等", class: "mr-5 mb-3" %>
             <%= material_fields.text_field :qty, placeholder: "分量", class:"mb-3" %>

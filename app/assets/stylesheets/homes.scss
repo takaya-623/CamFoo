@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .background-image {
-  background-image: image-url("top_image");
+  background-image: image-url("tent.jpg");
   background-size: cover;
+  background-position: 20% 80%;
   height: 300px;
   display: flex;
   justify-content: space-around;

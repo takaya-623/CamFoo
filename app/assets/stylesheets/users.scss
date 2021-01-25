@@ -1,3 +1,29 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mypage-image {
+  color: #ffffff;
+  background-image: image-url("people.jpg");
+  background-size: cover;
+  background-position: top 60% left 0;
+  height: 200px;
+  opacity: 0.8;
+  // line-height: 200px;
+}
+
+.login-image {
+  color: #ffffff;
+  background-image: image-url("road.jpg");
+  background-size: cover;
+  background-position: top 60% left 0;
+  height: 200px;
+}
+
+.registration-image {
+  color: #ffffff;
+  background-image: image-url("camping.jpg");
+  background-size: cover;
+  background-position: bottom 20% left 0;
+  height: 200px;
+}

@@ -24,27 +24,27 @@ class CooksController < ApplicationController
   end
 
   def index
-    @cooks = Cook.page(params[:page]).per(9).order(updated_at: :desc)
+    @cooks = Cook.page(params[:page]).per(9).sorted
   end
 
   def net
-    @cooks_net = Cook.page(params[:page]).where(cook_item: 0).per(9).order(updated_at: :desc)
+    @cooks_net = Cook.page(params[:page]).where(cook_item: 0).per(9).sorted
   end
 
   def plate
-    @cooks_plate = Cook.page(params[:page]).where(cook_item: 1).per(9).order(updated_at: :desc)
+    @cooks_plate = Cook.page(params[:page]).where(cook_item: 1).per(9).sorted
   end
 
   def pan
-    @cooks_pan = Cook.page(params[:page]).where(cook_item: 2).per(9).order(updated_at: :desc)
+    @cooks_pan = Cook.page(params[:page]).where(cook_item: 2).per(9).sorted
   end
 
   def dutch_oven
-    @cooks_dutch_oven = Cook.page(params[:page]).where(cook_item: 3).per(9).order(updated_at: :desc)
+    @cooks_dutch_oven = Cook.page(params[:page]).where(cook_item: 3).per(9).sorted
   end
 
   def other
-    @cooks_other = Cook.page(params[:page]).where(cook_item: 4).per(9).order(updated_at: :desc)
+    @cooks_other = Cook.page(params[:page]).where(cook_item: 4).per(9).sorted
   end
 
   def rank

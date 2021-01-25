@@ -1,0 +1,10 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notification-image {
+  background-image: image-url("apple.jpg");
+  background-size: cover;
+  background-position: bottom 55% left 0;
+  height: 200px;
+}
