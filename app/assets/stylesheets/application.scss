@@ -31,14 +31,49 @@ body {
 }
 
 header {
+  background-color: #202A36;
+  display: flex;
+  // justify-content: space-around;
+}
+
+header > p {
   font-family: system-ui, -apple-system, system-ui, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Sans", ヒラギノ角ゴシック, メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
   font-weight: 700;
   font-size: 20px;
   color: #fff;
-  line-height: 60px;
   height: 60px;
+  line-height: 60px;
   padding-left: 70px;
-  background-color: #202A36;
+  margin-bottom: 0;
+}
+
+// PC用検索窓
+.search-box {
+  font-size: 16px;
+  height: 30px;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 70px;
+  align-self: center;
+  
+}
+
+.search-field {
+  border-radius: 6px;
+  border: none;
+  margin-top: 4px;
+  box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+.btn-field {
+  background-color: #6D7279;
+  color: #F6F6F7;
+}
+// 
+
+// スマホ用検索窓
+.search-box-mobile {
+  display: none;
 }
 
 // ハンバーガー
@@ -83,8 +118,6 @@ header {
   height: 2px;
   background-color: #C2C5C7;
 }
-
-
 //
 
 aside {
@@ -135,7 +168,8 @@ li {
 
 .side-footer {
   margin-top: auto;
-  height: 100px;
+  height: 50px;
+  padding-left: 70px;
 }
 
 .cook-item {
@@ -155,7 +189,7 @@ a:hover{
   text-decoration: none;
 }
 
-// 背景画像と文字の調整
+// 文字が透けないようにする
 .bg-rgba {
   height: 100%;
   background: rgba(0,0,0,0.1);
@@ -184,17 +218,35 @@ h2 {
   left: -50vw;
 }
 
+
 @media (max-width: 1000px) {
   main {
     width: 100%;
     padding-top: 50px;
   }
 
-  header {
+  header > p {
     padding-left: 0;
-    text-align: center;
+    margin: 0 auto;
   }
 
+  .search-box {
+    display: none;
+  }
+
+  .search-box-mobile {
+    display: block;
+    font-size: 12px;
+    padding: 30px 0 0 60px;
+  }
+
+  .btn-field {
+    font-size: 12px;
+  }
+
+  nav {
+    padding-top: 0;
+  }
   .open,
   .close {
     display: block;
@@ -228,6 +280,7 @@ h2 {
     background: #0F1926;
     z-index: 20;
   }
+
   input[type="checkbox"]:checked ~ aside {
     left: 0;
   }

@@ -55,6 +55,10 @@ class CooksController < ApplicationController
     @bookmarks = current_user.bookmark_cooks.order(created_at: :desc)
   end
 
+  def search_index
+    
+  end
+
   def show
     @cook = Cook.find(params[:id])
     # 値が入っているものだけを取り出している
