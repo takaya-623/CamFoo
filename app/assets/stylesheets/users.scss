@@ -22,8 +22,18 @@
 
 .registration-image {
   color: #ffffff;
-  background-image: image-url("camping.jpg");
+  background-image: image-url("lake.jpg");
   background-size: cover;
-  background-position: bottom 20% left 0;
+  background-position: bottom 10% left 0;
   height: 200px;
+}
+
+.form-group input {
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+.form-group input:focus {
+ background-color: rgb(252, 210, 132);
 }

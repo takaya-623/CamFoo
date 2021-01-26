@@ -28,3 +28,14 @@ ja:
         cook_genre: ・ジャンル
         cook_item: ・調理道具
         image: ・料理画像
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        first_name: 性
+        last_name: 名
+        first_name_kana: セイ
+        last_name_kana: メイ
+        account: アカウント名
+        password: パスワード
+        email: メールアドレス

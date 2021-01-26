@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :search
+
+  def search
+    @q = Cook.ransack(params[:q])
+    @search_cooks = @q.result.page(params[:page]).per(9)
+  end
 
   protected
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'cooks/other'
       get 'cooks/rank'
       get 'cooks/bookmark'
+      get 'cooks/search_index'
     end
     resource :likes, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]

@@ -1,0 +1,32 @@
+<h2>検索結果</h2>
+<div class="container">
+  <div class="row">
+  <% @search_cooks.each do |search_cook| %>
+    <div class="col-3 offset-1">
+      <div class="card shadow-lg">
+        <%= link_to cook_path(search_cook) do %>
+          <%= attachment_image_tag search_cook, :image, :fill, 200, 120, class:"card-img-top"; %>
+        <% end %>
+        <%= link_to user_path(search_cook.user) do %>
+          <span class="account ml-2 mt-2">By <%= search_cook.user.account %></span>
+        <% end %>
+        <div class="card-body pt-1 pb-1">
+          <p class="card-title mb-0">◆<%= search_cook.name %></p>
+          <p class="mb-1"><%= search_cook.comment %></p>
+          <div class="row border-top m-auto">
+            <div class="col-6">
+              <%= link_to user_path(search_cook.user) do %>
+              <%= attachment_image_tag search_cook.user, :account_image, :fill, 50, 50, fallback: "no_image.jpg", class:" rounded-circle no-image"; %><br>
+              <% end %>
+            </div>
+            <div class="col-5 offset-1 pt-3">
+              <%= link_to "詳細", cook_path(search_cook), class: "btn btn-dark " %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+<%= paginate @search_cooks %>
