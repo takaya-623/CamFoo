@@ -13,7 +13,7 @@ class Cook < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :cook_genre
-    validates :cook_iteme
+    validates :cook_item
     validates :image
   end
   validates :comment, presence: true, length: { in: 13..25 }

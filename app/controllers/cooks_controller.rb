@@ -61,7 +61,6 @@ class CooksController < ApplicationController
   end
 
   def search_index
-    
   end
 
   def show

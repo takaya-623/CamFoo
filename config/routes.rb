@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   devise_for :users
   resources :users, only: [:show, :edit, :update]
+  get 'users' => 'users#dummy'
   root 'homes#top'
   resources :cooks do
     collection do
@@ -18,4 +20,5 @@ Rails.application.routes.draw do
     resource :bookmarks, only: [:create, :destroy]
   end
   resources :notifications, only: :index
+  resources :articles, only: [:index, :show]
 end
