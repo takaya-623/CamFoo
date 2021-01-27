@@ -15,6 +15,7 @@ ja:
         plate: "鉄板"
         pan: "フライパン"
         dutch_oven: "ダッチオーブン"
+        pot: "鍋"
         other: "その他"
 
   activerecord:

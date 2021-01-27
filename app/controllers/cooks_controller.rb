@@ -1,4 +1,5 @@
 class CooksController < ApplicationController
+  before_action :authenticate_user!, only: [:bookmark, :rank]
   before_action :confirm_user, only: [:edit, :update, :destroy]
 
   def confirm_user
@@ -43,8 +44,12 @@ class CooksController < ApplicationController
     @cooks_dutch_oven = Cook.page(params[:page]).where(cook_item: 3).per(9).sorted
   end
 
+  def pot
+    @cooks_pot = Cook.page(params[:page]).where(cook_item: 4).per(9).sorted
+  end
+
   def other
-    @cooks_other = Cook.page(params[:page]).where(cook_item: 4).per(9).sorted
+    @cooks_other = Cook.page(params[:page]).where(cook_item: 5).per(9).sorted
   end
 
   def rank

@@ -4,7 +4,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "CanFoo" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,18 +13,18 @@
       <header>
         <p>CAM x FOO</p>
         <div class="search-box">
-          <%= search_form_for @q, url: cooks_search_index_cooks_path do |f| %>
+          <%= search_form_for @q, url: search_index_cooks_path do |f| %>
             <%= f.text_field :name_cont, placeholder: "料理名で検索", class: "search-field" %>
-            <%= f.submit ("検索"), class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
+            <%= f.submit "検索", class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
           <% end %>
         </div>
       </header>
       <div class="main-view">
       <input id="menu" type="checkbox">
       <label for="menu" class="open">
-      <div class="hamburger">
-        <span></span>
-      </div>
+        <div class="hamburger">
+          <span></span>
+        </div>
       </label>
       <label for="menu" class="back"></label>
       <aside>
@@ -34,9 +34,9 @@
           <ul>
           <li>
             <div class="search-box-mobile">
-              <%= search_form_for @q, url: cooks_search_index_cooks_path do |f| %>
+              <%= search_form_for @q, url: search_index_cooks_path do |f| %>
                 <%= f.text_field :name_cont, placeholder: "料理名で検索", class: "search-field" %>
-                <%= f.submit ("検索"), class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
+                <%= f.submit "検索", class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
               <% end %>
             </div>
           </li>
@@ -51,7 +51,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to cooks_bookmark_cooks_path do %>
+              <%= link_to bookmark_cooks_path do %>
                 <i class="fas fa-bookmark side-fas"> &emsp;お気に入り</i>
               <% end %>
             </li>
@@ -73,7 +73,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to cooks_rank_cooks_path do %>
+              <%= link_to rank_cooks_path do %>
                 <i class="fas fa-medal side-fas"> &emsp;ランキング</i>
               <% end %>
             </li>
@@ -89,19 +89,22 @@
             </li>
             <h5 class="cook-item">調理道具から選ぶ</h5>
             <li>
-              <%= link_to "網で作る", cooks_net_cooks_path, class: "side-fas" %>
+              <%= link_to "網で作る", net_cooks_path, class: "side-fas" %>
             </li>
             <li>
-              <%= link_to "鉄板で作る", cooks_plate_cooks_path, class: "side-fas" %>
+              <%= link_to "鉄板で作る", plate_cooks_path, class: "side-fas" %>
             </li>
             <li>
-              <%= link_to "フライパンで作る", cooks_pan_cooks_path, class: "side-fas" %>
+              <%= link_to "フライパンで作る", pan_cooks_path, class: "side-fas" %>
             </li>
             <li>
-              <%= link_to "ダッチオーブンで作る", cooks_dutch_oven_cooks_path, class: "side-fas" %>
+              <%= link_to "鍋で作る", pot_cooks_path, class: "side-fas" %>
             </li>
             <li>
-              <%= link_to "その他", cooks_other_cooks_path, class: "side-fas" %>
+              <%= link_to "ダッチオーブンで作る", dutch_oven_cooks_path, class: "side-fas" %>
+            </li>
+            <li>
+              <%= link_to "その他", other_cooks_path, class: "side-fas" %>
             </li>
           </ul>
         </nav>
@@ -110,9 +113,9 @@
           <ul>
             <li>
               <div class="search-box-mobile">
-                <%= search_form_for @q, url: cooks_search_index_cooks_path do |f| %>
+                <%= search_form_for @q, url: search_index_cooks_path do |f| %>
                   <%= f.text_field :name_cont, placeholder: "料理名で検索", class: "search-field" %>
-                  <%= f.submit ("検索"), class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
+                  <%= f.submit "検索", class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
                 <% end %>
               </div>
             </li>
@@ -125,7 +128,11 @@
             <li>list3</li>
             <li>list4</li>
             <li>list5</li>
-            <li>list6</li>
+            <li>
+              <%= link_to rank_cooks_path do %>
+                <i class="fas fa-medal side-fas"> &emsp;ランキング</i>
+              <% end %>
+            </li>
             <li>
               <%= link_to cooks_path do %>
                 <i class="fas fa-list side-fas"> &emsp;料理一覧</i>
@@ -133,19 +140,19 @@
             </li>
             <h5 class="pl-3 cook-item">調理道具から選ぶ</h5>
             <li>
-              <%= link_to "網で作る", cooks_net_cooks_path, class: "side-fas" %>
+              <%= link_to "網で作る", net_cooks_path, class: "side-fas" %>
             </li>
             <li>
-              <%= link_to "鉄板で作る", cooks_plate_cooks_path, class: "side-fas" %>
+              <%= link_to "鉄板で作る", plate_cooks_path, class: "side-fas" %>
             </li>
             <li>
-              <%= link_to "フライパンで作る", cooks_pan_cooks_path, class: "side-fas" %>
+              <%= link_to "フライパンで作る", pan_cooks_path, class: "side-fas" %>
             </li>
             <li>
-              <%= link_to "ダッチオーブンで作る", cooks_dutch_oven_cooks_path, class: "side-fas" %>
+              <%= link_to "ダッチオーブンで作る", dutch_oven_cooks_path, class: "side-fas" %>
             </li>
             <li>
-              <%= link_to "その他", cooks_other_cooks_path, class: "side-fas" %>
+              <%= link_to "その他", other_cooks_path, class: "side-fas" %>
             </li>
           </ul>
         </nav>

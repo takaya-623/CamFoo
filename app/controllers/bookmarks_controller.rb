@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!
   def create
     @cook = Cook.find(params[:cook_id])
     bookmark = current_user.bookmarks.new(cook_id: @cook.id)
