@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :confirm_user, only: [:edit, :update]
 
+  def dummy
+    redirect_to new_user_registration_path
+  end
+
+
   def confirm_user
     user = User.find(params[:id])
     unless user == current_user
