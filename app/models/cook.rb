@@ -20,7 +20,7 @@ class Cook < ApplicationRecord
   validates :cooking_time, presence: true, numericality: {only_integer: true}
 
   enum cook_genre: { meet: 0, fish: 1, vegetables: 2, noodle: 3, rice: 4, soup: 5, other: 6 }
-  enum cook_item: { net: 0, plate:1, pan:2, dutch_oven:3, other: 4 }, _prefix: true
+  enum cook_item: { net: 0, plate:1, pan:2, dutch_oven:3, pot:4, other: 5 }, _prefix: true
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?

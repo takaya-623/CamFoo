@@ -21,6 +21,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   color: #fff;
+  background-color: #0F1926;
   // display: flex;
   // min-height: 100vh;
 }
@@ -55,7 +56,6 @@ header > p {
   margin-left: auto;
   margin-right: 70px;
   align-self: center;
-  
 }
 
 .search-field {
@@ -128,8 +128,9 @@ aside {
   background-color: #0F1926;
   position: sticky;
   top: 0px;
-  height: 100vh;
+  height: 100%;
 }
+
 
 .side-fas {
   font-size: 16px;
@@ -142,15 +143,7 @@ nav {
   padding-top: 70px;
 }
 
-// .header {
-//   height: 80px;
-//   background-color: rgb(182, 72, 21);
-//   position: sticky;
-// }
-
 main {
-  // width: 900px;
-  // margin: 0 auto;
   flex: 1;
   background-color: #010A17;
 }
@@ -225,6 +218,10 @@ h2 {
     padding-top: 50px;
   }
 
+  .main-view {
+    // max-height: 100vh;
+  }
+
   header > p {
     padding-left: 0;
     margin: 0 auto;
@@ -236,17 +233,18 @@ h2 {
 
   .search-box-mobile {
     display: block;
-    font-size: 12px;
-    padding: 30px 0 0 60px;
+    font-size: 13px;
+    padding: 10px 0 0 40px;
   }
 
   .btn-field {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   nav {
     padding-top: 0;
   }
+
   .open,
   .close {
     display: block;
@@ -256,6 +254,7 @@ h2 {
     font-size: 3rem;
     font-weight: 100;
     color: #C2C5C7;
+    padding-left: 5px;
   }
 
   .close:hover {
@@ -266,16 +265,16 @@ h2 {
   .hamburger {
     cursor: pointer;
   }
-  
 
   .open {
     position: absolute;
+    top: 5px;
   }
 
   aside {
     position: absolute;
     left: -250px;
-    height: 100%;
+    height: auto;
     transition: all 0.2s;
     background: #0F1926;
     z-index: 20;
@@ -287,7 +286,7 @@ h2 {
   input[type="checkbox"]:checked ~ .back {
     position: absolute;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background: rgba(0, 0, 0, 0.8);
     z-index: 10;
   }
