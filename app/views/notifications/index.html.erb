@@ -1,19 +1,36 @@
-<div class="col-10 offset-1">
-  <h2>通知</h2>
-  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-  <% if notifications.exists? %>
-    <% notifications.each do |notification| %>
-    <%= notification.visitor.account %>
-    <span>さんが</span>
-    <% case notification.action %>
-      <% when 'like' then %>
-        <%= link_to "あなたの投稿に", cook_path(notification.cook) %>
-        <span>いいねしました</span>
+<% content_for(:title, '通知 | CamFoo') %>
+<div class="notification-image">
+  <div class="bg-rgba">
+    <h2>Notification</h2>
+  </div>
+</div>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+      <% if notifications.exists? %>
+        <table class="table text-white w-75 m-auto">
+          <tbody>
+          <% notifications.each do |notification| %>
+            <tr>
+              <td>
+              <%= notification.visitor.account %>
+              <span>さんが</span>
+              <% case notification.action %>
+                <% when 'like' then %>
+                  <%= link_to "あなたの投稿に", cook_path(notification.cook) %>
+                  <span>いいねしました</span>
+              <% end %>
+              <td>
+            </tr>
+          <% end %>
+        </tbody>
+        </table>
+      <% else %>
+        <p>通知はありません</p>
       <% end %>
-    <% end %>
-  <% else %>
-    <p>通知はありません</p>
-  <% end %>
+    </div>
+  </div>
 </div>
 
 

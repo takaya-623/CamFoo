@@ -1,9 +1,13 @@
-<% content_for(:title, 'お気に入り | CanFoo') %>
+<% content_for(:title, 'お気に入り | CamFoo') %>
+<div class="bookmark-image">
+  <div class="bg-rgba">
+    <h2>Bookmark</h2>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-    <h2>マイリスト</h2>
-    <table class="table table-striped">
+    <table class="table table-striped text-white">
       <thead>
         <tr>
           <th></th>
@@ -16,16 +20,16 @@
         <% @bookmarks.each do |cook| %>
         <tr>
           <td>
-            <%= attachment_image_tag cook.user, :account_image, :fill, 60, 60, fallback: "no_image.jpg", class: "no-image"; %>
+            <%= attachment_image_tag cook.user, :account_image, :fill, 60, 60, fallback: "no_image.jpg", class: "mt-0 no-image"; %>
           </td>
-          <td>
+          <td class="pt-4">
             <%= cook.user.account %>
           </td>
-          <td>
+          <td class="pt-4">
             <%= cook.name %>
           </td>
-          <td>
-            <%= link_to "詳細", cook_path(cook) %>
+          <td class="pt-4">
+            <%= link_to "詳細", cook_path(cook), class: "btn btn-success" %>
           </td>
         </tr>
         <% end %>

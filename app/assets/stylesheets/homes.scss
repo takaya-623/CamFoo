@@ -3,13 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .background-image {
-  background-image: image-url("top_image");
+  background-image: image-url("tent.jpg");
   background-size: cover;
+  background-position: 20% 80%;
   height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.background-image > h2 {
+  margin-top: 2em;
+}
+
+.btn-group {
+  width: 100%;
+  margin-top: 2em;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 
 .login-btn {
   margin-right: 100px;

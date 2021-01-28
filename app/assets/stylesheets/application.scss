@@ -20,6 +20,8 @@
 body {
   margin: 0;
   box-sizing: border-box;
+  color: #fff;
+  background-color: #0F1926;
   // display: flex;
   // min-height: 100vh;
 }
@@ -30,8 +32,48 @@ body {
 }
 
 header {
+  background-color: #202A36;
+  display: flex;
+  // justify-content: space-around;
+}
+
+header > p {
+  font-family: system-ui, -apple-system, system-ui, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Sans", ヒラギノ角ゴシック, メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
   height: 60px;
-  background-color: rgb(182, 72, 21);
+  line-height: 60px;
+  padding-left: 70px;
+  margin-bottom: 0;
+}
+
+// PC用検索窓
+.search-box {
+  font-size: 16px;
+  height: 30px;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 70px;
+  align-self: center;
+}
+
+.search-field {
+  border-radius: 6px;
+  border: none;
+  margin-top: 4px;
+  box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+.btn-field {
+  background-color: #6D7279;
+  color: #F6F6F7;
+}
+// 
+
+// スマホ用検索窓
+.search-box-mobile {
+  display: none;
 }
 
 // ハンバーガー
@@ -51,7 +93,7 @@ header {
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #343a40;
+  background-color: #C2C5C7;
   transform: translateY(-50%);
 }
 
@@ -63,8 +105,9 @@ header {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #343a40;
+  background-color: #C2C5C7;
 }
+
 .hamburger::before {
   content: '';
   display: block;
@@ -73,7 +116,7 @@ header {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #343a40;
+  background-color: #C2C5C7;
 }
 //
 
@@ -82,15 +125,17 @@ aside {
   min-width: 250px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 242, 221);
+  background-color: #0F1926;
   position: sticky;
   top: 0px;
-  height: 100vh;
+  height: 100%;
 }
+
 
 .side-fas {
   font-size: 16px;
   padding-left: 70px;
+  color: #CBCED1;
 }
 
 nav {
@@ -98,16 +143,9 @@ nav {
   padding-top: 70px;
 }
 
-// .header {
-//   height: 80px;
-//   background-color: rgb(182, 72, 21);
-//   position: sticky;
-// }
-
 main {
-  // width: 900px;
-  // margin: 0 auto;
   flex: 1;
+  background-color: #010A17;
 }
 
 ul {
@@ -116,19 +154,49 @@ ul {
   margin: 0;
 }
 
+li {
+  margin-bottom: 20px;
+
+}
+
 .side-footer {
   margin-top: auto;
-  height: 100px;
+  height: 50px;
+  padding-left: 70px;
+}
+
+.cook-item {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN", Meiryo, メイリオ, Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  padding-left: 70px;
+  margin: 40px 0;
+  color: #fff;
 }
 
 .cook-item ~ li {
   font-weight: 700;
-  padding-left: 70px;
 }
 
 a:hover{
   text-decoration: none;
 }
+
+// 文字が透けないようにする
+.bg-rgba {
+  height: 100%;
+  background: rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  color: #ffffff;
+  font-weight: 800;
+  margin-bottom: 0!important;
+}
+// 
 
 // ハンバーガーメニュー
 .open {
@@ -143,43 +211,82 @@ a:hover{
   left: -50vw;
 }
 
+
 @media (max-width: 1000px) {
   main {
     width: 100%;
     padding-top: 50px;
   }
 
-  // .header {
-  //   display: none;
-  // }
+  .main-view {
+    // max-height: 100vh;
+  }
+
+  header > p {
+    padding-left: 0;
+    margin: 0 auto;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .search-box-mobile {
+    display: block;
+    font-size: 13px;
+    padding: 10px 0 0 40px;
+  }
+
+  .btn-field {
+    font-size: 13px;
+  }
+
+  nav {
+    padding-top: 0;
+  }
 
   .open,
   .close {
     display: block;
   }
+
   .close {
     font-size: 3rem;
-  }
-  .open {
-    position: absolute;
+    font-weight: 100;
+    color: #C2C5C7;
+    padding-left: 5px;
   }
 
+  .close:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    cursor: pointer;
+  }
+
+  .open {
+    position: absolute;
+    top: 5px;
+  }
 
   aside {
     position: absolute;
     left: -250px;
-    height: 100%;
+    height: auto;
     transition: all 0.2s;
-    background: rgb(255, 242, 221);
+    background: #0F1926;
     z-index: 20;
   }
+
   input[type="checkbox"]:checked ~ aside {
     left: 0;
   }
   input[type="checkbox"]:checked ~ .back {
     position: absolute;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background: rgba(0, 0, 0, 0.8);
     z-index: 10;
   }

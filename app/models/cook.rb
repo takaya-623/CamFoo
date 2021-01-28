@@ -7,18 +7,20 @@ class Cook < ApplicationRecord
   scope :sorted, -> { order(updated_at: :desc) }
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :bookmark_cooks, through: :bookmarks, source: :cook
+  has_many :bookmark_cooks, through: :bookmarks, source: :user
   has_many :notifications, dependent: :destroy
 
-  validates :name, presence: true
-  validates :comment, presence: true, length: { in: 13..25 }
+  with_options presence: true do
+    validates :name
+    validates :cook_genre
+    validates :cook_item
+    validates :image
+  end
+  validates :comment, presence: true
   validates :cooking_time, presence: true, numericality: {only_integer: true}
-  validates :cook_genre, presence: true
-  validates :cook_item, presence: true
-  validates :image, presence: true
 
   enum cook_genre: { meet: 0, fish: 1, vegetables: 2, noodle: 3, rice: 4, soup: 5, other: 6 }
-  enum cook_item: { net: 0, plate:1, pan:2, dutch_oven:3, other: 4 }, _prefix: true
+  enum cook_item: { net: 0, plate:1, pan:2, dutch_oven:3, pot:4, other: 5 }, _prefix: true
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?

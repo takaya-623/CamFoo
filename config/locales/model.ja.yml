@@ -15,16 +15,34 @@ ja:
         plate: "鉄板"
         pan: "フライパン"
         dutch_oven: "ダッチオーブン"
+        pot: "鍋"
         other: "その他"
 
   activerecord:
     models:
       cook: 料理
+      user: 会員
+      article: 管理者投稿
     attributes:
       cook:
-        name: ・料理名
-        comment: ・特徴
-        cooking_time: ・調理時間
-        cook_genre: ・ジャンル
-        cook_item: ・調理道具
-        image: ・料理画像
+        name: 料理名
+        comment: 特徴
+        cooking_time: 調理時間
+        cook_genre: ジャンル
+        cook_item: 調理道具
+        cooking_method: 調理方法
+        image: 料理画像
+      user:
+        first_name: 名
+        last_name: 性
+        first_name_kana: メイ
+        last_name_kana: セイ
+        account: アカウント名
+        password: パスワード
+        email: メールアドレス
+      article:
+        title: タイトル
+        body: 記事内容
+        article_image: 画像
+
+
