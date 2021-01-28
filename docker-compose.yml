@@ -11,7 +11,7 @@ services:
     volumes:
       - ".:/CanFoo"
     environment:
-      - "DATABASE_PASSWORD=postgres"
+      - "DB_PASSWORD=postgres"
     tty: true
     stdin_open: true
     depends_on:
