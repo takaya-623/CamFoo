@@ -76,3 +76,6 @@ gem 'data-confirm-modal'
 gem 'whenever', require: false
 gem 'activeadmin'
 gem 'carrierwave'
+group :production do
+  gem 'mysql2'
+end
