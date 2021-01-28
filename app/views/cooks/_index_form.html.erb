@@ -10,8 +10,8 @@
           <span class="account ml-2 mt-2">By <%= cook.user.account %></span>
         <% end %>
         <div class="card-body pt-1 pb-1">
-          <p class="card-title mb-0">◆<%= cook.name %></p>
-          <p class="mb-1"><%= cook.comment %></p>
+          <p class="card-title mb-0 fs-6">◆<%= cook.name %></p>
+          <p class="mb-1 fs-6"><%= cook.comment.truncate(25) %></p>
           <div class="row border-top m-auto">
             <div class="col-6">
               <%= link_to user_path(cook.user) do %>

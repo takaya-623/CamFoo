@@ -14,7 +14,7 @@
         <p>CAM x FOO</p>
         <div class="search-box">
           <%= search_form_for @q, url: search_index_cooks_path do |f| %>
-            <%= f.text_field :name_cont, placeholder: "料理名で検索", class: "search-field" %>
+            <%= f.text_field :name_or_comment_or_cooking_method_cont_any, placeholder: "ワード検索", class: "search-field" %>
             <%= f.submit "検索", class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
           <% end %>
         </div>
@@ -35,7 +35,7 @@
           <li>
             <div class="search-box-mobile">
               <%= search_form_for @q, url: search_index_cooks_path do |f| %>
-                <%= f.text_field :name_cont, placeholder: "料理名で検索", class: "search-field" %>
+                <%= f.text_field :name_or_comment_or_cooking_method_cont_any, placeholder: "ワード検索", class: "search-field" %>
                 <%= f.submit "検索", class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
               <% end %>
             </div>
@@ -114,7 +114,7 @@
             <li>
               <div class="search-box-mobile">
                 <%= search_form_for @q, url: search_index_cooks_path do |f| %>
-                  <%= f.text_field :name_cont, placeholder: "料理名で検索", class: "search-field" %>
+                  <%= f.text_field :name_or_comment_or_cooking_method_cont_any, placeholder: "ワード検索", class: "search-field" %>
                   <%= f.submit "検索", class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
                 <% end %>
               </div>
