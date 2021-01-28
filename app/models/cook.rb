@@ -16,7 +16,7 @@ class Cook < ApplicationRecord
     validates :cook_item
     validates :image
   end
-  validates :comment, presence: true, length: { in: 13..25 }
+  validates :comment, presence: true
   validates :cooking_time, presence: true, numericality: {only_integer: true}
 
   enum cook_genre: { meet: 0, fish: 1, vegetables: 2, noodle: 3, rice: 4, soup: 5, other: 6 }
