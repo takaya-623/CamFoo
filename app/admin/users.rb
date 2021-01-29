@@ -1,6 +1,7 @@
 ActiveAdmin.register User do
 
   permit_params  :first_name, :last_name, :email, :account_image_id
+  actions :all, except: [:new]
 
   filter :id
   filter :last_name
@@ -28,9 +29,18 @@ ActiveAdmin.register User do
 
   show :title => :fullname do
     attributes_table do
-      row :fullname
+      row :last_name
+      row :first_name
       row :email
       row :account
+    end
+    panel "投稿一覧" do
+      table_for user.cooks do
+        column :name
+        column :created_at
+        column :updated_at
       end
+    end
   end
+
 end
