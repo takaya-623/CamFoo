@@ -62,3 +62,9 @@ h2 {
   background-position: bottom 40% left 0;
   height: 200px;
 }
+
+@media (max-width: 1000px) {
+  .d-flex {
+    display: block;
+  }
+}

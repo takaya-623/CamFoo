@@ -1,8 +1,7 @@
-<div class="container">
+<div class="container w-75">
   <div class="row">
     <div class="col-md-10 col-xs-12 offset-1">
       <%= render "cooks/shared/error" %>
-      <div class="m-auto">
       <%= form_with model: cook, local: true do |f| %>
       <div class="form-group">
         <label for="inputName">◆料理名</label><br>
@@ -10,7 +9,7 @@
       </div>
       <div class="form-group">
         <label for="inputComment">◆特徴</label><br>
-        <%= f.text_field :comment, class: "w-75"  %><br>
+        <%= f.text_field :comment, class: "w-75" %><br>
       </div>
       <div class="form-group">
         <label for="inputTime">◆調理時間</label><br>
@@ -27,29 +26,26 @@
       <div class="form-group">
         <label for="inputMaterial">◆材料 ※8種類上の場合は調理方法欄に記載</label><br>
           <%= f.fields_for :materials do |material_fields| %>
-          <table class="table w-75">
-            <tbody>
-              <tr>
-              <td>
-                <%= material_fields.text_field :material, placeholder: "食材、調味料等", class: "mr-5" %>
-                <%= material_fields.text_field :qty, placeholder: "分量" %>
-              </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="">
+            <div class="">
+              <%= material_fields.text_field :material, placeholder: "食材、調味料等", class: "mr-5" %>
+            </div>
+            <div  class="">
+              <%= material_fields.text_field :qty, placeholder: "分量" %>
+            </div>
+          </div>
           <% end %><br>
-        </div>
+      </div>
         <div class="form-group">
           <label for="inputMethod">◆調理方法</label><br>
           <%= f.text_area :cooking_method, size: "60x5", class: "w-100"  %><br>
         </div>
         <div class="form-group">
           <label for="inputImage">◆料理画像</label><br>
-          <%= f.attachment_field :image %><br>
+          <%= f.attachment_field :image, class: "text-dark" %><br>
         </div>
           <%= f.submit "投稿する" %>
       <% end %>
-      </div>
     </div>
   </div>
 </div>

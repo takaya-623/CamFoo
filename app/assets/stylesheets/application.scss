@@ -26,6 +26,10 @@ body {
   // min-height: 100vh;
 }
 
+.container {
+  margin: 60px auto;
+}
+
 .main-view {
   display: flex;
   min-height: 100vh;
@@ -140,12 +144,13 @@ aside {
 
 nav {
   // background-color: ;
-  padding-top: 70px;
+  padding-top: 60px;
 }
 
 main {
   flex: 1;
   background-color: #010A17;
+  // background-color: rgb(219, 218, 218);
 }
 
 ul {

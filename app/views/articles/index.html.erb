@@ -1,3 +1,12 @@
 <% @articles.each do |article| %>
-  <%= image_tag article.article_image.to_s %>
+<div class="article-container">
+  <div class="mb-3">
+  <%= link_to article_path(article) do %>
+    <%= image_tag article.article_image.url, size: "300x180" %>
+  <% end %>
+  </div>
+  <div class="article-title">
+    <%= article.title %><br><%= article.topic_i18n %>
+  </div>
+</div>
 <% end %>

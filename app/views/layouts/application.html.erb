@@ -83,11 +83,16 @@
               <% end %>
             </li>
             <li>
+              <%= link_to articles_path do %>
+                <i class="fas fa-campground side-fas"> &emsp;キャンプコラム</i>
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fas fa-sign-out-alt side-fas"> &emsp;ログアウト</i>
               <% end %>
             </li>
-            <h5 class="cook-item">調理道具から選ぶ</h5>
+            <h5 class="cook-item">Cooks</h5>
             <li>
               <%= link_to "網で作る", net_cooks_path, class: "side-fas" %>
             </li>
@@ -127,7 +132,6 @@
             <li>list2</li>
             <li>list3</li>
             <li>list4</li>
-            <li>list5</li>
             <li>
               <%= link_to rank_cooks_path do %>
                 <i class="fas fa-medal side-fas"> &emsp;ランキング</i>
@@ -138,7 +142,12 @@
                 <i class="fas fa-list side-fas"> &emsp;料理一覧</i>
               <% end %>
             </li>
-            <h5 class="pl-3 cook-item">調理道具から選ぶ</h5>
+           <li>
+              <%= link_to articles_path do %>
+                <i class="fas fa-campground side-fas"> &emsp;キャンプコラム</i>
+              <% end %>
+            </li>
+            <h5 class="pl-3 cook-item">Cooks</h5>
             <li>
               <%= link_to "網で作る", net_cooks_path, class: "side-fas" %>
             </li>
@@ -158,7 +167,7 @@
         </nav>
     <% end %>
         <div class="side-footer">
-          sidefooter
+          ©2021 Cam Foo
         </div>
       </aside>
       <main>

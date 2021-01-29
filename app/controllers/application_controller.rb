@@ -9,10 +9,18 @@ class ApplicationController < ActionController::Base
   def after_sign_up_path_for(resource)
     user_path(current_user.id)
   end
-  
+
   def search
     @q = Cook.ransack(params[:q])
     @search_cooks = @q.result.page(params[:page]).per(9)
+  end
+
+  def authenticate_admin_user!
+    authenticate_user!
+    unless current_user.admin?
+      # flash.now[:alert] = "管理者権限がありません"
+      redirect_to root_path, flash: { admin: '管理者権限がありません' } 
+    end
   end
 
   protected
