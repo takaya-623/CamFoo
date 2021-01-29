@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.background-image {
+.background-image-out {
   background-image: image-url("tent.jpg");
   background-size: cover;
   background-position: 20% 80%;
@@ -11,8 +11,20 @@
   flex-direction: column;
 }
 
-.background-image > h2 {
+.background-image-in {
+  background-image: image-url("fun.jpg");
+  background-size: cover;
+  background-position: top 20% left 0;
+  height: 300px;
+}
+
+
+.background-image-out > h2 {
   margin-top: 2em;
+}
+
+.background-image-in > h2 {
+  padding-top: 2em;
 }
 
 .btn-group {
@@ -26,4 +38,9 @@
 
 .login-btn {
   margin-right: 100px;
+}
+
+.admin-notice {
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.459);
 }

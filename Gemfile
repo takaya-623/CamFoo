@@ -76,6 +76,8 @@ gem 'data-confirm-modal'
 gem 'whenever', require: false
 gem 'activeadmin'
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'pry-byebug'
 group :production do
   gem 'mysql2'
 end

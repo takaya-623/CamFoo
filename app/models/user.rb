@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   validates :account, uniqueness: true, length: { in: 5..15 }
+  enum role: { user: 0, admin: 1 }
 
   def fullname
     [last_name, first_name].join
