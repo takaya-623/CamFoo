@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :confirm_user, only: [:edit, :update]
+  before_action :confirm_user, only: [:edit, :update, :destroy]
 
   def dummy
     redirect_to new_user_registration_path
@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user.id)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path
   end
 
   def user_params
