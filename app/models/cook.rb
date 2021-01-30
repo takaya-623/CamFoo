@@ -30,6 +30,10 @@ class Cook < ApplicationRecord
     Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(10).pluck(:cook_id))
   end
 
+  def self.ranks_top
+    Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(3).pluck(:cook_id))
+  end
+
   def bookmarked_by?(user)
     bookmarks.where(user_id: user.id).exists?
   end
