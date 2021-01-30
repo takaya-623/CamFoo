@@ -42,54 +42,56 @@
           </li>
             <li>
               <%= link_to root_path do %>
-                <i class="fas fa-home side-fas"> &emsp;ホーム</i>
+                <i class="fas fa-home fa-fw side-fas"></i> &emsp;<span class="side-text">ホーム</span>
               <% end %>
             </li>
             <li>
               <%= link_to user_path(current_user) do %>
-                <i class="fas fa-user side-fas"> &emsp;マイページ</i>
+                <i class="fas fa-user fa-fw side-fas"></i> &emsp;<span class="side-text">マイページ</span>
               <% end %>
             </li>
             <li>
               <%= link_to bookmark_cooks_path do %>
-                <i class="fas fa-bookmark side-fas"> &emsp;お気に入り</i>
+                <i class="fas fa-bookmark fa-fw side-fas"></i> &emsp;<span class="side-text">お気に入り</span>
               <% end %>
             </li>
             <li>
             <% if unchecked_notifications.any? %>
               <%= link_to notifications_path do %>
-                <i class="fas fa-bell side-fas">
-                <i class="fas fa-circle"></i> &emsp;通知</i>
+                <span class="fa-layyers">
+                  <i class="fas fa-bell fa-fw side-fas"></i> &emsp;<span class="side-text">通知</span>
+                  <i class="fas fa-fire fire-size"></i>
+                </span>
               <% end %>
             <% else %>
               <%= link_to notifications_path do %>
-                <i class="fas fa-bell side-fas"> &emsp;通知</i>
+                <i class="fas fa-bell fa-fw side-fas"></i> &emsp;<span class="side-text">通知</span>
               <% end %>
             <% end %>
             </li>
             <li>
               <%= link_to new_cook_path do %>
-                <i class="fas fa-utensils side-fas"> &emsp;新規投稿</i>
+                <i class="fas fa-utensils fa-fw side-fas"></i> &emsp;<span class="side-text">新規投稿</span>
               <% end %>
             </li>
             <li>
               <%= link_to rank_cooks_path do %>
-                <i class="fas fa-medal side-fas"> &emsp;ランキング</i>
+                <i class="fas fa-medal fa-fw side-fas"></i> &emsp;<span class="side-text">ランキング</span>
               <% end %>
             </li>
             <li>
               <%= link_to cooks_path do %>
-                <i class="fas fa-list side-fas"> &emsp;料理一覧</i>
+                <i class="fas fa-list fa-fw side-fas"></i> &emsp;<span class="side-text">料理一覧</span>
               <% end %>
             </li>
             <li>
               <%= link_to articles_path do %>
-                <i class="fas fa-campground side-fas"> &emsp;キャンプコラム</i>
+                <i class="fas fa-campground fa-fw side-fas"></i> &emsp;<span class="side-text">キャンプコラム</span>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt side-fas"> &emsp;ログアウト</i>
+                <i class="fas fa-sign-out-alt fa-fw side-fas"></i> &emsp;<span class="side-text">ログアウト</span>
               <% end %>
             </li>
             <h5 class="cook-item">Cooks</h5>
@@ -126,7 +128,7 @@
             </li>
             <li>
               <%= link_to root_path do %>
-                <i class="fas fa-home side-fas"> &emsp;ホーム</i>
+                <i class="fas fa-home side-fas"></i> &emsp;ホーム
               <% end %>
             </li>
             <li>list2</li>
@@ -134,17 +136,17 @@
             <li>list4</li>
             <li>
               <%= link_to rank_cooks_path do %>
-                <i class="fas fa-medal side-fas"> &emsp;ランキング</i>
+                <i class="fas fa-medal fa-fw side-fas"></i> &emsp;<span class="side-text">ランキング</span>
               <% end %>
             </li>
             <li>
               <%= link_to cooks_path do %>
-                <i class="fas fa-list side-fas"> &emsp;料理一覧</i>
+                <i class="fas fa-list fa-fw side-fas"></i> &emsp;<span class="side-text">料理一覧</span>
               <% end %>
             </li>
            <li>
               <%= link_to articles_path do %>
-                <i class="fas fa-campground side-fas"> &emsp;キャンプコラム</i>
+                <i class="fas fa-campground fa-fw side-fas"></i> &emsp;<span class="side-text">キャンプコラム</span>
               <% end %>
             </li>
             <h5 class="pl-3 cook-item">Cooks</h5>
@@ -156,6 +158,9 @@
             </li>
             <li>
               <%= link_to "フライパンで作る", pan_cooks_path, class: "side-fas" %>
+            </li>
+            <li>
+              <%= link_to "鍋で作る", pot_cooks_path, class: "side-fas" %>
             </li>
             <li>
               <%= link_to "ダッチオーブンで作る", dutch_oven_cooks_path, class: "side-fas" %>
