@@ -6,7 +6,8 @@
   <% end %>
   </div>
   <div class="article-title">
-    <%= article.title %><br><%= article.topic_i18n %>
+    <span><%= article.title %></span><br><span class="topic-box"><%= article.topic_i18n %></span>
   </div>
 </div>
 <% end %>
+<%= paginate @articles %>

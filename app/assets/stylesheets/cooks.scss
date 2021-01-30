@@ -30,8 +30,44 @@ h2 {
 }
 
 .index-image {
-  background-image: image-url("wood.jpg");
+  background-image: image-url("sky.jpg");
+  background-position: center;
   background-size: cover;
+  height: 200px;
+}
+
+.net-image {
+  background-image: image-url("net.jpg");
+  background-size: cover;
+  background-position: top 30% left 0;
+  height: 200px;
+}
+
+.pan-image {
+  background-image: image-url("pan.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+
+.pot-image {
+  background-image: image-url("pot.jpg");
+  background-size: cover;
+  background-position: top 30% left 0;
+  height: 200px;
+}
+
+.dutch-image {
+  background-image: image-url("dutch.jpg");
+  background-size: cover;
+  background-position: bottom 10% left 0;
+  height: 200px;
+}
+
+.other-image {
+  background-image: image-url("beer.jpg");
+  background-size: cover;
+  background-position: bottom 35% left 0;
   height: 200px;
 }
 
@@ -63,8 +99,22 @@ h2 {
   height: 200px;
 }
 
+.material-container {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.material-box input {
+  width: 100%;
+}
+
+.qty-box input {
+  width: 100%;
+}
+
 @media (max-width: 1000px) {
-  .d-flex {
+  .material-container {
     display: block;
   }
 }
