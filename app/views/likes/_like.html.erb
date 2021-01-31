@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <% if obj.liked_by?(current_user) %>
-      <%= link_to cook_likes_path(obj), method: :delete, remote: true, class: "text-white"  do %>
-        <i class="fas fa-thumbs-up"></i> <%= obj.likes.count %>いいね
+      <%= link_to cook_likes_path(obj), method: :delete, remote: true do %>
+        <i class="fas fa-thumbs-up"> <%= obj.likes.count %>いいね</i>&emsp;
       <% end %>
     <% else %>
-      <%= link_to cook_likes_path(obj), method: :post, remote: true, class: "text-white"  do %>
-        <i class="fas fa-thumbs-up"></i> <%= obj.likes.count %>いいね
+      <%= link_to cook_likes_path(obj), method: :post, remote: true do %>
+        <i class="fas fa-thumbs-up text-dark"> <%= obj.likes.count %>いいね</i>&emsp;
       <% end %>
   <% end %>
 <% end %>

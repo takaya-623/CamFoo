@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @cooks = @user.cooks.sorted
-    # NotificationMailer.complete_mail(@user).deliver_now
   end
 
   def edit

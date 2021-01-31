@@ -99,6 +99,15 @@ h2 {
   height: 200px;
 }
 
+// 投稿画面
+.cook-post-container {
+  background-color: rgb(229, 226, 226);
+  color: black;
+  border-radius: 3px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .material-container {
   display: flex;
   justify-content: space-between;
@@ -112,9 +121,86 @@ h2 {
 .qty-box input {
   width: 100%;
 }
+// 
+
+// 詳細画面
+.btn-show {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.btn-show > div {
+  margin-left: auto;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+
+.recipe-title {
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgb(252, 248, 240);
+  color: rgb(56, 56, 56);
+  padding: 15px 15px 0 15px;
+  border-radius: 3px 3px 0 0;
+  font-weight: bold;
+}
+
+.recipe-container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgb(252, 248, 240);
+  color: black;
+  padding: 15px 15px 15px 15px;
+  border-radius: 0 0 3px 3px;
+}
+
+.material-box-show {
+  width: 400px;
+}
+
+.material-box-show .material-tag {
+  background-color: rgb(160, 109, 0);
+  color: #fff;
+  padding: 5px;
+}
+
+.cooking-method-box {
+  width: 70%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  background-color: rgb(252, 248, 240);
+  color: black;
+  padding: 15px 15px 15px 15px;
+  border-radius: 3px;
+}
+
+.cooking-method-box > h4 {
+  border-bottom: solid 1px black;
+}
+//
 
 @media (max-width: 1000px) {
   .material-container {
     display: block;
+  }
+
+  .recipe-container {
+    display: block;
+  }
+
+  .material-box-show {
+    width: 100%;
+  }
+
+  .title-box-show {
+    width: 100%;
+  }
+
+  .title-box-show > img {
+    width: 100%;
   }
 }
