@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   resources :users, only: [:show, :edit, :update, :destroy]
   get 'users' => 'users#dummy'
   root 'homes#top'
