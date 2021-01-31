@@ -63,7 +63,10 @@
   width: 300px;
   background-color: rgb(229, 226, 226);
   color: black;
-  // padding: 10px;
+}
+
+.feature-container > div p {
+  line-height: 2em;
 }
 
 .feature-container div > img {
@@ -123,4 +126,36 @@
 
 .article-title-top {
   color: black;
+  line-height: 2em;
+}
+
+@media(max-width: 1000px) {
+  .feature-container {
+    display: block;
+  }
+
+  .feature-container {
+    display: block;
+  }
+
+  .article-container-top {
+    display: block;
+  }
+
+ .feature-container > div {
+    width: 300px;
+    margin: 0 auto;
+ }
+
+ .rank-box {
+   width: 300px;
+   margin: 0 auto;
+   margin-bottom: 16px;
+ }
+
+ .article-box-top {
+   width: 300px;
+   margin: 0 auto;
+   margin-bottom: 16px;
+ }
 }
