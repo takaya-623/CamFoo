@@ -1,15 +1,29 @@
 <% content_for(:title, 'ユーザー編集 | CamFoo') %>
+<div class="edit-user-image">
+  <div class="bg-rgba">
+    <h2>アカウント</h2>
+  </div>
+</div>
 <div class="container ">
   <div class="row">
     <div class="col-10 offset-1">
-          <%= form_with model:@user, local:true do |f| %>
-            <label for="inputImage">現在のアカウント名</label><br>
-            <%= f.text_field :account, autofocus: true, placeholder:"アカウント名" %><br>
-            <label for="inputImage">現在のアカウント画像</label><br>
-            <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
-            <%= f.attachment_field :account_image, placeholder: "アカウント画像" %><br>
-            <%= f.submit "変更する" %>
-          <% end %>
+      <div class="w-75 mx-auto">
+        <%= form_with model:@user, local:true do |f| %>
+          <div>
+            <span class="bg-warning rounded p-1 px-2">現在のアカウント名</span><br>
+            <%= f.text_field :account, autofocus: true, placeholder:"アカウント名", class: "w-100 my-3" %><br>
+          </div>
+          <div>
+            <span class="bg-warning rounded p-1 px-2">現在のアカウント画像</span><br>
+            <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg", class: "my-3" %><br>
+          </div>
+          <div>
+            <span class="bg-warning rounded p-1 px-2">新しいアカウント画像を選択</span><br>
+            <%= f.attachment_field :account_image, placeholder: "アカウント画像", class: "w-100 my-3" %><br>
+          </div>
+            <%= f.submit "変更する", class: "w-100" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <% if obj.bookmarked_by?(current_user) %>
-      <%= link_to cook_bookmarks_path(obj), method: :delete, remote: true, class: "text-white"  do %>
-        <i class="fas fa-bookmark"></i> お気に入り解除
+      <%= link_to cook_bookmarks_path(obj), method: :delete, remote: true do %>
+        <i class="fas fa-bookmark"> お気に入り解除</i>&emsp;
       <% end %>
     <% else %>
-      <%= link_to cook_bookmarks_path(obj), method: :post, remote: true, class: "text-white"  do %>
-        <i class="fas fa-bookmark"></i> お気に入り登録
+      <%= link_to cook_bookmarks_path(obj), method: :post, remote: true do %>
+        <i class="fas fa-bookmark text-dark"> お気に入り登録</i>&emsp;
       <% end %>
   <% end %>
 <% end %>
