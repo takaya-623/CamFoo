@@ -1,23 +1,25 @@
 <% if user_signed_in? %>
   <div class="admin-notice"><%= flash[:admin] %></div>
+  <div class="gest-notice"><%= flash[:gest] %></div>
   <div class="background-image-in">
     <h2>あなたの「キャンプめし」共有しませんか。</h2>
   </div>
 <% else %>
   <div class="admin-notice"><%= flash[:admin] %></div>
   <div class="background-image-out">
-  <h2>非日常の中での食事はたまらない。</h2>
+    <h2>非日常の中での食事はたまらない。</h2>
   <div class="btn-group">
     <div class="top-btn">
       <%= link_to "ログイン", new_user_session_path, class: "text-white btn btn-outline-light font-weight-bold login-btn" %>
-      <%= link_to "無料登録", new_user_registration_path, class: "text-white btn font-weight-bold btn-outline-light" %>
+      <%= link_to "無料登録", new_user_registration_path, class: "text-white btn font-weight-bold btn-outline-light sign-btn" %>
+      <%= link_to 'ゲストログイン', homes_guest_sign_in_path, class: "text-white btn btn-outline-light font-weight-bold", method: :post %>
     </div>
   </div>
   </div>
 <% end %>
 
 <div class="top-container">
-  <section>
+  <section class="">
     <h3 class="text-center mb-4 about-text">About</h3>
     <div>
       <h5 class="text-center">CamFooはキャンプめしの情報共有サイトです。<br>

@@ -36,13 +36,21 @@
 }
 
 
-.login-btn {
+.login-btn,
+.sign-btn {
   margin-right: 100px;
 }
 
 .admin-notice {
   color: #fff;
   background-color: rgba(255, 0, 0, 0.459);
+  text-align: center;
+}
+
+.gest-notice {
+  color: #fff;
+  background-color: rgba(172, 255, 47, 0.514);
+  text-align: center;
 }
 
 .top-container {
@@ -130,6 +138,16 @@
 }
 
 @media(max-width: 1000px) {
+
+  .btn-group {
+    display: block;
+  }
+
+  .login-btn,
+  .sign-btn {
+    margin-right: 0;
+  }
+
   .feature-container {
     display: block;
   }
