@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy]
   get 'users' => 'users#dummy'
   root 'homes#top'
+  post '/homes/guest_sign_in', to: 'homes#new_guest' #ゲストログイン用
   resources :cooks do
     collection do
       get 'net'

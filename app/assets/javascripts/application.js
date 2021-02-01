@@ -18,3 +18,8 @@
 //= require turbolinks
 //= require_tree .
 //= require data-confirm-modal
+
+
+$(function(){
+  setTimeout("$('.gest-notice').fadeOut('slow')", 3000) 
+})
