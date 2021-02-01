@@ -13,6 +13,14 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
+  with_options presence: true do
+    validates :last_name
+    validates :first_name
+    validates :last_name_kana
+    validates :first_name_kana
+    validates :account
+    validates :password
+  end
   validates :account, uniqueness: true, length: { in: 5..15 }
   enum role: { user: 0, admin: 1 }
 

@@ -19,14 +19,15 @@
 <% end %>
 
 <div class="top-container">
-  <section class="">
+  <section>
     <h3 class="text-center mb-4 about-text">About</h3>
-    <div>
+    <div class="about-container">
       <h5 class="text-center">CamFooはキャンプめしの情報共有サイトです。<br>
       会員登録無しでも料理のレシピは閲覧いただけます。</h5>
     </div>
   </section>
-  <section>
+
+  <section class="animationTarget">
     <h3 class="text-center mb-4 feature-text">Features</h3>
     <div class="feature-container">
       <div>
@@ -50,11 +51,12 @@
       </div>
     </div>
   </section>
-  <section>
+
+  <section class="animationTarget">
     <h3 class="text-center mb-4 feature-text">Ranking</h3>
-    <div class="rank-container">
+    <div class="rank-container-top">
       <% @ranks.each.with_index(1) do |cook, i| %>
-      <div class="rank-box">
+      <div class="rank-box-top">
         <%= i %>位
         <div class="card shadow-lg">
           <%= link_to cook_path(cook) do %>
@@ -65,7 +67,7 @@
           <% end %>
           <div class="card-body pt-1 pb-1">
             <p class="card-title mb-0">◆<%= cook.name %></p>
-            <p class="mb-1"><%= cook.comment %></p>
+            <p class="mb-1"><%= cook.comment.truncate(13) %></p>
             <div class="row border-top m-auto">
               <div class="col-6">
                 <%= link_to user_path(cook.user) do %>
@@ -82,7 +84,8 @@
       <% end %>
     </div>
   </section>
-  <section>
+
+  <section class="animationTarget">
     <h3 class="text-center mb-4 about-text">New</h3>
     <div class="article-container-top">
       <% @articles.each do |article| %>
