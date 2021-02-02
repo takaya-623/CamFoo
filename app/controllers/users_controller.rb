@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @cooks = @user.cooks.sorted
+    @cooks = @user.cooks.page(params[:page]).per(12).sorted
   end
 
   def edit
