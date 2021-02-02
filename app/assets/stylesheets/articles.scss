@@ -30,9 +30,14 @@
   font-weight: 700;
 }
 
+.article-title {
+  line-height: 2em;
+}
+
 @media (max-width: 1000px){
   .article-container {
     display: block;
+    z-index: 60;
   }
 
   .article-container .article-title {

@@ -42,22 +42,21 @@ header {
 }
 
 header > p {
-  font-family: system-ui, -apple-system, system-ui, "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN W3", "Hiragino Sans", ヒラギノ角ゴシック, メイリオ,
-    Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  font-family: system-ui, sans-serif;
   font-weight: 700;
   font-size: 20px;
   color: #fff;
   height: 60px;
   line-height: 60px;
+  padding-left: 70px;
   margin-bottom: 0;
 }
 
-p > img {
-  width: 60px;
-  height: 60px;
-  margin-right: 50px;
-}
+// p > img {
+//   width: 60px;
+//   height: 60px;
+//   margin-right: 50px;
+// }
 
 // PC用検索窓
 .search-box {

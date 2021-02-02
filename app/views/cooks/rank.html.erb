@@ -16,7 +16,7 @@
             <span class="account ml-2 mt-2">By <%= cook.user.account %></span>
           <% end %>
           <div class="card-body pt-1 pb-1">
-            <p class="card-title mb-0">◆<%= cook.name %></p>
+            <p class="card-title mb-0">◆<%= cook.name.truncate(10) %></p>
             <p class="mb-1"><%= cook.comment.truncate(13) %></p>
             <div class="row border-top m-auto">
               <div class="col-6">
