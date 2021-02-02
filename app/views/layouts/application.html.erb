@@ -128,15 +128,7 @@
             </li>
             <li>
               <%= link_to root_path do %>
-                <i class="fas fa-home side-fas"></i> &emsp;<span class="side-text">ホーム</span>
-              <% end %>
-            </li>
-            <li>list2</li>
-            <li>list3</li>
-            <li>list4</li>
-            <li>
-              <%= link_to rank_cooks_path do %>
-                <i class="fas fa-medal fa-fw side-fas"></i> &emsp;<span class="side-text">ランキング</span>
+                <i class="fas fa-home fa-fw side-fas"></i> &emsp;<span class="side-text">ホーム</span>
               <% end %>
             </li>
             <li>
@@ -144,12 +136,12 @@
                 <i class="fas fa-list fa-fw side-fas"></i> &emsp;<span class="side-text">料理一覧</span>
               <% end %>
             </li>
-           <li>
+            <li>
               <%= link_to articles_path do %>
                 <i class="fas fa-campground fa-fw side-fas"></i> &emsp;<span class="side-text">キャンプコラム</span>
               <% end %>
             </li>
-            <h5 class="pl-3 cook-item">Cooks</h5>
+            <h5 class="cook-item">Cooks</h5>
             <li>
               <%= link_to "網で作る", net_cooks_path, class: "side-fas" %>
             </li>
