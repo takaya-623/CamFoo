@@ -20,7 +20,7 @@ ActiveAdmin.register Article do
       f.input :title
       f.input :topic, as: :select, collection:Article.topics_i18n.invert
       f.input :body
-      f.input :article_image, :as => :file
+      f.input :article_image
     end
     f.actions
   end
@@ -37,17 +37,16 @@ ActiveAdmin.register Article do
     actions
   end
 
-  show do |article_image|
+  show do
     attributes_table do
       row :title
       row :topic do |article|
         article.topic_i18n
       end
       row :body
-      # row :article_image do
-      #    image_tag(article.article_image)
-      # end
+      row :article_image do |image|
+         image_tag(image.article_image.url, size: "300x180")
+      end
     end
   end
-
 end
