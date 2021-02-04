@@ -155,6 +155,9 @@ section.animationTarget.show {
 
 @media(max-width: 1000px) {
 
+  .background-image-in > h2,.background-image-out > h2 {
+    font-size: 18px;
+  }
   .btn-group {
     display: block;
   }
@@ -162,6 +165,10 @@ section.animationTarget.show {
   .login-btn,
   .sign-btn {
     margin-right: 0;
+  }
+
+  .about-container > p {
+    font-size: 14px;
   }
 
   .feature-container {

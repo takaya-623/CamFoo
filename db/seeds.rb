@@ -26,24 +26,46 @@
     account: "@さとうくん"
     )
 
-  Article.create!(
-    title: "明日からすぐ作りたいかんたんキャンプ飯",
-    topic: :cook,
-    body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-    article_image: File.open('./app/assets/images/cuisine.jpg'),
-  )
+    Article.create!(
+      title: "明日からすぐ作りたいかんたんキャンプ飯",
+      topic: :cook,
+      body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      article_image: File.open('./app/assets/images/cuisine.jpg'),
+      )
 
-  Article.create!(
-    title: "今すぐ欲しい快適テント",
-    topic: :goods,
-    body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-    article_image: File.open('./app/assets/images/tent-goods.jpg'),
-  )
+    Article.create!(
+      title: "今すぐ欲しい快適テント",
+      topic: :goods,
+      body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      article_image: File.open('./app/assets/images/tent-goods.jpg'),
+    )
 
-  Article.create!(
+    Article.create!(
     title: "キャンプ初心者のためのお役立ち情報",
     topic: :beginner,
     body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
     article_image: File.open('./app/assets/images/breakfast.jpg')
-  )
+    )
 
+    10.times do |i|
+      Cook.create!({
+        user_id: 1,
+        name: "うますぎるステーキ#{i+1}",
+        comment: "初心者でも作れるお手軽肉厚ステーキ",
+        cooking_time: 20,
+        cook_genre: 0,
+        cook_item: 0,
+        materials_attributes: [
+          {
+            material: "肉",
+            qty: "200g",
+          },
+          {
+            material: "塩",
+            qty: "5g",
+          }
+        ],
+        cooking_method: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        image: File.open('./app/assets/images/top_image.jpg')
+      })
+    end

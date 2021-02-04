@@ -29,7 +29,7 @@ class Cook < ApplicationRecord
   end
 
   def self.ranks
-    Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(10).pluck(:cook_id))
+    Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(9).pluck(:cook_id))
   end
 
   def self.ranks_top
