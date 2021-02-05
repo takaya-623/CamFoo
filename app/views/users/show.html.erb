@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-10 offset-1 ">
         <div><%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg", class: "pt-3" %></div><br>
-        <span><%= current_user.account %></span> &emsp;
+        <span><%= @user.account %></span> &emsp;
         <% if @user == current_user %>
           <span><%= current_user.fullname%></span> &emsp;
           <span><%= current_user.email%></span><br>

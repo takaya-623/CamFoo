@@ -33,21 +33,19 @@
       <% if user_signed_in? %>
         <nav>
           <ul>
+            <div class="search-box-mobile">
+              <%= search_form_for @q, url: search_index_cooks_path do |f| %>
+                <%= f.text_field :name_or_comment_or_cooking_method_cont_any, placeholder: "料理名で検索", class: "search-field" %>
+                <%= f.submit "検索", class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
+              <% end %>
+            </div>
             <li>
-              <div class="search-box-mobile">
-                <%= search_form_for @q, url: search_index_cooks_path do |f| %>
-                  <%= f.text_field :name_or_comment_or_cooking_method_cont_any, placeholder: "料理名で検索", class: "search-field" %>
-                  <%= f.submit "検索", class: "btn pt-0 pb-0 pl-1 pr-1 mb-1 btn-field" %>
-                <% end %>
-              </div>
-            </li>
-            <li>
-              <%= link_to root_path do %>
-                <div class="clickTarget"><i class="fas fa-home fa-fw side-fas"></i> &emsp;<span class="side-text">ホーム</span></div>
+              <%= link_to root_path, class: "hover" do %>
+                <div><i class="fas fa-home fa-fw side-fas"></i> &emsp;<span class="side-text">ホーム</span></div>
               <% end %>
             </li>
             <li>
-              <%= link_to user_path(current_user) do %>
+              <%= link_to user_path(current_user), class: "hover" do %>
                 <div><i class="fas fa-user fa-fw side-fas"></i> &emsp;<span class="side-text">マイページ</span></div>
               <% end %>
             </li>
@@ -59,12 +57,10 @@
             <li>
             <% if unchecked_notifications.any? %>
               <%= link_to notifications_path do %>
-              <div>
                 <span class="fa-layyers">
                   <i class="fas fa-bell fa-fw side-fas"></i> &emsp;<span class="side-text">通知</span>
                   <i class="fas fa-fire fire-size"></i>
                 </span>
-              </div>
               <% end %>
             <% else %>
               <%= link_to notifications_path do %>
@@ -133,7 +129,7 @@
       <% else %>
         <nav>
           <ul>
-            <li>
+            <li class="search-mobile-list">
               <div class="search-box-mobile">
                 <%= search_form_for @q, url: search_index_cooks_path do |f| %>
                   <%= f.text_field :name_or_comment_or_cooking_method_cont_any, placeholder: "料理名で検索", class: "search-field" %>
@@ -142,9 +138,11 @@
               </div>
             </li>
             <li>
+            <div>
               <%= link_to root_path do %>
                 <i class="fas fa-home fa-fw side-fas"></i> &emsp;<span class="side-text">ホーム</span>
               <% end %>
+            </div>
             </li>
             <li>
               <%= link_to cooks_path do %>

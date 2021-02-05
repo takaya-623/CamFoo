@@ -185,6 +185,7 @@ li {
 
 li:hover {
   background-color: #172c49;
+  // color: #fff;
   transition: 0.5s;
 }
 
@@ -192,8 +193,11 @@ li span:hover {
   color: #fff;
 }
 
-li a:hover {
+.hover:hover {
   color: #fff;
+}
+
+li a:hover {
   text-decoration: none;
 }
 
@@ -225,9 +229,7 @@ li a:hover {
 .cook-item ~li > a div span:hover {
   color: #fff;
 }
-
-
-// 
+//
 
 // 文字が透けないようにする
 .bg-rgba {

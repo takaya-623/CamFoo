@@ -19,7 +19,6 @@ class User < ApplicationRecord
     validates :last_name_kana
     validates :first_name_kana
     validates :account
-    validates :password
   end
   validates :account, uniqueness: true, length: { in: 5..15 }
   enum role: { user: 0, admin: 1 }
