@@ -33,7 +33,7 @@ class Cook < ApplicationRecord
   end
 
   def self.ranks_top
-    Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(3).pluck(:cook_id))
+    Cook.find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(3).pluck(:cook_id))
   end
 
   def bookmarked_by?(user)

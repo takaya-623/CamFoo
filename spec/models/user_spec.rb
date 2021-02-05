@@ -55,7 +55,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(User.reflect_on_association(:cooks).macro).to eq :has_many
       end
     end
-    context 'Likeモデルとの関係' do
+    context 'Likesモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:likes).macro).to eq :has_many
       end
