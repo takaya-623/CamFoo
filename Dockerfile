@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
         postgresql \
         imagemagick \
         yarn
+RUN apt-get install -y cron
 WORKDIR /CanFoo
 COPY Gemfile Gemfile.lock /CanFoo/
 RUN bundle install
