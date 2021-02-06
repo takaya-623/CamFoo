@@ -4,8 +4,9 @@ RUN apt-get update && apt-get install -y \
         libpq-dev \
         nodejs \
         postgresql \
+        imagemagick \
         yarn
-RUN apt-get update && apt-get install -y imagemagick
+RUN apt-get install -y cron
 WORKDIR /CanFoo
 COPY Gemfile Gemfile.lock /CanFoo/
 RUN bundle install

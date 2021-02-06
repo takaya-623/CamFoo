@@ -1,7 +1,6 @@
-<div class="container">
-  <div class="row">
+<div class="index-container">
   <% cooks.each do |cook| %>
-    <div class="col-3 offset-1">
+    <div class="index-box">
       <div class="card shadow-lg">
         <%= link_to cook_path(cook) do %>
           <%= attachment_image_tag cook, :image, :fill, 200, 120, class:"card-img-top"; %>
@@ -10,8 +9,8 @@
           <span class="account ml-2 mt-2">By <%= cook.user.account %></span>
         <% end %>
         <div class="card-body pt-1 pb-1">
-          <p class="card-title mb-0 fs-6">◆<%= cook.name %></p>
-          <p class="mb-1 fs-6"><%= cook.comment.truncate(25) %></p>
+          <p class="card-title mb-0 fs-6">◆<%= cook.name.truncate(10) %></p>
+          <p class="mb-1 fs-6"><%= cook.comment.truncate(13) %></p>
           <div class="row border-top m-auto">
             <div class="col-6">
               <%= link_to user_path(cook.user) do %>
@@ -19,13 +18,12 @@
               <% end %>
             </div>
             <div class="col-5 offset-1 pt-3">
-              <%= link_to "詳細", cook_path(cook), class: "btn btn-dark " %>
+              <%= link_to "詳細", cook_path(cook), class: "btn btn-dark btn-sm" %>
             </div>
           </div>
         </div>
       </div>
     </div>
   <% end %>
-  </div>
 </div>
-<%= paginate cooks %>
+<div class="paginate"><%= paginate cooks %></div>

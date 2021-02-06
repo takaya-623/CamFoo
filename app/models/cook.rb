@@ -12,11 +12,13 @@ class Cook < ApplicationRecord
 
   with_options presence: true do
     validates :name
+    validates :comment
+    validates :cooking_time
     validates :cook_genre
     validates :cook_item
     validates :image
+    validates :cooking_method
   end
-  validates :comment, presence: true
   validates :cooking_time, presence: true, numericality: {only_integer: true}
 
   enum cook_genre: { meet: 0, fish: 1, vegetables: 2, noodle: 3, rice: 4, soup: 5, other: 6 }
@@ -27,7 +29,11 @@ class Cook < ApplicationRecord
   end
 
   def self.ranks
-    Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(10).pluck(:cook_id))
+    Cook.find(Like.group(:cook_id).order('count(cook_id) desc').limit(9).pluck(:cook_id))
+  end
+
+  def self.ranks_top
+    Cook.find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(3).pluck(:cook_id))
   end
 
   def bookmarked_by?(user)

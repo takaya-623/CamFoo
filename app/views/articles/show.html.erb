@@ -1,0 +1,9 @@
+<div class="container w-75">
+  <div class="row">
+    <div clss="col-md-10 offset-1">
+    <h3><%= @article.title %></h3>
+    <%= image_tag @article.article_image.url, class: "w-100" %>
+    <div><%= @article.body %></div>
+    </div>
+  </div>
+</div>

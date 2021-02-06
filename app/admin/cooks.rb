@@ -1,6 +1,7 @@
 ActiveAdmin.register Cook do
 
   permit_params :user_id, :name, :cooking_time, :cook_genre, :cook_item, :cooking_method, :image_id, :comment
+  actions :all, except: [:new]
 
   filter :id
   filter :name
@@ -38,6 +39,13 @@ ActiveAdmin.register Cook do
         cook.cook_item_i18n
       end
       row :cooking_method
+    end
+    panel "ユーザー情報" do
+      table_for cook.user do
+        column :last_name
+        column :first_name
+        column :email
+      end
     end
   end
 

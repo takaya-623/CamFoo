@@ -18,3 +18,29 @@
 //= require turbolinks
 //= require_tree .
 //= require data-confirm-modal
+
+// ゲストログイン時のフラッシュメッセージ
+$(function () {
+  setTimeout("$('.gest-notice').fadeOut('slow')", 3000);
+});
+
+// トップページスクロールのアニメーション
+$(document).on("turbolinks:load", function () {
+  var animationTarget = $(".animationTarget");
+  $(window).scroll(function () {
+    $(animationTarget).each(function () {
+      var offset = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > offset - windowHeight + 100) {
+        $(this).addClass("show");
+      }
+    });
+  });
+});
+
+$(function () {
+  $(".clickTarget").on("click", function () {
+    $(".clickTarget").addClass("on-click");
+  });
+});
