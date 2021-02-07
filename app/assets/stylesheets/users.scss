@@ -44,3 +44,16 @@ div .modal-header,.modal-body {
   height: 200px;
 }
 
+.login-mobile {
+  width: 65%;
+}
+
+@media(max-width: 1000px){
+  .login-mobile {
+    width: 100%;
+  }
+
+  .login-mobile::placeholder {
+    font-size: 14px;
+  }
+}
