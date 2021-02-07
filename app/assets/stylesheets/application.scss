@@ -23,8 +23,10 @@ body {
   color: #fff;
   background-color: #0f1926;
   font-family: sans-serif;
-  // display: flex;
-  // min-height: 100vh;
+}
+
+h2 {
+  font-family: Futura, sans-serif;
 }
 
 .container {
@@ -39,8 +41,8 @@ body {
 header {
   background-color: #202a36;
   display: flex;
-  // justify-content: space-around;
 }
+
 
 header > p {
   font-family: system-ui, sans-serif;
@@ -53,11 +55,6 @@ header > p {
   margin-bottom: 0;
 }
 
-// p > img {
-//   width: 60px;
-//   height: 60px;
-//   margin-right: 50px;
-// }
 
 // PC用検索窓
 .search-box {
@@ -70,15 +67,19 @@ header > p {
 }
 
 .search-field {
-  border-radius: 6px;
   border: none;
-  margin-top: 4px;
-  box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+  border-radius: 1px 0 0 1px;
+}
+
+.search-field::placeholder {
+  font-size: 12px;
 }
 
 .btn-field {
   background-color: #6d7279;
   color: #f6f6f7;
+  border-radius: 0 1px 1px 0;
+  vertical-align: top;
 }
 //
 
@@ -185,7 +186,6 @@ li {
 
 li:hover {
   background-color: #172c49;
-  // color: #fff;
   transition: 0.5s;
 }
 
@@ -266,10 +266,6 @@ h2 {
     padding-top: 50px;
   }
 
-  .main-view {
-    // max-height: 100vh;
-  }
-
   header > p {
     padding-left: 0;
     margin: 0 auto;
@@ -282,15 +278,27 @@ h2 {
   .search-box {
     display: none;
   }
-
+  
   .search-box-mobile {
     display: block;
-    font-size: 13px;
-    padding: 10px 0 0 40px;
+    padding: 10px 0 0 70px;
+    margin-bottom: 10px;
+  }
+
+  .search-box-mobile input[type="text"] {
+    width: 120px;
+    border-radius: 1px 0 0 1px;
+    font-size: 12px;
   }
 
   .btn-field {
-    font-size: 13px;
+    border-radius: 0 1px 1px 0;
+    border: 0;
+    font-size: 12px;
+    margin-bottom: 0;
+    height: 18px;
+    vertical-align: top;
+    padding: 0 10px;
   }
 
   nav {
@@ -321,6 +329,11 @@ h2 {
   .open {
     position: absolute;
     top: 5px;
+  }
+
+  li:active {
+    background-color: #172c49;
+    transition: 0.5s;
   }
 
   aside {
