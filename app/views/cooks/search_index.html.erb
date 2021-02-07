@@ -1,8 +1,11 @@
-<h2>検索結果</h2>
-<div class="container">
-  <div class="row">
+<div style="height: 200px;">
+  <div>
+    <h2 style="line-height: 200px;">検索結果</h2>
+  </div>
+</div>
+<div class="index-container mt-0">
   <% @search_cooks.each do |search_cook| %>
-    <div class="col-3 offset-1">
+    <div class="index-box">
       <div class="card shadow-lg">
         <%= link_to cook_path(search_cook) do %>
           <%= attachment_image_tag search_cook, :image, :fill, 200, 120, class:"card-img-top"; %>
@@ -27,6 +30,5 @@
       </div>
     </div>
   <% end %>
-  </div>
 </div>
-<%= paginate @search_cooks %>
+<div class="paginate"><%= paginate @search_cooks %></div>
