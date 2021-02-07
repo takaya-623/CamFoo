@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'pot'
       get 'other'
       get 'rank'
+      get 'weekly_rank'
       get 'bookmark'
       get 'search_index'
     end

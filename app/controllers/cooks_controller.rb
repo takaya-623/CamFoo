@@ -56,6 +56,14 @@ class CooksController < ApplicationController
     @ranks = Cook.ranks #モデルに定義記載
   end
 
+  def weekly_rank
+    cooks = Cook.last_week
+    rank_scope = []
+    cooks.each do |cook|
+      rank_scope = cook.likes.order(Arel.sql('count(cook_id) desc')).limit(3)
+    end
+  end
+
   def bookmark
     @bookmarks = current_user.bookmark_cooks.order(created_at: :desc)
   end
