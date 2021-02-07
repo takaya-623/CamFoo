@@ -11,7 +11,8 @@ class HomesController < ApplicationController
       last_name_kana: 'ゲスト',
       first_name_kana: 'ログイン',
       email: 'guest@example.com',
-      account: '@gest'
+      account: '@gest',
+      role: 1
       ) do |user|
         user.password = SecureRandom.urlsafe_base64
       end
