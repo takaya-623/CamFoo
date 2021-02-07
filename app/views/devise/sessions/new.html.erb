@@ -6,16 +6,16 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-10 offset-1 m-auto text-center">
+    <div class="col-10 offset-1 mx-auto text-center">
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
         <div class="field">
           <div class="form-group login-form">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "w-50 text-center" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: " text-center login-mobile" %>
           </div>
         </div>
         <div class="field">
           <div class="form-group login-form">
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "w-50 text-center" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: " text-center login-mobile" %>
           </div>
         </div>
         <% if devise_mapping.rememberable? %>
@@ -26,7 +26,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "ログインする", class: "w-50" %>
+          <%= f.submit "ログインする", class: "login-mobile" %>
         </div>
       <% end %>
 
