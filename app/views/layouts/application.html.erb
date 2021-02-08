@@ -70,10 +70,10 @@
             <li>
             <% if unchecked_notifications.any? %>
               <%= link_to notifications_path do %>
-                <span class="fa-layyers">
+                <div class="fa-layyers">
                   <i class="fas fa-bell fa-fw side-fas"></i> &emsp;<span class="side-text">通知</span>
                   <i class="fas fa-fire fire-size"></i>
-                </span>
+                </div>
               <% end %>
             <% else %>
               <%= link_to notifications_path do %>

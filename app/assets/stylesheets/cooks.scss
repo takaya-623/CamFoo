@@ -195,14 +195,18 @@ h2 {
   border-radius: 0 0 3px 3px;
 }
 
+.title-box-show div {
+  margin-top: 30px;
+}
+
 .material-box-show {
   width: 400px;
 }
 
 .material-box-show .material-tag {
-  background-color: rgb(160, 109, 0);
+  background-color: rgb(78, 233, 31);
   color: #fff;
-  padding: 5px;
+  font-weight: bold;
 }
 
 .cooking-method-box {
@@ -222,6 +226,10 @@ h2 {
 //
 
 // いいねランキング
+.ranking-change > a {
+  display: block;
+  text-align: right;
+}
 .rank-container {
   display: flex;
   flex-wrap: wrap;
@@ -279,6 +287,10 @@ li.page-item {
     width: 100%;
   }
 
+  .title-box-show div {
+    margin-bottom: 30px;
+  }
+
   .title-box-show {
     width: 100%;
   }
@@ -325,8 +337,12 @@ li.page-item {
   .table {
     font-size: 12px;
   }
-
   .cook-mobile {
     width: 100%;
+  }
+  
+  .ranking-period {
+    font-size: 14px;
+    margin-right: 0;
   }
 }
