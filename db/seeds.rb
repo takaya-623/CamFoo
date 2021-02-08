@@ -26,46 +26,69 @@
     account: "@さとうくん"
     )
 
-    Article.create!(
-      title: "明日からすぐ作りたいかんたんキャンプ飯",
-      topic: :cook,
-      body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-      article_image: File.open('./app/assets/images/cuisine.jpg'),
-      )
-
-    Article.create!(
-      title: "今すぐ欲しい快適テント",
-      topic: :goods,
-      body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-      article_image: File.open('./app/assets/images/tent-goods.jpg'),
-    )
-
-    Article.create!(
-    title: "キャンプ初心者のためのお役立ち情報",
-    topic: :beginner,
+  Article.create!(
+    title: "明日からすぐ作りたいかんたんキャンプ飯",
+    topic: :cook,
     body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-    article_image: File.open('./app/assets/images/breakfast.jpg')
+    article_image: File.open('./app/assets/images/cuisine.jpg'),
     )
 
-    10.times do |i|
-      Cook.create!({
-        user_id: 1,
-        name: "うますぎるステーキ#{i+1}",
-        comment: "初心者でも作れるお手軽肉厚ステーキ",
-        cooking_time: 20,
-        cook_genre: 0,
-        cook_item: 0,
-        materials_attributes: [
-          {
-            material: "肉",
-            qty: "200g",
-          },
-          {
-            material: "塩",
-            qty: "5g",
-          }
-        ],
-        cooking_method: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
-        image: File.open('./app/assets/images/top_image.jpg')
-      })
-    end
+  Article.create!(
+    title: "今すぐ欲しい快適テント",
+    topic: :goods,
+    body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+    article_image: File.open('./app/assets/images/tent-goods.jpg'),
+  )
+
+  Article.create!(
+  title: "キャンプ初心者のためのお役立ち情報",
+  topic: :beginner,
+  body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+  article_image: File.open('./app/assets/images/breakfast.jpg')
+  )
+
+10.times do |i|
+  Cook.create!({
+    user_id: 1,
+    name: "魚と貝のカレー風味パエリア#{i+1}",
+    comment: "タイを一匹丸ごと入れた豪快パエリアをカレー風味に仕上げました。ハマグリのダシが染み込んで旨味もたっぷり！",
+    cooking_time: 40,
+    cook_genre: 4,
+    cook_item: 2,
+    materials_attributes: [
+      {
+        material: "お米",
+        qty: "2合",
+      },
+      {
+        material: "マダイ",
+        qty: "1尾",
+      },
+      {
+        material: "マダイ",
+        qty: "1尾",
+      },
+      {
+        material: "1尾",
+        qty: "8個",
+      },
+      {
+        material: "赤パプリカ",
+        qty: "1/4個",
+      },
+      {
+        material: "玉ねぎ",
+        qty: "1/2個",
+      },
+      {
+        material: "カレー粉",
+        qty: "大さじ1",
+      }
+    ],
+    cooking_method:
+    "1.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。
+    2.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。
+    3.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。",
+    image: File.open('./app/assets/images/top_image.jpg')
+  })
+end

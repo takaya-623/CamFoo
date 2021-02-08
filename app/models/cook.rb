@@ -33,6 +33,12 @@ class Cook < ApplicationRecord
     Cook.find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(9).pluck(:cook_id))
   end
 
+  def self.last_week
+    #料理テーブルといいねテーブルを結合し、特定期間のいいねがついた料理を取得。その後
+    Cook.joins(:likes).where(likes: { created_at: 0.days.ago.prev_week..0.days.ago.prev_week(:sunday)}).group(:id).order("count(*) desc").limit(9)
+  end
+
+
   def self.ranks_top
     Cook.find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(3).pluck(:cook_id))
   end

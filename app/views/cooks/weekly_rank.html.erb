@@ -1,35 +1,11 @@
 <% content_for(:title, '週間ランキング | CamFoo') %>
 <div class="rank-image">
   <div class="bg-rgba">
-    <h2>いいね週間ランキング</h2>
+    <h2>週間ランキング</h2>
   </div>
 </div>
-<div class="rank-container">
-  <% @ranks.each.with_index(1) do |cook, i| %>
-  <div class="rank-box">
-    <%= i %>位
-    <div class="card shadow-lg">
-      <%= link_to cook_path(cook) do %>
-        <%= attachment_image_tag cook, :image, :fill, 200, 120, class:"card-img-top"; %>
-      <% end %>
-      <%= link_to user_path(cook.user) do %>
-        <span class="account ml-2 mt-2">By <%= cook.user.account %></span>
-      <% end %>
-      <div class="card-body pt-1 pb-1">
-        <p class="card-title mb-0">◆<%= cook.name.truncate(10) %></p>
-        <p class="mb-1"><%= cook.comment.truncate(13) %></p>
-        <div class="row border-top m-auto">
-          <div class="col-6">
-            <%= link_to user_path(cook.user) do %>
-            <%= attachment_image_tag cook.user, :account_image, :fill, 50, 50, fallback: "no_image.jpg", class:" rounded-circle no-image"; %><br>
-            <% end %>
-          </div>
-          <div class="col-5 offset-1 pt-3">
-            <%= link_to "詳細", cook_path(cook), class: "btn btn-sm btn-dark" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
+<div class="text-right pr-5 ranking-period">※<%= 0.days.ago.prev_week.to_s(:datetime_jp) %>〜<%= 0.days.ago.prev_week(:sunday).to_s(:datetime_jp) %>で集計</div>
+<div class="ranking-change pr-5"><%= link_to "総合ランキングに戻る", rank_cooks_path %></div>
+<% if @ranks.present? %>
+<%= render "cooks/shared/rank" %>
+<% end %>

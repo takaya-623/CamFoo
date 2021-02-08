@@ -18,13 +18,15 @@
   <div class="recipe-container">
     <section class="title-box-show">
       <%= attachment_image_tag @cook, :image, :fill, 300, 200 %><br>
-      <span>調理時間: <%= @cook.cooking_time %>分</span><br>
-      <span>ジャンル: <%= @cook.cook_genre_i18n %></span><br>
-      <span>調理道具: <%= @cook.cook_item_i18n %></span><br>
+      <div>
+        <span>調理時間: <%= @cook.cooking_time %>分</span><br>
+        <span>ジャンル: <%= @cook.cook_genre_i18n %></span><br>
+        <span>調理道具: <%= @cook.cook_item_i18n %></span><br>
+      </div>
     </section>
     <section class="material-box-show <%= @cook.id %>">
       <p><%= @cook.comment %></p>
-      <span class="material-tag">材料</span><br>
+      <div class="material-tag text-center py-0">材料</div><br>
       <table class="table table-sm w-100 ">
         <thead>
           <tr>
