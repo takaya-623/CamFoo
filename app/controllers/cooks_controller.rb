@@ -56,6 +56,10 @@ class CooksController < ApplicationController
     @ranks = Cook.ranks #モデルに定義記載
   end
 
+  def weekly_rank
+    @ranks = Cook.last_week #モデルに定義記載
+  end
+
   def bookmark
     @bookmarks = current_user.bookmark_cooks.order(created_at: :desc)
   end

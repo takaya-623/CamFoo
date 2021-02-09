@@ -17,12 +17,17 @@ Rails.application.routes.draw do
       get 'pot'
       get 'other'
       get 'rank'
+      get 'weekly_rank'
       get 'bookmark'
       get 'search_index'
     end
     resource :likes, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
   end
-  resources :notifications, only: :index
+  resources :notifications, only: [:index] do
+    collection do
+      delete "all_destroy"
+    end
+  end
   resources :articles, only: [:index, :show]
 end

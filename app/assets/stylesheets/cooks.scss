@@ -124,6 +124,13 @@ h2 {
 .index-box:nth-child(3n) {
   margin-right: 0;
 }
+
+.index-container::after {
+  display: block;
+  content: "";
+  width: 50%;
+  margin-right: 30px;
+}
 //
 
 // 投稿画面
@@ -133,12 +140,23 @@ h2 {
   border-radius: 3px;
   padding-top: 20px;
   padding-bottom: 20px;
+  width: 90%;
+  margin: 60px auto;
 }
 
 .material-container {
   display: flex;
-  justify-content: space-between;
-  width: 75%;
+  // justify-content: center;
+  width: 100%;
+  border-bottom: 2px solid #000;
+}
+
+.material-box {
+  width: 100%;
+}
+
+.qty-box {
+  width: 100%;
 }
 
 .material-box input {
@@ -184,14 +202,18 @@ h2 {
   border-radius: 0 0 3px 3px;
 }
 
+.title-box-show div {
+  margin-top: 30px;
+}
+
 .material-box-show {
   width: 400px;
 }
 
 .material-box-show .material-tag {
-  background-color: rgb(160, 109, 0);
+  background-color: rgb(78, 233, 31);
   color: #fff;
-  padding: 5px;
+  font-weight: bold;
 }
 
 .cooking-method-box {
@@ -211,6 +233,10 @@ h2 {
 //
 
 // いいねランキング
+.ranking-change > a {
+  display: block;
+  text-align: right;
+}
 .rank-container {
   display: flex;
   flex-wrap: wrap;
@@ -255,6 +281,7 @@ li.page-item {
 }
 
 @media (max-width: 1000px) {
+
   .material-container {
     display: block;
   }
@@ -265,6 +292,10 @@ li.page-item {
 
   .material-box-show {
     width: 100%;
+  }
+
+  .title-box-show div {
+    margin-bottom: 30px;
   }
 
   .title-box-show {
@@ -312,5 +343,13 @@ li.page-item {
 
   .table {
     font-size: 12px;
+  }
+  .cook-mobile {
+    width: 100%;
+  }
+  
+  .ranking-period {
+    font-size: 14px;
+    margin-right: 0;
   }
 }

@@ -9,6 +9,13 @@
     <div class="col-10 offset-1">
       <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
       <% if notifications.exists? %>
+        <div class="mb-3 w-75 mx-auto">
+          <span>
+          <%= link_to all_destroy_notifications_path, method: :delete, data:{ confirm: '本当に通知を空にして良いですか?',cancel: 'やめる',commit: '空にする'}, title: '削除確認', class: "text-white text-decoration-none" do %>
+            <i class="fas fa-trash-alt text-white btn btn-danger"> 通知を空にする</i>
+          <% end %>
+          </span>
+        </div>
         <table class="table text-white w-75 m-auto">
           <tbody>
           <% notifications.each do |notification| %>
@@ -24,8 +31,9 @@
               <td>
             </tr>
           <% end %>
-        </tbody>
+          </tbody>
         </table>
+        <div class="paginate"><%= paginate @notifications %></div>
       <% else %>
         <p>通知はありません</p>
       <% end %>
