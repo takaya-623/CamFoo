@@ -57,7 +57,7 @@ class CooksController < ApplicationController
   end
 
   def weekly_rank
-    @ranks = Cook.last_week
+    @ranks = Cook.last_week #モデルに定義記載
   end
 
   def bookmark

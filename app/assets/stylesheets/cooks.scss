@@ -124,6 +124,13 @@ h2 {
 .index-box:nth-child(3n) {
   margin-right: 0;
 }
+
+.index-container::after {
+  display: block;
+  content: "";
+  width: 50%;
+  margin-right: 30px;
+}
 //
 
 // 投稿画面

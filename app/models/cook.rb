@@ -47,7 +47,6 @@ class Cook < ApplicationRecord
   end
 
   #通知作成のために定義
-  #いいね
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
     already_like_check = Notification.where(["visitor_id = ? and visited_id = ? and cook_id = ? and action = ? ", current_user.id, user_id, id, 'like'])

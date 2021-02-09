@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
   end
-  resources :notifications, only: :index
+  resources :notifications, only: [:index] do
+    collection do
+      delete "all_destroy"
+    end
+  end
   resources :articles, only: [:index, :show]
 end
