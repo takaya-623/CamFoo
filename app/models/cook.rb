@@ -5,7 +5,6 @@ class Cook < ApplicationRecord
   has_many :materials
   accepts_nested_attributes_for :materials
   scope :sorted, -> { order(updated_at: :desc) }
-  scope :last_week, -> { where(created_at: 0.days.ago.prev_week..0.days.ago.prev_week(:sunday)) }
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_cooks, through: :bookmarks, source: :user

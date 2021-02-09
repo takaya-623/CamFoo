@@ -1,5 +1,5 @@
 # アプリ名
-CanFoo(仮)
+CamFoo
 
 ## サイト概要
 登録ユーザーがキャンプ飯の情報を投稿する共有サイト。  
@@ -35,5 +35,5 @@ https://docs.google.com/spreadsheets/d/16r-O6PAL3GNNyiQcqRmPTuSUTuY5tmr_w3bfG0CX
 - エディタ：VScode
 
 ## 使用素材
-https://www.photo-ac.com/  
+https://pixabay.com/ja/  
 上記サイトよりフリー素材を使用しております
