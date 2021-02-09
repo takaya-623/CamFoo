@@ -6,4 +6,8 @@ class NotificationsController < ApplicationController
       notification.update_attributes(is_checked: true)
     end
   end
+
+  def all_destroy
+    redirect_to request.referrer if current_user.passive_notifications.destroy_all
+  end
 end
