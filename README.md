@@ -20,11 +20,15 @@ CamFoo
 ### 主な利用シーン
 キャンプの予定を立て、キャンプ飯を何にするかを決めたいとき
 
-## 設計書
+## 設計書  
+アプリケーション詳細設計書  
+https://docs.google.com/spreadsheets/d/16r-O6PAL3GNNyiQcqRmPTuSUTuY5tmr_w3bfG0CXZ5o/edit?usp=sharing  
+テーブル定義書  
+https://drive.google.com/file/d/1WYiTKtvA2Xt9h-OhEIqZ-0_Pprc5c5l2/view?usp=sharing
 
 
 ## 機能一覧  
-https://docs.google.com/spreadsheets/d/16r-O6PAL3GNNyiQcqRmPTuSUTuY5tmr_w3bfG0CXZ5o/edit?usp=sharing
+https://drive.google.com/file/d/1H8cDD4PdztVkQWLNNbzOC4cq1wtNra8F/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
