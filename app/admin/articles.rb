@@ -1,5 +1,4 @@
 ActiveAdmin.register Article do
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -11,14 +10,14 @@ ActiveAdmin.register Article do
   filter :title
   filter :topic
   filter :body
-  filter :topic, as: :select, collection:Article.topics_i18n.invert
+  filter :topic, as: :select, collection: Article.topics_i18n.invert
   filter :created_at
   filter :updated_at
 
   form do |f|
     f.inputs "Articles" do
       f.input :title
-      f.input :topic, as: :select, collection:Article.topics_i18n.invert
+      f.input :topic, as: :select, collection: Article.topics_i18n.invert
       f.input :body
       f.input :article_image
     end
@@ -45,7 +44,7 @@ ActiveAdmin.register Article do
       end
       row :body
       row :article_image do |image|
-         image_tag(image.article_image.url, size: "300x180")
+        image_tag(image.article_image.url, size: "300x180")
       end
     end
   end

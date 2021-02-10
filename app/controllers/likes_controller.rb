@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     like = current_user.likes.new(cook_id: @cook.id)
     like.save
     # redirect_to cook_path(cook)
-    #いいね通知作成
+    # いいね通知作成
     @cook.create_notification_like!(current_user)
   end
 

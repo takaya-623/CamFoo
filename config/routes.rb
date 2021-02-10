@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
   }
   resources :users, only: [:show, :edit, :update, :destroy]
   get 'users' => 'users#dummy'
   root 'homes#top'
-  post '/homes/guest_sign_in', to: 'homes#new_guest' #ゲストログイン用
+  post '/homes/guest_sign_in', to: 'homes#new_guest' # ゲストログイン用
   resources :cooks do
     collection do
       get 'net'

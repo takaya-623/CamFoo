@@ -19,10 +19,10 @@ class Cook < ApplicationRecord
     validates :image
     validates :cooking_method
   end
-  validates :cooking_time, presence: true, numericality: {only_integer: true}
+  validates :cooking_time, presence: true, numericality: { only_integer: true }
 
   enum cook_genre: { meet: 0, fish: 1, vegetables: 2, noodle: 3, rice: 4, soup: 5, other: 6 }
-  enum cook_item: { net: 0, plate:1, pan:2, dutch_oven:3, pot:4, other: 5 }, _prefix: true
+  enum cook_item: { net: 0, plate: 1, pan: 2, dutch_oven: 3, pot: 4, other: 5 }, _prefix: true
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
@@ -33,10 +33,11 @@ class Cook < ApplicationRecord
   end
 
   def self.last_week
-    #料理テーブルといいねテーブルを結合し、特定期間のいいねがついた料理を取得。その後
-    Cook.joins(:likes).where(likes: { created_at: 0.days.ago.prev_week..0.days.ago.prev_week(:sunday)}).group(:id).order("count(*) desc").limit(9)
+    # 料理テーブルといいねテーブルを結合し、特定期間のいいねがついた料理を取得。その後
+    Cook.joins(:likes).where(
+      likes: { created_at: 0.days.ago.prev_week..0.days.ago.prev_week(:sunday) }
+    ).group(:id).order("count(*) desc").limit(9)
   end
-
 
   def self.ranks_top
     Cook.find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(3).pluck(:cook_id))
@@ -46,10 +47,15 @@ class Cook < ApplicationRecord
     bookmarks.where(user_id: user.id).exists?
   end
 
-  #通知作成のために定義
+  # 通知作成のために定義
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
-    already_like_check = Notification.where(["visitor_id = ? and visited_id = ? and cook_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
+    already_like_check = Notification.where(
+      [
+        "visitor_id = ? and visited_id = ? and cook_id = ? and action = ? ",
+        current_user.id, user_id, id, 'like',
+      ]
+    )
     # いいねされていない場合のみ、通知レコードを作成
     if already_like_check.blank?
       notification = current_user.active_notifications.new(

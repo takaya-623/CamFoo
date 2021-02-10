@@ -104,12 +104,13 @@ describe "ユーザーログイン後のテスト" do
       before do
         visit user_path(user)
       end
+
       it "account名が表示される" do
         expect(page).to have_content user.account
       end
       it "フルネームが表示される" do
         expect(page).to have_content user.fullname
-     end
+      end
       it "emailが表示される" do
         expect(page).to have_content user.email
       end
@@ -133,7 +134,7 @@ describe "ユーザーログイン後のテスト" do
       end
       it "フルネームが表示されない" do
         expect(page).not_to have_content other_user.fullname
-     end
+      end
       it "emailが表示されない" do
         expect(page).not_to have_content other_user.email
       end

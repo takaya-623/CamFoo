@@ -5,6 +5,7 @@ describe "未ログイン状態のテスト" do
     before do
       visit root_path
     end
+
     context "ログイン、登録、ゲストログインのリンク確認" do
       it "ログインページのリンクがあるか" do
         expect(page).to have_link "", href: new_user_session_path
@@ -16,6 +17,7 @@ describe "未ログイン状態のテスト" do
         expect(page).to have_link "", href: homes_guest_sign_in_path
       end
     end
+
     context "ログイン、登録、ゲストログインのページ遷移の確認" do
       it "ログインを押すとログインページに遷移する" do
         login_link = find_all('a')[9].native.inner_text
@@ -35,6 +37,7 @@ describe "未ログイン状態のテスト" do
         expect(text).to have_content "あなたの「キャンプめし」共有しませんか。"
       end
     end
+
     context "メイン画面の表示確認" do
       it "Aboutコンテントがある" do
         expect(page).to have_content "About"
@@ -100,8 +103,9 @@ describe "未ログイン状態のテスト" do
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
       end
+
       it "正しく新規登録される" do
-        expect {click_button "登録する"}.to change(User.all, :count).by(1) #ユーザーが一人増えたことをカウントしてる
+        expect { click_button "登録する" }.to change(User.all, :count).by(1) # ユーザーが一人増えたことをカウントしてる
       end
       it '新規登録後のリダイレクト先が、マイページになっている' do
         click_button '登録する'
@@ -131,12 +135,14 @@ describe "未ログイン状態のテスト" do
         expect(page).to have_button 'ログインする'
       end
     end
+
     context 'ログイン成功のテスト' do
       before do
         fill_in 'user[email]', with: user.email
         fill_in 'user[password]', with: user.password
         click_button 'ログインする'
       end
+
       it 'ログイン後のリダイレクト先が、自身のマイページになっている' do
         expect(current_path).to eq '/users/' + user.id.to_s
       end
@@ -148,6 +154,7 @@ describe "未ログイン状態のテスト" do
         fill_in 'user[password]', with: ''
         click_button 'ログインする'
       end
+
       it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
         expect(current_path).to eq '/users/sign_in'
       end

@@ -55,21 +55,25 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(User.reflect_on_association(:cooks).macro).to eq :has_many
       end
     end
+
     context 'Likesモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:likes).macro).to eq :has_many
       end
     end
+
     context 'Bookmarksモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:bookmarks).macro).to eq :has_many
       end
     end
+
     context 'Notifications(active)モデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:active_notifications).macro).to eq :has_many
       end
     end
+
     context 'Notifications(passive)モデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:passive_notifications).macro).to eq :has_many

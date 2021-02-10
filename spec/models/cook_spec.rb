@@ -35,7 +35,6 @@ RSpec.describe 'Cookモデルのテスト', type: :model do
     it "画像がなければ登録できない" do
       expect(FactoryBot.build(:cook, image: "")).to be_invalid
     end
-
   end
 
   describe 'アソシエーションのテスト' do
@@ -44,16 +43,19 @@ RSpec.describe 'Cookモデルのテスト', type: :model do
         expect(Cook.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+
     context 'Likeモデルとの関係' do
       it '1:Nとなっている' do
         expect(Cook.reflect_on_association(:likes).macro).to eq :has_many
       end
     end
+
     context 'Bookmarksモデルとの関係' do
       it '1:Nとなっている' do
         expect(Cook.reflect_on_association(:bookmarks).macro).to eq :has_many
       end
     end
+
     context 'Notificationsモデルとの関係' do
       it '1:Nとなっている' do
         expect(Cook.reflect_on_association(:notifications).macro).to eq :has_many
