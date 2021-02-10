@@ -3,7 +3,7 @@ class NotificationMailer < ApplicationMailer
 
   def complete_mail(user)
     @user = user
-    # @url = "https://34c5c265d8024f64896296c19295b0da.vfs.cloud9.us-east-1.amazonaws.com/users/#{user.id}"
+    @url = "http://camfoo-portfolio.work/users/#{user.id}"
     mail(subject: "CamFooに登録いただきありがとうございます", to: user.email)
   end
 end

@@ -9,7 +9,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ".:/CanFoo"
+      - ".:/CamFoo"
     environment:
       - "DB_PASSWORD=postgres"
     tty: true

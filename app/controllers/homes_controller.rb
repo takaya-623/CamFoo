@@ -13,9 +13,9 @@ class HomesController < ApplicationController
       email: 'guest@example.com',
       account: '@gest',
       role: 1
-      ) do |user|
-        user.password = SecureRandom.urlsafe_base64
-      end
+    ) do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
     sign_in user
     redirect_to root_path, flash: { gest: 'ゲストユーザーとしてログインしました' }
   end

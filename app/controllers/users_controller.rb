@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     redirect_to new_user_registration_path
   end
 
-
   def confirm_user
     user = User.find(params[:id])
     unless user == current_user
@@ -40,4 +39,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:account, :account_image)
   end
 end
-

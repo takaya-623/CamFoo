@@ -53,11 +53,11 @@ class CooksController < ApplicationController
   end
 
   def rank
-    @ranks = Cook.ranks #モデルに定義記載
+    @ranks = Cook.ranks # モデルに定義記載
   end
 
   def weekly_rank
-    @ranks = Cook.last_week #モデルに定義記載
+    @ranks = Cook.last_week # モデルに定義記載
   end
 
   def bookmark
@@ -91,7 +91,6 @@ class CooksController < ApplicationController
     @cook.destroy
     redirect_to user_path(current_user)
   end
-
 
   private
 

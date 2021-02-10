@@ -1,13 +1,13 @@
 ActiveAdmin.register Cook do
-
-  permit_params :user_id, :name, :cooking_time, :cook_genre, :cook_item, :cooking_method, :image_id, :comment
+  permit_params :user_id, :name, :cooking_time, :cook_genre,
+                :cook_item, :cooking_method, :image_id, :comment
   actions :all, except: [:new]
 
   filter :id
   filter :name
   filter :cooking_time
-  filter :cook_genre, as: :select, collection:Cook.cook_genres_i18n.invert
-  filter :cook_item, as: :select, collection:Cook.cook_items_i18n.invert
+  filter :cook_genre, as: :select, collection: Cook.cook_genres_i18n.invert
+  filter :cook_item, as: :select, collection: Cook.cook_items_i18n.invert
   filter :created_at
   filter :updated_at
 
@@ -60,6 +60,4 @@ ActiveAdmin.register Cook do
   #   end
   #   f.actions
   # end
-
-
 end
