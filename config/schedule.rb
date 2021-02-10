@@ -22,5 +22,5 @@ env :PATH, ENV['PATH']
 set :environment, :production
 set :output, 'log/cron.log'
 every 1.minutes do
-  runner "WeeklyMailer.weekly_maile.deliver_now"
+  runner "WeeklyMailer.weekly_mail.deliver_now"
 end
