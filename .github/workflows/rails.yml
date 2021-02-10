@@ -20,8 +20,6 @@ jobs:
     - name: Run rubocop
       run: bundle exec rubocop
 
-    steps:
-    - uses: actions/checkout@v2
     - name: Deploy
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
