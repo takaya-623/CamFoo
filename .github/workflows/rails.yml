@@ -9,14 +9,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-  container:
-    image: ruby:2.6.3
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-ruby@v1
     - run: |
-        gem install bundler
-        bundle install
+        sudo apt-get install ruby-2.6.3
+        sudo gem install bundler -v 1.17.3
+        sudo bundle install --jobs 4 --retry 3
     - name: Run rubocop
       run: bundle exec rubocop
 
