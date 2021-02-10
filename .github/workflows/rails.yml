@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        sudo apt-get install ruby-2.6.3
+        sudo apt-get install ruby 2.6.3
         sudo gem install bundler -v 1.17.3
         sudo bundle install --jobs 4 --retry 3
     - name: Run rubocop
