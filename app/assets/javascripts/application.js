@@ -32,15 +32,9 @@ $(document).on("turbolinks:load", function () {
       var offset = $(this).offset().top;
       var scroll = $(window).scrollTop();
       var windowHeight = $(window).height();
-      if (scroll > offset - windowHeight + 100) {
+      if (scroll > offset - windowHeight + 50) {
         $(this).addClass("show");
       }
     });
-  });
-});
-
-$(function () {
-  $(".clickTarget").on("click", function () {
-    $(".clickTarget").addClass("on-click");
   });
 });
