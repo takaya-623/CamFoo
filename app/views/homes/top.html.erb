@@ -54,7 +54,7 @@
 
   <section class="animationTarget">
     <h3 class="text-center mb-4 feature-text">Ranking</h3>
-    <% unless @ranks == []%>
+    <% if @ranks.present? %>
       <div class="rank-container-top">
         <% @ranks.each.with_index(1) do |cook, i| %>
         <div class="rank-box-top">
@@ -91,7 +91,7 @@
 
   <section class="animationTarget">
     <h3 class="text-center mb-4 about-text">New</h3>
-    <% unless @articles == [] %>
+    <% if @articles.present? %>
       <div class="article-container-top">
         <% @articles.each do |article| %>
         <div class="article-box-top">
