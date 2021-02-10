@@ -11,6 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - run: |
+        gem install bundler
+        bundle install
+    - name: Run rubocop
+      run: bundle exec rubocop
+
+    steps:
+    - uses: actions/checkout@v2
     - name: Deploy
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
