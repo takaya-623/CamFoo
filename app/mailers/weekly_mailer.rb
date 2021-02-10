@@ -1,6 +1,6 @@
 class WeeklyMailer < ApplicationMailer
   default from: "CamFoo運営部<#{ENV['USER_EMAIL']}>"
-  layout 'weekly_mail'
+  layout 'weekly_mailer'
   def weekly_maile
     # @url = "https://34c5c265d8024f64896296c19295b0da.vfs.cloud9.us-east-1.amazonaws.com/users/sign_in"
     @users = User.all
