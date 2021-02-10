@@ -1,6 +1,5 @@
 ActiveAdmin.register User do
-
-  permit_params  :first_name, :last_name, :email, :account_image_id
+  permit_params :first_name, :last_name, :email, :account_image_id
   actions :all, except: [:new]
 
   filter :id
@@ -42,5 +41,4 @@ ActiveAdmin.register User do
       end
     end
   end
-
 end

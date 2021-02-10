@@ -10,8 +10,12 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_cooks, through: :bookmarks, source: :cook
-  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
-  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+  has_many :active_notifications, class_name: "Notification",
+                                  foreign_key: "visitor_id",
+                                  dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification",
+                                   foreign_key: "visited_id",
+                                   dependent: :destroy
 
   with_options presence: true do
     validates :last_name

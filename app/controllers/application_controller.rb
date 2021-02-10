@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def authenticate_admin_user!
     authenticate_user!
     unless current_user.admin?
-      redirect_to root_path, flash: { admin: '管理者権限がありません' } 
+      redirect_to root_path, flash: { admin: '管理者権限がありません' }
     end
   end
 
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
         :first_name,
         :last_name_kana,
         :first_name_kana,
-        :account
+        :account,
       ]
     )
   end

@@ -45,5 +45,4 @@ class CooksControllerTest < ActionDispatch::IntegrationTest
     get cooks_edit_url
     assert_response :success
   end
-
 end
