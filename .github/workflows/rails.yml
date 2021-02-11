@@ -10,6 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
+        sudo apt install yum
         sudo yum -y install gcc-c++ git openssl-devel readline-devel
         rbenv install 2.6.3
         rbenv global 2.6.3
