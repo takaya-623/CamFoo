@@ -2,28 +2,11 @@ name: Rails CI/CD
 
 on:
   push:
-    branches: [development]
+    branches: [master]
 
 jobs:
-  rspec:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - run: |
-        subscription-manager attach –auto
-        sudo apt install yum
-        sudo yum -y install gcc-c++ git openssl-devel readline-devel
-        rbenv install 2.6.3
-        rbenv global 2.6.3
-        rbenv rehash
-        rbenv exec gem install bundler
-        bundle install
-    - name: Run rspec
-      run: bundle exec rspec
-
   build:
     runs-on: ubuntu-latest
-    needs: rspec
     steps:
     - uses: actions/checkout@v2
     - name: Deploy
