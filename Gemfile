@@ -77,6 +77,7 @@ gem 'whenever', require: false
 gem 'activeadmin'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 group :production do
   gem 'mysql2'
 end
