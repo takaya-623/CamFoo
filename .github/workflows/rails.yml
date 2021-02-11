@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Ruby set up
     - run: |
         sudo yum -y install gcc-c++ git openssl-devel readline-devel
         rbenv install 2.6.3
