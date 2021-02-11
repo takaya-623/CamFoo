@@ -8,16 +8,16 @@
 <div>
   <div class="btn-show">
     <div>
-    <% if @cook.user == current_user %>
-      <%= link_to "編集する", edit_cook_path(@cook) ,class: "btn btn-sm btn-dark py-1" %>&emsp;
-      <%= link_to "削除する", cook_path(@cook) ,class: "btn btn-danger btn-sm py-1", method: :delete, data:{ confirm: '本当に削除して良いですか?',cancel: 'やめる',commit: '削除する'}, title: '削除確認' %>
-    <% end %>
+      <% if @cook.user == current_user %>
+        <%= link_to "編集する", edit_cook_path(@cook) ,class: "btn btn-sm btn-dark py-1" %>&emsp;
+        <%= link_to "削除する", cook_path(@cook) ,class: "btn btn-danger btn-sm py-1", method: :delete, data:{ confirm: '本当に削除して良いですか?',cancel: 'やめる',commit: '削除する'}, title: '削除確認' %>
+      <% end %>
     </div>
   </div>
   <h4 class="recipe-title"><%= @cook.name %></h4>
   <div class="recipe-container">
     <section class="title-box-show">
-      <%= attachment_image_tag @cook, :image, :fill, 300, 200 %><br>
+      <%= attachment_image_tag @cook, :image, :fill, 400, 250 %><br>
       <div>
         <span>調理時間: <%= @cook.cooking_time %>分</span><br>
         <span>ジャンル: <%= @cook.cook_genre_i18n %></span><br>

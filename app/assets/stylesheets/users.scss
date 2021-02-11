@@ -8,8 +8,6 @@
   background-size: cover;
   background-position: top 60% left 0;
   height: 200px;
-  opacity: 0.8;
-  // line-height: 200px;
 }
 
 .login-image {
@@ -26,6 +24,14 @@
   background-size: cover;
   background-position: bottom 10% left 0;
   height: 200px;
+}
+
+.user-info {
+  margin-left: 3em;
+}
+
+.user-info > img {
+  border: solid 3px #fff;
 }
 
 .form-group input:focus {
