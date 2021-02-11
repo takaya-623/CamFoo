@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-      with:
-        ruby-version: 2.6.3
-        # bundler-cache: true
     - run: |
-        gem install bundler
+        sudo yum -y install gcc-c++ git openssl-devel readline-devel
+        rbenv install 2.6.3
+        rbenv global 2.6.3
+        rbenv rehash
+        rbenv exec gem install bundler
         bundle install
     - name: Run rspec
       run: bundle exec rspec
