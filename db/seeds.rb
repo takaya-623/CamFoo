@@ -330,3 +330,91 @@
     3.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。",
     image: File.open('./app/assets/images/pasta.jpg')
   })
+
+  Cook.create!({
+    user_id: 2,
+    name: "彩り焼き野菜のバーニャカウダー",
+    comment: "お好みの野菜をまるっと炭火で焼いて、特製のバーニャカウダーソースにつけておいしくいただきます。野菜は包丁を入れずに丸ごと焼くことによって、旨味が凝縮。野菜の素材の旨さとバーニャカウダーの塩味が食欲をそそる一品です。",
+    cooking_time: 20,
+    cook_genre: 2,
+    cook_item: 1,
+    materials_attributes: [
+      {
+        material: "赤パプリカ",
+        qty: "1個",
+      },
+      {
+        material: "黄パプリカ",
+        qty: "1個",
+      },
+      {
+        material: "アスパラガス",
+        qty: "4本",
+      },
+      {
+        material: "ズッキーニ",
+        qty: "1本",
+      },
+      {
+        material: "アンチョビフィレ（チューブでも可）",
+        qty: "2切れ",
+      },
+      {
+        material: "にんにく",
+        qty: "2かけ",
+      },
+      {
+        material: "オリーブオイル",
+        qty: "大さじ2",
+      }
+    ],
+    cooking_method:
+    "1.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。
+    2.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。
+    3.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。",
+    image: File.open('./app/assets/images/vegitable.jpg')
+  })
+
+  Cook.create!({
+    user_id: 2,
+    name: "林檎とにんじんのラペ（サラダ）",
+    comment: "切って和えるだけ！",
+    cooking_time: 5,
+    cook_genre: 2,
+    cook_item: 5,
+    materials_attributes: [
+      {
+        material: "人参",
+        qty: "1/2本（千切り）",
+      },
+      {
+        material: "林檎",
+        qty: "1/4個（千切り）",
+      },
+      {
+        material: "ドライレーズン",
+        qty: "大さじ1",
+      },
+      {
+        material: "塩",
+        qty: "少々",
+      },
+      {
+        material: "酢",
+        qty: "小さじ1/2",
+      },
+      {
+        material: "ブラックペッパー",
+        qty: "少々",
+      },
+      {
+        material: "オリーブオイル",
+        qty: "小さじ1",
+      }
+    ],
+    cooking_method:
+    "1.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。
+    2.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。
+    3.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。",
+    image: File.open('./app/assets/images/carrots.jpg')
+  })
