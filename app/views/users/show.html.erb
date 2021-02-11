@@ -1,26 +1,24 @@
 <% content_for(:title, 'マイページ | CamFoo') %>
 <div class="mypage-image">
-  <div class="container mt-0">
-    <div class="row">
-      <div class="col-10 offset-1 ">
-        <div><%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg", class: "pt-3" %></div><br>
-        <span><%= @user.account %></span> &emsp;
-        <% if @user == current_user %>
-          <span><%= current_user.fullname%></span> &emsp;
-          <span><%= current_user.email%></span><br>
+  <div class="bg-rgba">
+    <div class="mr-auto user-info">
+      <%= attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg", class: "text-white mb-2" %><br>
+      <span class="text-white"><%= @user.account %></span> &emsp;
+      <% if @user == current_user %>
+        <span class="text-white"><%= current_user.fullname %></span> &emsp;
+        <span class="text-white"><%= current_user.email %></span><br>
+      <% end %>
+      <i class="far fa-thumbs-up"></i> <%= @user.likes.count %>いいね&emsp;
+      <% if @user == current_user %>
+        <%= link_to edit_user_path(current_user), class: "text-white text-decoration-none" do %>
+          <i class="fas fa-user-cog text-white"></i>
+          <span class="text-white">編集</span>&emsp;
         <% end %>
-        <i class="far fa-thumbs-up"></i> <%= @user.likes.count %>いいね&emsp;
-        <% if @user == current_user %>
-          <%= link_to edit_user_path(current_user), class: "text-white text-decoration-none" do %>
-            <i class="fas fa-user-cog"></i>
-            <span>編集</span>&emsp;
-          <% end %>
-          <%= link_to user_path(current_user), method: :delete, data:{ confirm: '本当に退会して良いですか?',cancel: 'やめる',commit: '退会する'}, title: '退会確認', class: "text-white text-decoration-none" do %>
-            <i class="fas fa-door-open"></i>
-            <span>退会</span>
-          <% end %>
+        <%= link_to user_path(current_user), method: :delete, data:{ confirm: '本当に退会して良いですか?',cancel: 'やめる',commit: '退会する'}, title: '退会確認', class: "text-white text-decoration-none" do %>
+          <i class="fas fa-door-open text-white"></i>
+          <span class="text-white">退会</span>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
