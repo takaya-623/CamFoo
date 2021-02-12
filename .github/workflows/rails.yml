@@ -13,17 +13,17 @@ jobs:
       shell: bash
       run: |
         # 必要なアップデート
-        docker-compose run app yarn install --check-files
-        docker-compose run app yarn upgrade
+        docker-compose run web yarn install --check-files
+        docker-compose run web yarn upgrade
         # イメージのビルド
         docker-compose build
         # データベースの作成
-        docker-compose run app rails db:create
+        docker-compose run web rails db:create
       env:
         RAILS_ENV: test
     - name: Rspec
       run:  |
-        docker-compose run app bundle exec rspec
+        docker-compose run web bundle exec rspec
       env:
         RAILS_ENV: test
 
