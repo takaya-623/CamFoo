@@ -7,31 +7,25 @@ on:
 jobs:
   rspec:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:12
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: CanFoo_test
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.6.3
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6.3
-    - name: Rspec
+    - name: Setup docker
+      shell: bash
       run: |
-        gem install bundler
-        bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
-        bundle exec rspec
+        # 必要なアップデート
+        docker-compose run app yarn install --check-files
+        docker-compose run app yarn upgrade
+        # イメージのビルド
+        docker-compose build
+        # データベースの作成
+        docker-compose run app rails db:create
+      env:
+        RAILS_ENV: test
+    - name: Rspec
+      run:  |
+        docker-compose run app bundle exec rspec
+      env:
+        RAILS_ENV: test
 
   build:
     runs-on: ubuntu-latest
