@@ -1,4 +1,5 @@
-<img width="1146" alt="readme" src="https://user-images.githubusercontent.com/73150456/107761679-21280380-6d6f-11eb-9e73-3aba09840752.png">  
+<img width="851" alt="readme_app" src="https://user-images.githubusercontent.com/73150456/107762717-cabbc480-6d70-11eb-8992-d84fa8cbffb9.png">  
+
 # アプリ名
 CamFoo
 
@@ -24,14 +25,13 @@ CamFoo
 ## 設計書  
 ER図  
 ![my_portfolio](https://user-images.githubusercontent.com/73150456/107761344-8d563780-6d6e-11eb-9bdf-72dfda30b24c.jpg)  
-アプリケーション詳細設計書  
-https://docs.google.com/spreadsheets/d/16r-O6PAL3GNNyiQcqRmPTuSUTuY5tmr_w3bfG0CXZ5o/edit?usp=sharing  
 テーブル定義書  
-https://drive.google.com/file/d/1WYiTKtvA2Xt9h-OhEIqZ-0_Pprc5c5l2/view?usp=sharing
-
+https://drive.google.com/file/d/1WYiTKtvA2Xt9h-OhEIqZ-0_Pprc5c5l2/view?usp=sharing  
+アプリケーション詳細設計書  
+https://drive.google.com/file/d/1H8cDD4PdztVkQWLNNbzOC4cq1wtNra8F/view?usp=sharing
 
 ## 機能一覧  
-https://drive.google.com/file/d/1H8cDD4PdztVkQWLNNbzOC4cq1wtNra8F/view?usp=sharing
+https://docs.google.com/spreadsheets/d/16r-O6PAL3GNNyiQcqRmPTuSUTuY5tmr_w3bfG0CXZ5o/edit?usp=sharing
 
 ## 開発環境
 - Docker
