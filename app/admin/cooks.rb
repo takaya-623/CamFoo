@@ -1,7 +1,7 @@
 ActiveAdmin.register Cook do
   permit_params :user_id, :name, :cooking_time, :cook_genre,
                 :cook_item, :cooking_method, :image_id, :comment
-  actions :all, except: [:new]
+  actions :all, except: [:new, :create]
 
   filter :id
   filter :name
