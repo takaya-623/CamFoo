@@ -21,7 +21,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    need: rspec
+    needs: rspec
     steps:
     - uses: actions/checkout@v2
     - name: Deploy
