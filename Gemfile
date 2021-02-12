@@ -78,6 +78,7 @@ gem 'activeadmin'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem "refile-s3"
 group :production do
   gem 'mysql2'
 end
