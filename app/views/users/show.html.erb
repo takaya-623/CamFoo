@@ -8,7 +8,7 @@
         <span class="text-white"><%= current_user.fullname %></span> &emsp;
         <span class="text-white"><%= current_user.email %></span><br>
       <% end %>
-      <i class="far fa-thumbs-up"></i> <%= @user.likes.count %>いいね&emsp;
+      <i class="far fa-thumbs-up"></i> <%= @likes_count %>いいね獲得&emsp;
       <% if @user == current_user %>
         <%= link_to edit_user_path(current_user), class: "text-white text-decoration-none" do %>
           <i class="fas fa-user-cog text-white"></i>

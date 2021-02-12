@@ -14,6 +14,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_cooks = @user.cooks
+    @likes_count = 0
+    @user_cooks.each do |cook|
+      @likes_count += cook.likes.count
+    end
     @cooks = @user.cooks.page(params[:page]).per(6).sorted
   end
 
