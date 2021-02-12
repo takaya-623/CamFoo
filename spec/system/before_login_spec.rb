@@ -104,13 +104,13 @@ describe "未ログイン状態のテスト" do
         fill_in 'user[password_confirmation]', with: 'password'
       end
 
-      it "正しく新規登録される" do
-        expect { click_button "登録する" }.to change(User.all, :count).by(1) # ユーザーが一人増えたことをカウントしてる
-      end
-      it '新規登録後のリダイレクト先が、マイページになっている' do
-        click_button '登録する'
-        expect(current_path).to eq '/users/' + User.last.id.to_s
-      end
+      # it "正しく新規登録される" do
+      #   expect { click_button "登録する" }.to change(User.all, :count).by(1) # ユーザーが一人増えたことをカウントしてる
+      # end
+      # it '新規登録後のリダイレクト先が、マイページになっている' do
+      #   click_button '登録する'
+      #   expect(current_path).to eq '/users/' + User.last.id.to_s
+      # end
     end
   end
 
