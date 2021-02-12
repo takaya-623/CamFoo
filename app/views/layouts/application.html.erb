@@ -13,7 +13,9 @@
 
   <body>
       <header>
-        <p>CAM x FOO</p>
+        <%= link_to root_path do%>
+          <p class="app-name">CAM x FOO</p>
+        <% end %>
         <div class="search-box">
           <%= search_form_for @q, url: search_index_cooks_path do |f| %>
           <div class="input-group">
