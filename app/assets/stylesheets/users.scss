@@ -26,6 +26,14 @@
   height: 200px;
 }
 
+.pass-image {
+  color: #ffffff;
+  background-image: image-url("password.jpg");
+  background-size: cover;
+  background-position: bottom 55% left 0;
+  height: 200px;
+}
+
 .user-info {
   margin-left: 3em;
 }
