@@ -26,6 +26,16 @@
     account: "@さとうくん"
     )
 
+  User.create!(
+    last_name: "木下",
+    first_name: "遥",
+    last_name_kana: "キノシタ",
+    first_name_kana: "ハルカ",
+    email: "kinoshita@kinoshita.com",
+    password: "123456",
+    account: "@きのしたちゃん"
+    )
+
   Article.create!(
     title: "明日からすぐ作りたいかんたんキャンプ飯",
     topic: :cook,
@@ -418,3 +428,228 @@
     3.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。",
     image: File.open('./app/assets/images/carrots.jpg')
   })
+
+  Cook.create!({
+    user_id: 3,
+    name: "アジのハーブホイル焼き",
+    comment: "アジの腹にたっぷりと香草のディルを入れて香り付けしたものを、あさりと一緒にアルミホイルで蒸し焼きに。レモンのさっぱり感にアジやあさりのダシがほどよく絡み合う、上品な味わいの一品です。",
+    cooking_time: 20,
+    cook_genre: 1,
+    cook_item: 0,
+    materials_attributes: [
+      {
+        material: "鮭",
+        qty: "適量",
+      },
+      {
+        material: "あさり",
+        qty: "10個程度",
+      },
+      {
+        material: "ローズマリー",
+        qty: "2枝",
+      },
+      {
+        material: "塩・こしょう",
+        qty: "少々",
+      },
+      {
+        material: "にんにく",
+        qty: "1かけ",
+      },
+      {
+        material: "レモン",
+        qty: "2枚（輪切り）",
+      },
+      {
+        material: "オリーブオイル",
+        qty: "小さじ1",
+      }
+    ],
+    cooking_method:
+    "1.下処理した鮭の腹をよく水洗いして水気を取る。アジの腹に切り込みを入れて開き、中にディルを詰める
+    2.アルミホイルの上に鮭をのせ、塩、こしょうを両面にふり、身の上にスライスしたにんにくと輪切りレモン2枚をのせる。オリーブオイルを回しかけ、あさり、ローズマリーをのせて、アルミホイルを包む。
+    3.炭火で20分ほど、じっくりと焼く。",
+    image: File.open('./app/assets/images/fish.jpg')
+  })
+
+  
+  Cook.create!({
+    user_id: 3,
+    name: "じゃがいもとさつまいもときのこのガーリックバター",
+    comment: "秋が旬の食材をふんだんに使ったガーリックバター炒め。ガーリックの香ばしい香りが食欲をそそります。",
+    cooking_time: 15,
+    cook_genre: 2,
+    cook_item: 1,
+    materials_attributes: [
+      {
+        material: "じゃがいも",
+        qty: "2個",
+      },
+      {
+        material: "さつまいも",
+        qty: "小1本",
+      },
+      {
+        material: "お好みのきのこ",
+        qty: "1パックほど",
+      },
+      {
+        material: "にんにく（みじん切り）",
+        qty: "2かけ",
+      },
+      {
+        material: "オリーブオイル",
+        qty: "大さじ1",
+      },
+      {
+        material: "塩・こしょう",
+        qty: "適量",
+      },
+      {
+        material: "バター",
+        qty: "大さじ1",
+      }
+    ],
+    cooking_method:
+    "1.じゃがいもとさつまいもは一口大に切り、きのこは石づきを落として分けておく。
+    2.フライパンにオリーブオイルを熱し、じゃがいもとさつまいもにじっくり火を通し、にんにくを加えて香りを出す。
+    3.きのことバターを加えて炒め、塩こしょうで味を調える。",
+    image: File.open('./app/assets/images/potato.jpg')
+    })
+
+    Cook.create!({
+      user_id: 3,
+      name: "そら豆ときのことエビのアヒージョ",
+      comment: "アヒージョの定番の組み合わせ、エビときのこに、「そら豆」を加えました。エビの出汁とそら豆との相性が抜群！にんにくとオリーブオイルがそら豆の臭みを緩和してくれるので、臭いが苦手という方もぜひお試しください！",
+      cooking_time: 15,
+      cook_genre: 2,
+      cook_item: 2,
+      materials_attributes: [
+        {
+          material: "そら豆",
+          qty: "100g",
+        },
+        {
+          material: "小エビ",
+          qty: "5尾",
+        },
+        {
+          material: "マッシュルーム",
+          qty: "1個",
+        },
+        {
+          material: "エリンギ",
+          qty: "1/2本",
+        },
+        {
+          material: "にんにく",
+          qty: "1かけ",
+        },
+        {
+          material: "オリーブオイル",
+          qty: "100cc",
+        },
+        {
+          material: "塩・こしょう",
+          qty: "適量",
+        },
+        {
+          material: "唐辛子",
+          qty: "1本",
+        }
+      ],
+      cooking_method:
+      "1.火が入りやすいように、そら豆に包丁で切れ目を入れる。
+      2.スキレットにオリーブオイル、みじん切りにしたにんにく、唐辛子を入れて弱火でじっくり温めて香りを出した後、そら豆を加える。
+      3.そら豆に火が通ったら、小エビと半分に切ったマッシュルーム、スライスしたエリンギを加える。全体に火が通ったら、塩こしょうで味を調え、パセリを散らす。",
+      image: File.open('./app/assets/images/been.jpg')
+    })
+
+    Cook.create!({
+      user_id: 3,
+      name: "ポテトの生クリーム焼き",
+      comment: "生クリームでしっとりと甘みを増したじゃがいもと、ふんわり焦げたチーズの相性が抜群の一品料理。ダッチオーブンに材料をすべて入れて、火にかけるだけ。とても簡単に作れます。",
+      cooking_time: 30,
+      cook_genre: 2,
+      cook_item: 3,
+      materials_attributes: [
+        {
+          material: "じゃがいも",
+          qty: "3個",
+        },
+        {
+          material: "スライスベーコン",
+          qty: "100g",
+        },
+        {
+          material: "にんにくスライス",
+          qty: "2かけ分",
+        },
+        {
+          material: "ピザ用チーズ",
+          qty: "適量",
+        },
+        {
+          material: "生クリーム",
+          qty: "100cc",
+        },
+        {
+          material: "塩",
+          qty: "適量",
+        },
+        {
+          material: "こしょう",
+          qty: "適量",
+        }
+      ],
+      cooking_method:
+      "1.ダッチオーブンに薄い輪切りにしたじゃがいも、カットしたベーコン、にんにくを入れ、塩こしょうを加えて全体を混ぜる。
+      2.具材を均等にならし、生クリームを回し入れる。
+      3.チーズを散らし、蓋をして焦げ目がつくまで約15分焼く。",
+      image: File.open('./app/assets/images/potato2.jpg')
+    })
+
+    Cook.create!({
+      user_id: 3,
+      name: "ベリーベリークラフティ",
+      comment: "いちご、ブルーベリー、ラズベリーをふんだんに使ったスイーツ。ふわふわとした生地に、ベリーの甘さと酸味がベストマッチ！食べやすく、子どもにも喜ばれること間違いなし！",
+      cooking_time: 25,
+      cook_genre: 6,
+      cook_item: 5,
+      materials_attributes: [
+        {
+          material: "いちご",
+          qty: "4個",
+        },
+        {
+          material: "ラズベリー・ブルーベリー",
+          qty: "10粒ずつ",
+        },
+        {
+          material: "卵",
+          qty: "1個",
+        },
+        {
+          material: "生クリーム",
+          qty: "100cc",
+        },
+        {
+          material: "砂糖",
+          qty: "20g",
+        },
+        {
+          material: "薄力粉",
+          qty: "20g",
+        },
+        {
+          material: "シナモンパウダー・粉糖",
+          qty: "お好み",
+        }
+      ],
+      cooking_method:
+      "1.ボウルに卵、生クリームを入れ、よく混ぜた後、砂糖、薄力粉を加えて混ぜ合わせる。シナモンパウダー、クローブパウダーはお好みで。
+      2.熱したフライパンに生地を流し込む
+      3.ベリー類を半量並べ、蓋をして弱火で15分～焼く。焼き上がったら残りのベリー類を並べ、お好みで粉糖をふる。",
+      image: File.open('./app/assets/images/berry.jpg')
+    })

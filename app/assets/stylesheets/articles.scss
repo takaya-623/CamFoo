@@ -34,6 +34,24 @@
   line-height: 2em;
 }
 
+.article-title-show {
+  background-color: #6FAF76;
+  font-family: "ヒラギノ角ゴ Pro";
+  font-weight: 700;
+  padding: 5px 0 5px 5px;
+}
+
+.article-title-show + img {
+  height: 500px;
+}
+
+.article-body {
+  background-color: #fff;
+  color: black;
+  margin-top: 10px;
+  padding: 5px 0 5px 5px;
+}
+
 @media (max-width: 1000px){
   .article-container {
     display: block;
@@ -42,6 +60,14 @@
 
   .article-container .article-title {
     margin-bottom: 10px;
+  }
+
+  .article-title-show {
+    font-size: 16px;
+  }
+
+  .article-title-show + img {
+    height: auto;
   }
 
 }
