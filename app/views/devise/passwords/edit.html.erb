@@ -1,4 +1,9 @@
-<h2>パスワード変更</h2>
+<% content_for(:title, 'パスワード変更 | CamFoo') %>
+<div class="pass-image">
+  <div class="bg-rgba">
+    <h2>パスワード変更</h2>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -8,16 +13,16 @@
         <%= f.hidden_field :reset_password_token %>
         <div class="field">
           <div class="form-group login-form">
-            <%= f.label :password, "New password" %><br />
+            <%= f.label :password, "新しいパスワード" %><br />
             <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+              <em>(<%= @minimum_password_length %> 文字以上必須)</em><br />
             <% end %>
             <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: " text-center login-mobile" %>
           </div>
         </div>
         <div class="field">
           <div class="form-group login-form">
-            <%= f.label :password_confirmation, "Confirm new password" %><br />
+            <%= f.label :password_confirmation, "パスワード確認" %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: " text-center login-mobile" %>
           </div>
         </div>
