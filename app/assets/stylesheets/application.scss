@@ -270,8 +270,11 @@ h2 {
     padding-top: 50px;
   }
 
-  header > p {
+  .app-name {
     padding-left: 0;
+  }
+
+  header > a {
     margin: 0 auto;
   }
 
