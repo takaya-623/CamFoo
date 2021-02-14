@@ -33,7 +33,7 @@ class Cook < ApplicationRecord
   end
 
   def self.last_week
-    # 料理テーブルといいねテーブルを結合し、特定期間のいいねがついた料理を取得。その後
+    # 料理テーブルといいねテーブルを結合し、特定期間のいいねがついた料理を取得。
     Cook.joins(:likes).where(
       likes: { created_at: 0.days.ago.prev_week..0.days.ago.prev_week(:sunday) }
     ).group(:id).order("count(*) desc").limit(9)
