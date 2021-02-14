@@ -1,6 +1,6 @@
 <% @articles.each do |article| %>
 <div class="article-container">
-  <div class="mb-3">
+  <div class="mb-3 article-image-index ">
   <%= link_to article_path(article) do %>
     <%= image_tag article.article_image.url, size: "300x180" %>
   <% end %>
