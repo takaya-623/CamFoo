@@ -1,0 +1,111 @@
+doctype html
+html
+  head
+    title = content_for?(:title) ? yield(:title) : "CamFoo"
+    = csrf_meta_tags
+    = csp_meta_tag
+    meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag('logo.ico')
+
+  body
+    header
+      = link_to root_path do
+        p.app-name CAM x FOO
+      div.search-box
+        = search_form_for @q, url: search_index_cooks_path do |f|
+          div.input-group
+            = f.text_field :name_or_comment_or_cooking_method_cont_any, placeholder: "料理名等で検索", class: "search-field"
+            span.input-group-btn = button_tag type: 'submit', class: "btn py-0 px-1 btn-field" do
+              i.fas.fa-search
+    div.main-view
+      input#menu type="checkbox"
+      label for="menu" class="open"
+        div.hamburger
+          span
+      label for="menu"class="back"
+      aside
+        label for="menu" class="close" ×
+        - if user_signed_in?
+          nav
+            = render "layouts/search_mobile"
+            ul
+              li
+                = link_to root_path, class: "hover" do
+                  div
+                    <i class="fas fa-home fa-fw side-fas"></i> &emsp;
+                    span.side-text ホーム
+              li
+                = link_to user_path(current_user), class: "hover" do
+                  div
+                    <i class="fas fa-user fa-fw side-fas"></i> &emsp;
+                    span.side-text マイページ
+              li
+                = link_to bookmark_cooks_path do
+                  div
+                    <i class="fas fa-bookmark fa-fw side-fas"></i> &emsp;
+                    span.side-text お気に入り
+              li
+                - if unchecked_notifications.any?
+                  = link_to notifications_path do
+                    div.fa-layyers
+                      <i class="fas fa-bell fa-fw side-fas"></i> &emsp;
+                      span.side-text 通知
+                      i.fas.fa-fire.fire-size
+                - else
+                  = link_to notifications_path do
+                    div
+                      <i class="fas fa-bell fa-fw side-fas"></i> &emsp;
+                      span.side-text 通知
+              li
+                = link_to new_cook_path do
+                  div
+                    <i class="fas fa-utensils fa-fw side-fas"></i> &emsp;
+                    span.side-text 新規投稿
+              li
+                = link_to rank_cooks_path do
+                  div
+                    <i class="fas fa-medal fa-fw side-fas"></i> &emsp;
+                    span.side-text ランキング
+              li
+                = link_to cooks_path do
+                  div
+                    <i class="fas fa-list fa-fw side-fas"></i> &emsp;
+                    span.side-text 料理一覧
+              li
+                = link_to articles_path do
+                  div
+                    <i class="fas fa-campground fa-fw side-fas"></i> &emsp;
+                    span.side-text キャンプコラム
+              li
+                = link_to destroy_user_session_path, method: :delete do
+                  div
+                    <i class="fas fa-sign-out-alt fa-fw side-fas"></i> &emsp;
+                    span.side-text ログアウト
+              = render "layouts/cookitem_list"
+        - else
+          nav
+            = render "layouts/search_mobile"
+            ul
+              li
+                div
+                  = link_to root_path do
+                    div
+                      <i class="fas fa-home fa-fw side-fas"></i> &emsp;
+                      span.side-text ホーム
+              li
+                = link_to cooks_path do
+                  div
+                    <i class="fas fa-list fa-fw side-fas"></i> &emsp;
+                    span.side-text 料理一覧
+              li
+                = link_to articles_path do
+                  div
+                    <i class="fas fa-campground fa-fw side-fas"></i> &emsp;
+                    span.side-text キャンプコラム
+              = render "layouts/cookitem_list"
+              div.side-footer
+                | ©2021 Cam Foo
+      main
+        = yield
