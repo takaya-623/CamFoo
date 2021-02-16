@@ -12,11 +12,11 @@
       <% if @user == current_user %>
         <%= link_to edit_user_path(current_user), class: "text-white text-decoration-none" do %>
           <i class="fas fa-user-cog text-white"></i>
-          <span class="text-white">編集</span>&emsp;
+          <span class="account-edit">編集</span>&emsp;
         <% end %>
-        <%= link_to user_path(current_user), method: :delete, data:{ confirm: '本当に退会して良いですか?',cancel: 'やめる',commit: '退会する'}, title: '退会確認', class: "text-white text-decoration-none" do %>
+        <%= link_to user_path(current_user), method: :delete, data:{ confirm: "退会すると全ての投稿データ、お気に入り、通知が失われます",cancel: 'やめる',commit: '退会する'}, title: '本当に退会して良いですか?', class: "text-white text-decoration-none" do %>
           <i class="fas fa-door-open text-white"></i>
-          <span class="text-white">退会</span>
+          <span class="account-quit">退会</span>
         <% end %>
       <% end %>
     </div>
