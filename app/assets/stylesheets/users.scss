@@ -62,6 +62,14 @@ div .modal-header,.modal-body {
   width: 65%;
 }
 
+.account-edit,.account-quit {
+  color: #fff;
+}
+
+.account-edit:hover,.account-quit:hover {
+  color: #cbced1;
+}
+
 @media(max-width: 1000px){
   .login-mobile {
     width: 100%;
