@@ -1,0 +1,51 @@
+- content_for(:title, '投稿詳細 | CamFoo')
+div.show-image
+  div.bg-rgba
+    h2 Recipe
+
+div
+  div.btn-show
+    div
+      - if @cook.user == current_user
+        = link_to "編集する", edit_cook_path(@cook) ,class: "btn btn-sm btn-dark py-1"
+        <span>&emsp;</span>
+        = link_to "削除する", cook_path(@cook) ,class: "btn btn-danger btn-sm py-1", method: :delete, data:{ confirm: '本当に削除して良いですか?',cancel: 'やめる',commit: '削除する'}, title: '削除確認'
+
+  h4.recipe-title = @cook.name
+  div.recipe-container
+    section.title-box-show
+      = attachment_image_tag @cook, :image, :fill, 400, 250
+      <br>
+      div
+        span 調理時間:
+        = @cook.cooking_time
+        | 分
+        <br>
+        span ジャンル:
+        = @cook.cook_genre_i18n
+        <br>
+        span 調理道具:
+        = @cook.cook_item_i18n
+        <br>
+    section class="material-box-show #{@cook.id}"
+      p = @cook.comment
+      div.material-tag.text-center.py-0
+        | 材料
+      <br>
+      table.table.table-sm.w-100
+        thead
+            tr
+              th 食材・調味料
+              th 分量
+        tbody.border-bottom
+          - @materials.each do |material|
+            tr
+              td = material.material
+              td = material.qty
+          <br>
+      span.like-btn = render "likes/like", obj: @cook
+      span.bookmark-btn = render "bookmarks/bookmark", obj: @cook
+
+  div.cooking-method-box
+    h4 作り方
+    div = simple_format(@cook.cooking_method)

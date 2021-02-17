@@ -1,0 +1,25 @@
+- content_for(:title, 'お気に入り | CamFoo')
+div.bookmark-image
+  div.bg-rgba
+    h2 Bookmark
+div.container
+  div.row
+    div.col-10.offset-1
+      table.table.table-striped.text-white.text-center
+        thead
+            tr
+              th
+              th 投稿者
+              th 料理名
+              th
+        tbody
+          - @bookmarks.each do |cook|
+            tr
+              td
+                = attachment_image_tag cook.user, :account_image, :fill, 60, 60, fallback: "no_image.jpg", class: "mt-0 no-image";
+              td.pt-4
+                = cook.user.account
+              td.pt-4
+                = cook.name
+              td.pt-4
+                = link_to "詳細", cook_path(cook), class: "btn btn-sm btn-success"

@@ -1,0 +1,6 @@
+- content_for(:title, '総合いいねランキング | CamFoo')
+div.rank-image
+  div.bg-rgba
+    h2 総合いいねランキング
+div.ranking-change.pr-5 = link_to "週間ランキングはこちら", weekly_rank_cooks_path
+= render "cooks/shared/rank"
