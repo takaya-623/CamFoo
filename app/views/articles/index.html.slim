@@ -1,0 +1,10 @@
+- @articles.each do |article|
+  div.article-container
+    div.mb-3.article-image-index
+      = link_to article_path(article) do
+        = image_tag article.article_image.url, size: "300x180"
+    div.article-title
+      span = article.title
+      <br>
+      span.topic-box = article.topic_i18n
+div.paginate = paginate @articles
