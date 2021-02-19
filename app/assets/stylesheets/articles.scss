@@ -34,6 +34,15 @@
   line-height: 2em;
 }
 
+.article-title > a {
+  color: #fff;
+}
+
+.article-title >a:hover {
+  color: #cbced1;
+  text-decoration: none;
+}
+
 .article-title-show {
   background-color: #6FAF76;
   font-family: "ヒラギノ角ゴ Pro";

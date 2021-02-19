@@ -18,7 +18,8 @@ div.container
               td
                 = attachment_image_tag cook.user, :account_image, :fill, 60, 60, fallback: "no_image.jpg", class: "mt-0 no-image";
               td.pt-4
-                = cook.user.account
+                = link_to cook.user do
+                  = cook.user.account
               td.pt-4
                 = cook.name
               td.pt-4
