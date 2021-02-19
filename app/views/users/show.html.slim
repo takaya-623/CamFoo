@@ -1,0 +1,43 @@
+- content_for(:title, 'マイページ | CamFoo')
+div.mypage-image
+  div.bg-rgba
+    div.mr-auto.user-info
+      = attachment_image_tag @user, :account_image, :fill, 100, 100, fallback: "no_image.jpg", class: "text-white mb-2"
+      <br>
+      span.text-white = @user.account
+      <span>&emsp;</span>
+      - if @user == current_user
+        span.text-white = current_user.fullname
+        <span>&emsp;</span>
+        span.text-white = current_user.email
+        <br>
+      i.far.fa-thumbs-up
+        = @likes_count
+        | いいね獲得
+        <span>&emsp;</span>
+      - if @user == current_user
+        = link_to edit_user_path(current_user), class: "text-white text-decoration-none" do
+          i.fas.fa-user-cog.text-white
+          span.account-edit 編集
+          <span>&emsp;</span>
+        = link_to user_path(current_user), method: :delete, data:{ confirm: "退会すると全ての投稿データ、お気に入り、通知が失われます",cancel: 'やめる',commit: '退会する'}, title: '本当に退会して良いですか?', class: "text-white text-decoration-none" do
+          i.fas.fa-door-open.text-white
+          span.account-quit 退会
+
+div.container
+  div.row
+    div.col-10.offset-1
+      h4.text-center 投稿履歴
+div.index-container
+  - @cooks.each do |cook|
+    div.index-box
+      div.card.shadow-lg
+        = link_to cook_path(cook) do
+          = attachment_image_tag cook, :image, :fill, 200, 120, class:"card-img-top";
+        div.card-body
+          h5.card-title
+            | ◆
+            = cook.name.truncate(10)
+          = link_to "詳細を見る", cook_path(cook), class: "btn btn-dark"
+div.paginate
+  = paginate @cooks

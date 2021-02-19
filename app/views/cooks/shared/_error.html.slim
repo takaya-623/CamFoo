@@ -1,0 +1,5 @@
+- if @cook.errors.any?
+  div#error_explanation
+    <ul>
+      - @cook.errors.full_messages.each do |message|
+        li.alert.alert-danger.pt-1.pb-1 = message

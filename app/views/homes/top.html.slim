@@ -1,0 +1,88 @@
+- if user_signed_in?
+  div.admin-notice = flash[:admin]
+  div.gest-notice= flash[:gest]
+  div.background-image-in
+    h2 あなたの「キャンプめし」共有しませんか。
+- else
+  div.background-image-out
+    h2 非日常の中での食事はたまらない
+    div.btn-group
+      div.top-btn
+        = link_to "ログイン", new_user_session_path, class: "text-white btn btn-outline-light font-weight-bold login-btn"
+        = link_to "無料登録", new_user_registration_path, class: "text-white btn font-weight-bold btn-outline-light sign-btn"
+        = link_to 'ゲストログイン', homes_guest_sign_in_path, class: "text-white btn btn-outline-light font-weight-bold", method: :post
+
+div.top-container
+  section
+    h3.text-center.mb-4.about-text About
+    div.about-container
+      p.text-center
+        | CamFooはキャンプめしの情報共有サイトです。<br>
+          会員登録無しでも料理のレシピは閲覧いただけます。
+
+  section
+    h3.text-center.mb-4.feature-text Features
+    div.feature-container
+      div
+        div.recipe-text レシピ投稿<br>
+        = image_tag "camp_food.jpg"
+        p.px-2.pt-2
+          | 会員登録後にあなたのオリジナルなキャンプ料理を投稿できます。<br>
+            今すぐあなたの料理を投稿しよう！<br>
+            ※レシピの閲覧については会員登録なしでも可能です
+      div
+        div.like-text"いいね<br>
+        = image_tag "like.jpg"
+        p.px-2.pt-2
+          | 会員登録後、投稿された料理に「いいね」をすることができます。<br>
+            いいねランキングで、上位を目指そう!
+      div
+        div.column-text"キャンプコラム/divbr
+        = image_tag "column.jpg"
+        p.px-2.pt-2
+          | 運営からキャンプに関する情報が配信されます。<br>
+            次回のキャンプにお役立てください！
+
+  section.animationTarget
+    h3.text-center.mb-4.feature-text Ranking
+    - if @ranks.present?
+      div.rank-container-top
+        - @ranks.each.with_index(1) do |cook, i|
+          div.rank-box-top
+            = i
+            | 位
+            div.card.shadow-lg
+              = link_to cook_path(cook) do
+                = attachment_image_tag cook, :image, :fill, 200, 120, class:"card-img-top";
+              = link_to user_path(cook.user) do
+                span.account.ml-2.mt-2
+                  | By
+                  = cook.user.account
+              div.card-body.pt-1.pb-1
+                p.card-title.mb-0
+                  | ◆
+                  = cook.name.truncate(10)
+                p.mb-1 = cook.comment.truncate(13)
+                div.row.border-top.m-auto
+                  div.col-6
+                    = link_to user_path(cook.user) do
+                    = attachment_image_tag cook.user, :account_image, :fill, 50, 50, fallback: "no_image.jpg", class:" rounded-circle no-image";
+                    <br>
+                  div.col-5.offset-1.pt-3
+                    = link_to "詳細", cook_path(cook), class: "btn btn-dark"
+    - else
+      p.text-center ランキングはありません
+
+  section.animationTarget
+    h3.text-center.mb-4.about-text New
+    - if @articles.present?
+      div.article-container-top
+        - @articles.each do |article|
+          div.article-box-top
+              div.article-topic-top = article.topic_i18n
+              div
+              = link_to article_path(article) do
+                = image_tag article.article_image.url, size: "300x180"
+              div.article-title-top.px-2.pt-2 = article.title
+    - else
+      p.text-center 新着コラムはありません

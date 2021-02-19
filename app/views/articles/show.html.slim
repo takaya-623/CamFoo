@@ -1,0 +1,6 @@
+div.container.w-75
+  div.row
+    div.col-md-10.offset-1
+      h3.article-title-show = @article.title
+      = image_tag @article.article_image.url, class: "w-100"
+      div.article-body = simple_format(@article.body)

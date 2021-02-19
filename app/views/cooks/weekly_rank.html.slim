@@ -1,0 +1,13 @@
+- content_for(:title, '週間いいねランキング | CamFoo')
+div.rank-image
+  div.bg-rgba
+    h2 週間いいねランキング
+div.text-right.pr-5.ranking-period
+  | ※期間:
+  = 0.days.ago.prev_week.to_s(:datetime_jp)
+  | 〜
+  = 0.days.ago.prev_week(:sunday).to_s(:datetime_jp)
+div.ranking-change.pr-5
+  = link_to "総合ランキングに戻る", rank_cooks_path
+- if @ranks.present?
+  = render "cooks/shared/rank"
