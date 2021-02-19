@@ -1,0 +1,52 @@
+div.col-12.w-75.mx-auto = render "cooks/shared/error"
+div.cook-post-container
+    div.col-12
+      = form_with model: cook, local: true do |f|
+        div.form-group
+          label for="inputName" ◆料理名
+          <br>
+          = f.text_field :name, class: "w-100 cook-mobile"
+          <br>
+        div.form-group
+          label for="inputComment" ◆特徴
+          <br>
+          = f.text_field :comment, class: "w-100 cook-mobile"
+          <br>
+        div.form-group
+          label for="inputTime" ◆調理時間
+          <br>
+          = f.text_field :cooking_time, class: "w-75 cook-mobile"
+          span 分
+          <br>
+        div.form-group
+          label for="inputGenre" ◆ジャンル
+          <br>
+          = f.select :cook_genre, Cook.cook_genres_i18n.keys.map {|k| [I18n.t("enums.cook.cook_genre.#{k}"), k]}, { include_blank: '選択してください'}, class: "w-50 cook-mobile"
+          <br>
+        div.form-group
+          label for="inputItem" ◆調理道具
+          <br>
+          = f.select :cook_item, Cook.cook_items_i18n.keys.map {|k| [I18n.t("enums.cook.cook_item.#{k}"), k]}, { include_blank: '選択してください'}, class: "w-50 cook-mobile"
+          <br>
+        div.form-group
+          label for="inputMaterial" ◆材料
+          span style="font-size:14px;" ※8種類上の場合は調理方法欄に追記
+          <br>
+          = f.fields_for :materials do |material_fields|
+            div.material-container
+              div.material-box
+                = material_fields.text_field :material, placeholder: "食材、調味料等", class: "my-2 cook-mobile"
+              div.qty-box
+                = material_fields.text_field :qty, placeholder: "分量", class: "my-2 cook-mobile"
+              <br>
+        div.form-group
+          label for="inputMethod" ◆調理方法
+          <br>
+          = f.text_area :cooking_method, size: "60x5", class: "w-100 cook-mobile"
+          <br>
+        div.form-group.post-image
+          label for="inputImage" ◆料理画像
+          <br>
+          = f.attachment_field :image, class: "text-dark cook-mobile"
+          <br>
+          = f.submit "投稿する", class: "w-100 cook-mobile"

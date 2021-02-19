@@ -79,6 +79,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem "refile-s3"
+gem 'slim-rails'
+gem 'html2slim'
 group :production do
   gem 'mysql2'
 end

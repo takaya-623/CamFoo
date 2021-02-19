@@ -1,0 +1,13 @@
+- if user_signed_in?
+  - if obj.liked_by?(current_user)
+    = link_to cook_likes_path(obj), class: "text-decoration-none", method: :delete, remote: true do
+      i.fas.fa-thumbs-up
+        = obj.likes.count
+        | いいね
+      <span>&emsp;</span>
+  - else
+    = link_to cook_likes_path(obj), class: "text-decoration-none", method: :post, remote: true do
+      i.fas.fa-thumbs-up.text-dark
+        = obj.likes.count
+        | いいね
+      <span>&emsp;</span>
