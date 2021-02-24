@@ -38,6 +38,6 @@ div.index-container
           h5.card-title
             | ◆
             = cook.name.truncate(10)
-          = link_to "詳細を見る", cook_path(cook), class: "btn btn-dark"
+          = link_to "詳細", cook_path(cook), class: "btn btn-dark"
 div.paginate
   = paginate @cooks
