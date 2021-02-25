@@ -66,7 +66,7 @@ div.top-container
                 div.row.border-top.m-auto
                   div.col-6
                     = link_to user_path(cook.user) do
-                    = attachment_image_tag cook.user, :account_image, :fill, 50, 50, fallback: "no_image.jpg", class:" rounded-circle no-image";
+                      = attachment_image_tag cook.user, :account_image, :fill, 50, 50, fallback: "no_image.jpg", class:" rounded-circle no-image";
                     <br>
                   div.col-5.offset-1.pt-3
                     = link_to "詳細", cook_path(cook), class: "btn btn-dark"
@@ -79,10 +79,15 @@ div.top-container
       div.article-container-top
         - @articles.each do |article|
           div.article-box-top
-              div.article-topic-top = article.topic_i18n
-              div
-              = link_to article_path(article) do
-                = image_tag article.article_image.url, size: "300x180"
-              div.article-title-top.px-2.pt-2 = article.title
+            - if article.topic == "cook"
+              div.article-topic-cook = article.topic_i18n
+            - elsif article.topic == "goods"
+              div.article-topic-goods = article.topic_i18n
+            - elsif article.topic == "beginner"
+              div.article-topic-beginner = article.topic_i18n
+            div
+            = link_to article_path(article) do
+              = image_tag article.article_image.url, size: "300x180"
+            div.article-title-top.px-2.pt-2 = article.title
     - else
       p.text-center 新着コラムはありません

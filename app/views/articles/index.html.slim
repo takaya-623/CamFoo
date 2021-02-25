@@ -7,5 +7,10 @@
       = link_to article_path(article) do
         span = article.title
       <br>
-      span.topic-box = article.topic_i18n
+      - if article.topic == "cook"
+        span.topic-cook = article.topic_i18n
+      - elsif article.topic == "goods"
+        span.topic-goods = article.topic_i18n
+      - elsif article.topic == "beginner"
+        span.topic-beginner = article.topic_i18n
 div.paginate = paginate @articles
