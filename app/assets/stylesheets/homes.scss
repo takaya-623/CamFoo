@@ -133,8 +133,24 @@ section > h3 {
   background-color: rgb(229, 226, 226);
 }
 
-.article-topic-top {
-  background-color: rgb(182, 66, 66);
+.article-topic-cook {
+  background-color: #EC4F01;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.article-topic-goods {
+  background-color: #D74C8A;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.article-topic-beginner {
+  background-color: #01776F;
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: bold;
