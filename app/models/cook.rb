@@ -29,18 +29,19 @@ class Cook < ApplicationRecord
   end
 
   def self.ranks
-    Cook.find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(9).pluck(:cook_id))
+    find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(9).pluck(:cook_id))
   end
 
   def self.last_week
     # 料理テーブルといいねテーブルを結合し、特定期間のいいねがついた料理を取得。
-    Cook.joins(:likes).where(
-      likes: { created_at: 0.days.ago.prev_week..0.days.ago.prev_week(:sunday) }
+    today = Time.current
+    joins(:likes).where(
+      likes: { created_at: today.prev_week..today.prev_week(:sunday) }
     ).group(:id).order("count(*) desc").limit(9)
   end
 
   def self.ranks_top
-    Cook.find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(3).pluck(:cook_id))
+    find(Like.group(:cook_id).order(Arel.sql('count(cook_id) desc')).limit(3).pluck(:cook_id))
   end
 
   def bookmarked_by?(user)
@@ -57,17 +58,12 @@ class Cook < ApplicationRecord
       ]
     )
     # いいねされていない場合のみ、通知レコードを作成
-    if already_like_check.blank?
-      notification = current_user.active_notifications.new(
-        cook_id: id,
-        visited_id: user_id,
-        action: 'like'
-      )
-      # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.is_checked = true
-      end
-      notification.save if notification.valid?
-    end
+    return unless already_like_check.blank?
+    notification = current_user.active_notifications.new(
+      cook_id: id,
+      visited_id: user_id,
+      action: 'like'
+    )
+    notification.update_is_checked_and_save # Notificationモデルに定義
   end
 end
