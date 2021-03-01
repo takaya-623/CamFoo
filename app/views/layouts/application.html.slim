@@ -104,6 +104,11 @@ html
                   div
                     <i class="fas fa-campground fa-fw side-fas"></i> &emsp;
                     span.side-text キャンプコラム
+              li
+                = link_to new_user_session_path
+                  div
+                    <i class="fas fa-sign-in-alt fa-fw side-fas"></i> &emsp;
+                    span.side-text ログイン
               = render "layouts/cookitem_list"
         div.side-footer
           | ©2021 Cam Foo
