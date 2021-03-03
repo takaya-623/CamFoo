@@ -22,6 +22,11 @@ CamFoo
 ### 主な利用シーン
 キャンプの予定を立て、キャンプ飯を何にするかを決めたいとき
 
+## ログイン情報
+ID  :yamada@yamada.com  
+PASS:123456  
+※ゲストログイン機能を有しているため簡単にログイン頂けます
+
 ## 設計書  
 ER図  
 ![my_portfolio](https://user-images.githubusercontent.com/73150456/107761344-8d563780-6d6e-11eb-9bdf-72dfda30b24c.jpg)  
