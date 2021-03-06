@@ -22,7 +22,7 @@ CamFoo
 ### 主な利用シーン
 キャンプの予定を立て、キャンプ飯を何にするかを決めたいとき
 
-### URL
+## URL
 サイトURL(ユーザー)  
 http://camfoo-portfolio.work/  
 サイトURL(管理者) ※ユーザーログイン後に閲覧可能(ゲストログインでも可)  
@@ -36,11 +36,11 @@ PASS:123456
 ※ゲストログイン機能を有しているため簡単にログイン頂けます
 
 ## 設計書  
-ER図  
+### ER図  
 ![my_portfolio](https://user-images.githubusercontent.com/73150456/107761344-8d563780-6d6e-11eb-9bdf-72dfda30b24c.jpg)  
-テーブル定義書  
+### テーブル定義書  
 https://drive.google.com/file/d/1WYiTKtvA2Xt9h-OhEIqZ-0_Pprc5c5l2/view?usp=sharing  
-アプリケーション詳細設計書  
+### アプリケーション詳細設計書  
 https://drive.google.com/file/d/1H8cDD4PdztVkQWLNNbzOC4cq1wtNra8F/view?usp=sharing
 
 ## 機能一覧  
