@@ -24,9 +24,9 @@ CamFoo
 
 ### URL
 サイトURL(ユーザー)  
-http://camfoo-portfolio.work/
+http://camfoo-portfolio.work/  
 サイトURL(管理者) ※ユーザーログイン後に閲覧可能(ゲストログインでも可)  
-http://camfoo-portfolio.work/admin
+http://camfoo-portfolio.work/admin  
 ソースコード  
 https://github.com/takaya-623/CamFoo
 
