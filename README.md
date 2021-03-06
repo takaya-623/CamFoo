@@ -22,6 +22,14 @@ CamFoo
 ### 主な利用シーン
 キャンプの予定を立て、キャンプ飯を何にするかを決めたいとき
 
+### URL
+サイトURL(ユーザー)  
+http://camfoo-portfolio.work/
+サイトURL(管理者) ※ユーザーログイン後に閲覧可能(ゲストログインでも可)  
+http://camfoo-portfolio.work/admin
+ソースコード  
+https://github.com/takaya-623/CamFoo
+
 ## ログイン情報
 ID  :yamada@yamada.com  
 PASS:123456  
