@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
 
-#DockerImageのキャッシュのもたせ方が分からず、ビルドに時間がかかるのでrspecの実行はコメントアウトにしていますが、以下の設定で動作することは確認済み
+#ビルドに時間がかかるのでrspecの実行はコメントアウトにしていますが、以下の設定で動作することは確認済み
 jobs:
   # rspec:
   #   runs-on: ubuntu-latest
