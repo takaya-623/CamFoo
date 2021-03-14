@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_30_041126) do
+ActiveRecord::Schema.define(version: 2021_03_14_070712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,15 +32,15 @@ ActiveRecord::Schema.define(version: 2021_01_30_041126) do
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
-    t.string "article_image"
+    t.string "article_image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "topic"
+    t.integer "topic", null: false
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "cook_id"
+    t.integer "user_id", null: false
+    t.integer "cook_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,13 +54,13 @@ ActiveRecord::Schema.define(version: 2021_01_30_041126) do
     t.text "cooking_method", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_id"
-    t.string "comment"
+    t.string "image_id", null: false
+    t.string "comment", null: false
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "cook_id"
+    t.integer "user_id", null: false
+    t.integer "cook_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,16 +68,16 @@ ActiveRecord::Schema.define(version: 2021_01_30_041126) do
   create_table "materials", force: :cascade do |t|
     t.string "material"
     t.string "qty"
-    t.integer "cook_id"
+    t.integer "cook_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "visitor_id"
-    t.integer "visited_id"
-    t.integer "cook_id"
-    t.string "action"
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "cook_id", null: false
+    t.string "action", null: false
     t.boolean "is_checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
