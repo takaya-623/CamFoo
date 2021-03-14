@@ -30,10 +30,10 @@ http://camfoo-portfolio.work/admin
 ソースコード  
 https://github.com/takaya-623/CamFoo
 
-## ログイン情報
+## ログイン情報  
 ID  :yamada@yamada.com  
 PASS:123456  
-※ゲストログイン機能を有しているため簡単にログイン頂けます
+※ゲストログイン機能を有しているため簡単にログイン頂けます  
 
 ## 設計書  
 ### ER図  
